@@ -5,7 +5,7 @@ const NavBar = ({ isLoggedIn, permission }) => {
     <div className="navbar">
       <ul>
         <li>
-          <a href="">Stwórz ankietę</a>
+        <a href="">Stwórz ankietę</a>
         </li>
         <li>
           {isLoggedIn ? (

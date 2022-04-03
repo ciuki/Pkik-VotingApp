@@ -8,17 +8,17 @@ const QuestionBoard = ({ question: { Answers, Question } }) => {
   for (let i = 0; i < Answers.length; i++) {
     answersArray.push(
       <div className="answer">
-        <div className="label-container">
+        <div className="checkbox-container">
           <label className="checkbox-label">
-                  <input type="checkbox"></input>
-                  <span className="checkbox-custom"/>              
+            <input type="checkbox"></input>
+            <span className="checkbox-custom" />
           </label>
         </div>
-        <div className="answer-content-container">
-          <span  className="answer-content">
+        <div className="answer-container">
+          <span className="answer-content">
             {Answers[i]}
-          </span > 
-        </div> 
+          </span >
+        </div>
       </div>
     );
   }
@@ -28,8 +28,8 @@ const QuestionBoard = ({ question: { Answers, Question } }) => {
         <h1>{Question}</h1>
       </div>
       <div className="answers-area">
-          {answersArray}
-     </div>
+        {answersArray}
+      </div>
       <div>
         <button type="button">Dalej</button>
       </div>
