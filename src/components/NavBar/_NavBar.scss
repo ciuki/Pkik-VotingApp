@@ -1,0 +1,22 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: $secondary-background-color;
+    
+
+    a{
+        color: $secondary-color;
+        text-decoration: none;
+        color: $base-color;
+    }
+
+    ul{
+        display: flex;
+        list-style: none;
+    }
+    li{
+        padding-left: 1rem;
+    }
+}
+
