@@ -3,7 +3,7 @@ import QuestionBoard from "../../components/QuestionBoard/QuestionBoard";
 
 let question = {
   Answers: ["Jedna odp", "druga odp", "trzecia odp"],
-  Question: "Blabla",
+  Question: "Pytanie testowe?",
 };
 
 const PollContainer = () => {

@@ -2,11 +2,10 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem 2rem;
-    background-color: $secondary-background-color;
-    
+    border-bottom: 3px solid $text-on-light-background;
 
     a{
-        color: $secondary-color;
+        color: $text-on-light-background;
         text-decoration: none;
         color: $base-color;
     }
@@ -17,6 +16,9 @@
     }
     li{
         padding-left: 1rem;
+    }
+    .loginButton{
+        float: right;
     }
 }
 

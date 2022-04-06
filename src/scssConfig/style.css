@@ -7,13 +7,13 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 1rem 2rem;
-  background-color: #111111;
+  border-bottom: 3px solid #4a3231;
 }
 
 .navbar a {
-  color: #E31C25;
+  color: #4a3231;
   text-decoration: none;
-  color: #BB000E;
+  color: #E9DAC1;
 }
 
 .navbar ul {
@@ -27,13 +27,17 @@
   padding-left: 1rem;
 }
 
+.navbar .loginButton {
+  float: right;
+}
+
 .question-board {
   border-radius: 1em;
-  border-color: #FFFFFF;
+  border-color: #4a3231;
   border-style: solid;
-  color: #FFFFFF;
-  background: -webkit-gradient(linear, right bottom, left top, from(#262626), to(#BB000E));
-  background: linear-gradient(to left top, #262626, #BB000E);
+  color: #4a3231;
+  background: -webkit-gradient(linear, right bottom, left top, from(#E9DAC1), to(#E9DAC1));
+  background: linear-gradient(to left top, #E9DAC1, #E9DAC1);
   font-family: "Exo 2", sans-serif;
   text-align: center;
 }
@@ -43,7 +47,7 @@
 }
 
 .question-board .question h1 {
-  color: #FFFFFF;
+  color: #4a3231;
 }
 
 .question-board .answers-area .answer {
@@ -81,7 +85,7 @@
   width: 24px;
   background-color: transparent;
   border-radius: 5px;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #4a3231;
   transition: all 0.3 ease-out;
   -webkit-transition: all 0.3 ease-out;
   -moz-transition: all 0.3 ease-out;
@@ -97,7 +101,7 @@
   height: 0px;
   width: 0px;
   border-radius: 5px;
-  border: solid #BB000E;
+  border: solid #4a3231;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(0deg) scale(0);
   transform: rotate(0deg) scale(0);
@@ -123,7 +127,7 @@
 }
 
 .question-board .answers-area .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom {
-  background-color: #FFFFFF;
+  background-color: #4a3231;
   border-radius: 5px;
   -webkit-transform: rotate(0deg) scale(1);
   transform: rotate(0deg) scale(1);
@@ -139,7 +143,7 @@
   top: 3px;
   height: 12px;
   width: 6px;
-  border: solid #BB000E;
+  border: solid #E9DAC1;
   border-width: 0 2px 2px 0;
   background-color: transparent;
   border-radius: 0;
@@ -183,7 +187,7 @@
   border-style: none;
   -webkit-box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
           box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
-  color: #BB000E;
+  color: #4a3231;
   cursor: pointer;
   display: inline-block;
   font-family: "Exo 2", sans-serif;

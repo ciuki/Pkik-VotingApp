@@ -1,34 +1,36 @@
 import React from "react";
 
 const NavBar = ({ isLoggedIn, permission }) => {
+  let navBarItems = [];
+  if (isLoggedIn) {
+    navBarItems.push(
+      <li>
+        <a href="">Przeglądaj swoje ankiety</a>
+      </li>
+    );
+    navBarItems.push(
+      <li className="loginButton">
+        <a href="" className="loginButton">
+          Wyloguj się
+        </a>
+      </li>
+    );
+  } else {
+    navBarItems.push(
+      <li>
+        <a href="" className="loginButton">
+          Zaloguj się
+        </a>
+      </li>
+    );
+  }
   return (
     <div className="navbar">
       <ul>
         <li>
-        <a href="">Stwórz ankietę</a>
+          <a href="">Stwórz ankietę</a>
         </li>
-        <li>
-          {isLoggedIn ? (
-            <div>
-              <li>
-                <a href="">Przeglądaj swoje ankiety</a>
-              </li>
-              <li>
-                <a href="" className="loginButton">
-                  Wyloguj się
-                </a>
-              </li>
-            </div>
-          ) : (
-            <div>
-                <div>
-                <a href="" className="loginButton">
-                  Zaloguj się
-                </a>
-              </div>
-            </div>
-          )}
-        </li>
+        {navBarItems}
       </ul>
     </div>
   );

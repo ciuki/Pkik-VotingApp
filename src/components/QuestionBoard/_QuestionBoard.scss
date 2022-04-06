@@ -2,10 +2,10 @@
 
 .question-board {
   border-radius: 1em;
-  border-color: $white;
+  border-color: $text-on-light-background;
   border-style: solid;
-  color: $white;
-  background: linear-gradient(to left top, #262626, $base-color);
+  color: $text-on-light-background;
+  background: linear-gradient(to left top, #E9DAC1, $base-color);
   font-family: "Exo 2", sans-serif;
   text-align: center;
 
@@ -13,7 +13,7 @@
     padding: 1em;
 
     h1 {
-      color: $white;
+      color: $text-on-light-background
     }
   }
 
@@ -46,7 +46,7 @@
             width: 24px;
             background-color: transparent;
             border-radius: 5px;
-            border: 2px solid $white;
+            border: 2px solid $text-on-light-background;
             transition: all 0.3 ease-out;
             -webkit-transition: all 0.3 ease-out;
             -moz-transition: all 0.3 ease-out;
@@ -61,7 +61,7 @@
               height: 0px;
               width: 0px;
               border-radius: 5px;
-              border: solid $base-color;
+              border: solid $text-on-light-background;
               border-width: 0 3px 3px 0;
               -webkit-transform: rotate(0deg) scale(0);
               -ms-transform: rotate(0deg) scale(0);
@@ -90,7 +90,7 @@
           }
 
           input:checked~.checkbox-custom {
-            background-color: $white;
+            background-color: $text-on-light-background;
             border-radius: 5px;
             -webkit-transform: rotate(0deg) scale(1);
             -ms-transform: rotate(0deg) scale(1);
@@ -154,7 +154,7 @@
     border-radius: 5px;
     border-style: none;
     box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
-    color: $base-color;
+    color: $text-on-light-background;
     cursor: pointer;
     display: inline-block;
     font-family: "Exo 2", sans-serif;
