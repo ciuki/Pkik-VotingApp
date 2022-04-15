@@ -5,12 +5,12 @@ const NavBar = ({ isLoggedIn, permission }) => {
   if (isLoggedIn) {
     navBarItems.push(
       <li>
-        <a href="">Przeglądaj swoje ankiety</a>
+        <a href="/">Przeglądaj swoje ankiety</a>
       </li>
     );
     navBarItems.push(
       <li className="loginButton">
-        <a href="" className="loginButton">
+        <a href="/" className="loginButton">
           Wyloguj się
         </a>
       </li>
@@ -18,21 +18,21 @@ const NavBar = ({ isLoggedIn, permission }) => {
   } else {
     navBarItems.push(
       <li>
-        <a href="" className="loginButton">
+        <a href="/" className="loginButton">
           Zaloguj się
         </a>
       </li>
     );
   }
   return (
-    <div className="navbar">
+    <nav>
       <ul>
         <li>
-          <a href="">Stwórz ankietę</a>
+          <a href="/">Stwórz ankietę</a>
         </li>
         {navBarItems}
       </ul>
-    </div>
+    </nav>
   );
 };
 

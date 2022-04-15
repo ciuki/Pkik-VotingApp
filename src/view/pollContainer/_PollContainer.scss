@@ -1,9 +1,65 @@
 .poll-container{
     margin-top: 4em;
+    margin-bottom: 4em;
     display: flex;
     justify-content: center;
     .inner-poll-container{
         width: 50%;
     }
 }
+.question-board {
+    border-radius: 1em;
+    color: $text-on-light-background;
+    background: white;
+    font-family: "Exo 2", sans-serif;
+    text-align: center;
+  
+    .questions-area {
+      padding: 1em;
+      overflow:none;
+      min-height: 50px;
+      margin-left: 2rem;
+      margin-right: 2rem;
+  
+      h1 {
+        color: black;
+        margin-top: 0.5rem;
+        float:left; 
+      }
+      .close{
+         float:right; 
+         color:#949494;
+         font-weight: bold;
+         cursor: pointer;
+         margin-top: 0.5rem;
+      }
+  }
+}
+button {
+    background-color:  #e2e2e2;
+    padding: 1rem;
+    border-radius: 5px;
+    border-style: none;
+    box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Exo 2", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    margin-left: -4px;
+    outline: 0;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+    user-select: none;
+    touch-action: manipulation;
+    vertical-align: bottom;
+    margin-bottom: 1em;
+  }
+
+  button:hover {
+    opacity: 0.7;
+    background-color: #000080;
+    color: white;
+  }
 

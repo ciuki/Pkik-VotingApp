@@ -1,6 +1,6 @@
 import React from "react";
 
-const type = "checkbox";
+
 
 const QuestionBoard = ({ question: { Answers, Question } }) => {
   const answersArray = [];
@@ -23,17 +23,30 @@ const QuestionBoard = ({ question: { Answers, Question } }) => {
     );
   }
   return (
-    <div className="question-board">
-      <div className="question">
-        <h1>{Question}</h1>
-      </div>
       <div className="answers-area">
-        {answersArray}
+        <div className="question">
+          <h3>
+            {Question}
+          </h3>
+          <div className="answers">
+            {answersArray}
+          </div>
+        </div>
+        <div className="question">
+          <h3>{Question}</h3>
+          <div className="answers">
+            <div className="">
+
+            </div>
+          </div>
+        </div>
+        <div className="question">
+          <h3>{Question}</h3>
+          <div className="answers">
+            {answersArray}
+          </div>
+        </div>
       </div>
-      <div>
-        <button type="button">Dalej</button>
-      </div>
-    </div>
   );
 };
 

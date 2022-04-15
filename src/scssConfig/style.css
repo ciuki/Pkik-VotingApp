@@ -1,77 +1,79 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
-.navbar {
+nav {
+  color: #fff;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 1rem 2rem;
-  border-bottom: 3px solid #4a3231;
 }
 
-.navbar a {
-  color: #4a3231;
+nav ul {
+  width: 100%;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  padding: 20px;
+  color: black;
+  margin: 5px 5px 5px 5px;
+  border-radius: 10px;
+  font-size: 17px;
   text-decoration: none;
-  color: #E9DAC1;
+  display: block;
 }
 
-.navbar ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  list-style: none;
+nav ul li a:hover {
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px white;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px white;
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-.navbar li {
-  padding-left: 1rem;
-}
-
-.navbar .loginButton {
-  float: right;
-}
-
-.question-board {
-  border-radius: 1em;
-  border-color: #4a3231;
-  border-style: solid;
-  color: #4a3231;
-  background: -webkit-gradient(linear, right bottom, left top, from(#E9DAC1), to(#E9DAC1));
-  background: linear-gradient(to left top, #E9DAC1, #E9DAC1);
-  font-family: "Exo 2", sans-serif;
-  text-align: center;
-}
-
-.question-board .question {
-  padding: 1em;
-}
-
-.question-board .question h1 {
-  color: #4a3231;
-}
-
-.question-board .answers-area .answer {
-  padding: 1rem;
+.answers-area .question h3 {
+  margin: 1rem 2rem 1rem 2rem;
   text-align: left;
-  min-height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  padding: 1em;
+  color: #949494;
+  float: left;
+  width: 100%;
 }
 
-.question-board .answers-area .answer .checkbox-container {
+.answers-area .question .answers {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  overflow: hidden;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.answers-area .question .answers .answer {
+  min-height: 1rem;
+  overflow: hidden;
+  float: left;
+  padding: .3rem .6rem .3rem .6rem;
+}
+
+.answers-area .question .answers .answer .checkbox-container {
   min-width: 30px;
   min-height: 30px;
   float: left;
 }
 
-.question-board .answers-area .answer .checkbox-container .checkbox-label input {
+.answers-area .question .answers .answer .checkbox-container .checkbox-label input {
   position: absolute;
   opacity: 0;
   height: 24px;
@@ -79,13 +81,13 @@
   cursor: pointer;
 }
 
-.question-board .answers-area .answer .checkbox-container .checkbox-label .checkbox-custom {
+.answers-area .question .answers .answer .checkbox-container .checkbox-label .checkbox-custom {
   position: absolute;
   height: 24px;
   width: 24px;
   background-color: transparent;
-  border-radius: 5px;
-  border: 2px solid #4a3231;
+  border-radius: 24px;
+  border: 2px solid #e2e2e2;
   transition: all 0.3 ease-out;
   -webkit-transition: all 0.3 ease-out;
   -moz-transition: all 0.3 ease-out;
@@ -93,15 +95,15 @@
   -o-transition: all 0.3 ease-out;
 }
 
-.question-board .answers-area .answer .checkbox-container .checkbox-label .checkbox-custom::after {
+.answers-area .question .answers .answer .checkbox-container .checkbox-label .checkbox-custom::after {
   position: absolute;
   content: "";
   left: 12px;
   top: 12px;
   height: 0px;
   width: 0px;
-  border-radius: 5px;
-  border: solid #4a3231;
+  border-radius: 12px;
+  border: solid #e2e2e2;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(0deg) scale(0);
   transform: rotate(0deg) scale(0);
@@ -113,29 +115,29 @@
   -o-transition: all 0.3s ease-out;
 }
 
-.question-board .answers-area .answer .checkbox-container .checkbox-label .checkbox-custom::before {
+.answers-area .question .answers .answer .checkbox-container .checkbox-label .checkbox-custom::before {
   position: absolute;
   content: "";
   left: 10px;
   top: 10px;
   height: 0px;
   width: 0px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: solid #FFFFFF;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-.question-board .answers-area .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom {
-  background-color: #4a3231;
-  border-radius: 5px;
+.answers-area .question .answers .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom {
+  background-color: #000080;
+  border-radius: 24px;
   -webkit-transform: rotate(0deg) scale(1);
   transform: rotate(0deg) scale(1);
   opacity: 1;
   border: 2px solid #FFFFFF;
 }
 
-.question-board .answers-area .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom::after {
+.answers-area .question .answers .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom::after {
   -webkit-transform: rotate(45deg) scale(1);
   transform: rotate(45deg) scale(1);
   opacity: 1;
@@ -143,20 +145,20 @@
   top: 3px;
   height: 12px;
   width: 6px;
-  border: solid #E9DAC1;
+  border: solid #FFFFFF;
   border-width: 0 2px 2px 0;
   background-color: transparent;
   border-radius: 0;
 }
 
-.question-board .answers-area .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom::before {
+.answers-area .question .answers .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom::before {
   position: absolute;
   content: "";
   left: -3px;
   top: -3px;
   height: 24px;
   width: 24px;
-  border-radius: 5px;
+  border-radius: 24px;
   -webkit-transform: scale(3);
   transform: scale(3);
   opacity: 0;
@@ -168,32 +170,75 @@
   -o-transition: all 0.3s ease-out;
 }
 
-.question-board .answers-area .answer .answer-container {
+.answers-area .question .answers .answer .answer-container {
   min-width: 30px;
   min-height: 30px;
   float: left;
   padding-left: 1rem;
 }
 
-.question-board .answers-area .answer .answer-container .answer-content {
+.answers-area .question .answers .answer .answer-container .answer-content {
   min-height: 24px;
 }
 
-.question-board button {
-  background-color: initial;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), to(#FFFFFF));
-  background-image: linear-gradient(#FFFFFF 0, #FFFFFF 100%);
+.poll-container {
+  margin-top: 4em;
+  margin-bottom: 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.poll-container .inner-poll-container {
+  width: 50%;
+}
+
+.question-board {
+  border-radius: 1em;
+  color: #4a3231;
+  background: white;
+  font-family: "Exo 2", sans-serif;
+  text-align: center;
+}
+
+.question-board .questions-area {
+  padding: 1em;
+  overflow: none;
+  min-height: 50px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.question-board .questions-area h1 {
+  color: black;
+  margin-top: 0.5rem;
+  float: left;
+}
+
+.question-board .questions-area .close {
+  float: right;
+  color: #949494;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+button {
+  background-color: #e2e2e2;
+  padding: 1rem;
   border-radius: 5px;
   border-style: none;
   -webkit-box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
           box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
-  color: #4a3231;
+  color: black;
   cursor: pointer;
   display: inline-block;
   font-family: "Exo 2", sans-serif;
-  font-size: 16px;
+  font-size: 25px;
   font-weight: 500;
-  height: 30px;
   margin-left: -4px;
   outline: 0;
   text-align: center;
@@ -206,25 +251,12 @@
   -ms-touch-action: manipulation;
       touch-action: manipulation;
   vertical-align: bottom;
-  width: 100px;
   margin-bottom: 1em;
 }
 
-.question-board button:hover {
+button:hover {
   opacity: 0.7;
-}
-
-.poll-container {
-  margin-top: 4em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.poll-container .inner-poll-container {
-  width: 50%;
+  background-color: #000080;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
