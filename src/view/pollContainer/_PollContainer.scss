@@ -26,18 +26,12 @@
         margin-top: 0.5rem;
         float:left; 
       }
-      .close{
-         float:right; 
-         color:#949494;
-         font-weight: bold;
-         cursor: pointer;
-         margin-top: 0.5rem;
-      }
   }
 }
 button {
     background-color:  #e2e2e2;
     padding: 1rem;
+    padding-inline: 2rem;
     border-radius: 5px;
     border-style: none;
     box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;

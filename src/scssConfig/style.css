@@ -42,6 +42,10 @@ nav ul li a:hover {
   transition: 0.5s;
 }
 
+.answers-area .question {
+  padding-bottom: 3rem;
+}
+
 .answers-area .question h3 {
   margin: 1rem 2rem 1rem 2rem;
   text-align: left;
@@ -49,136 +53,6 @@ nav ul li a:hover {
   color: #949494;
   float: left;
   width: 100%;
-}
-
-.answers-area .question .answers {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  overflow: hidden;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.answers-area .question .answers .answer {
-  min-height: 1rem;
-  overflow: hidden;
-  float: left;
-  padding: .3rem .6rem .3rem .6rem;
-}
-
-.answers-area .question .answers .answer .checkbox-container {
-  min-width: 30px;
-  min-height: 30px;
-  float: left;
-}
-
-.answers-area .question .answers .answer .checkbox-container .checkbox-label input {
-  position: absolute;
-  opacity: 0;
-  height: 24px;
-  width: 24px;
-  cursor: pointer;
-}
-
-.answers-area .question .answers .answer .checkbox-container .checkbox-label .checkbox-custom {
-  position: absolute;
-  height: 24px;
-  width: 24px;
-  background-color: transparent;
-  border-radius: 24px;
-  border: 2px solid #e2e2e2;
-  transition: all 0.3 ease-out;
-  -webkit-transition: all 0.3 ease-out;
-  -moz-transition: all 0.3 ease-out;
-  -ms-transition: all 0.3 ease-out;
-  -o-transition: all 0.3 ease-out;
-}
-
-.answers-area .question .answers .answer .checkbox-container .checkbox-label .checkbox-custom::after {
-  position: absolute;
-  content: "";
-  left: 12px;
-  top: 12px;
-  height: 0px;
-  width: 0px;
-  border-radius: 12px;
-  border: solid #e2e2e2;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(0deg) scale(0);
-  transform: rotate(0deg) scale(0);
-  opacity: 1;
-  transition: all 0.3s ease-out;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-}
-
-.answers-area .question .answers .answer .checkbox-container .checkbox-label .checkbox-custom::before {
-  position: absolute;
-  content: "";
-  left: 10px;
-  top: 10px;
-  height: 0px;
-  width: 0px;
-  border-radius: 10px;
-  border: solid #FFFFFF;
-  -webkit-transform: scale(0);
-  transform: scale(0);
-}
-
-.answers-area .question .answers .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom {
-  background-color: #000080;
-  border-radius: 24px;
-  -webkit-transform: rotate(0deg) scale(1);
-  transform: rotate(0deg) scale(1);
-  opacity: 1;
-  border: 2px solid #FFFFFF;
-}
-
-.answers-area .question .answers .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom::after {
-  -webkit-transform: rotate(45deg) scale(1);
-  transform: rotate(45deg) scale(1);
-  opacity: 1;
-  left: 8px;
-  top: 3px;
-  height: 12px;
-  width: 6px;
-  border: solid #FFFFFF;
-  border-width: 0 2px 2px 0;
-  background-color: transparent;
-  border-radius: 0;
-}
-
-.answers-area .question .answers .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom::before {
-  position: absolute;
-  content: "";
-  left: -3px;
-  top: -3px;
-  height: 24px;
-  width: 24px;
-  border-radius: 24px;
-  -webkit-transform: scale(3);
-  transform: scale(3);
-  opacity: 0;
-  z-index: 999;
-  transition: all 0.3s ease-out;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-}
-
-.answers-area .question .answers .answer .answer-container {
-  min-width: 30px;
-  min-height: 30px;
-  float: left;
-  padding-left: 1rem;
-}
-
-.answers-area .question .answers .answer .answer-container .answer-content {
-  min-height: 24px;
 }
 
 .poll-container {
@@ -218,17 +92,10 @@ nav ul li a:hover {
   float: left;
 }
 
-.question-board .questions-area .close {
-  float: right;
-  color: #949494;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 0.5rem;
-}
-
 button {
   background-color: #e2e2e2;
   padding: 1rem;
+  padding-inline: 2rem;
   border-radius: 5px;
   border-style: none;
   -webkit-box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
@@ -255,6 +122,293 @@ button {
 }
 
 button:hover {
+  opacity: 0.7;
+  background-color: #000080;
+  color: white;
+}
+
+.answers {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.answers .radio-signature {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 60%;
+}
+
+.answers .radio-signature span {
+  font-weight: bolder;
+}
+
+.answers .radio-answers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.answers .radio-answers .radio-answer {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  min-height: 1rem;
+  padding: .3rem .6rem .3rem .6rem;
+}
+
+.answers .radio-answers .radio-answer .radio-container {
+  min-width: 30px;
+  min-height: 30px;
+}
+
+.answers .radio-answers .radio-answer .radio-container .radio-label input {
+  position: absolute;
+  opacity: 0;
+  height: 1.5rem;
+  width: 1rem;
+  cursor: pointer;
+}
+
+.answers .radio-answers .radio-answer .radio-container .radio-label .radio-custom {
+  background-color: #e2e2e2;
+  padding: 0.75rem;
+  width: 1.25rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  border-style: none;
+  -webkit-box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+          box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Exo 2", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: -4px;
+  outline: 0;
+  text-align: center;
+  -webkit-transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: bottom;
+  margin-bottom: 1em;
+}
+
+.answers .radio-answers .radio-answer .radio-container .radio-label input:checked ~ .radio-custom {
+  opacity: 0.7;
+  background-color: #000080;
+  color: white;
+}
+
+.answers {
+  overflow: hidden;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.answers .answer {
+  min-height: 1rem;
+  overflow: hidden;
+  float: left;
+  padding: .3rem .6rem .3rem .6rem;
+}
+
+.answers .answer .checkbox-container {
+  min-width: 30px;
+  min-height: 30px;
+  float: left;
+}
+
+.answers .answer .checkbox-container .checkbox-label input {
+  position: absolute;
+  opacity: 0;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+
+.answers .answer .checkbox-container .checkbox-label .checkbox-custom {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border-radius: 24px;
+  border: 2px solid #e2e2e2;
+  transition: all 0.3 ease-out;
+  -webkit-transition: all 0.3 ease-out;
+  -moz-transition: all 0.3 ease-out;
+  -ms-transition: all 0.3 ease-out;
+  -o-transition: all 0.3 ease-out;
+}
+
+.answers .answer .checkbox-container .checkbox-label .checkbox-custom::after {
+  position: absolute;
+  content: "";
+  left: 12px;
+  top: 12px;
+  height: 0px;
+  width: 0px;
+  border-radius: 12px;
+  border: solid #e2e2e2;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(0deg) scale(0);
+  transform: rotate(0deg) scale(0);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+.answers .answer .checkbox-container .checkbox-label .checkbox-custom::before {
+  position: absolute;
+  content: "";
+  left: 10px;
+  top: 10px;
+  height: 0px;
+  width: 0px;
+  border-radius: 10px;
+  border: solid #FFFFFF;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.answers .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom {
+  background-color: #000080;
+  border-radius: 24px;
+  -webkit-transform: rotate(0deg) scale(1);
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+  border: 2px solid #FFFFFF;
+}
+
+.answers .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom::after {
+  -webkit-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+  left: 8px;
+  top: 3px;
+  height: 12px;
+  width: 6px;
+  border: solid #FFFFFF;
+  border-width: 0 2px 2px 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.answers .answer .checkbox-container .checkbox-label input:checked ~ .checkbox-custom::before {
+  position: absolute;
+  content: "";
+  left: -3px;
+  top: -3px;
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  -webkit-transform: scale(3);
+  transform: scale(3);
+  opacity: 0;
+  z-index: 999;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+.answers .answer .answer-container {
+  min-width: 30px;
+  min-height: 30px;
+  float: left;
+  padding-left: 1.25rem;
+}
+
+.answers .answer .answer-container .answer-content {
+  min-height: 24px;
+}
+
+.answers {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.answers .expectation-signature {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  gap: 20%;
+}
+
+.answers .expectation-signature span {
+  font-weight: bolder;
+}
+
+.answers .expectation-answers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.answers .expectation-answers .expectation-answer {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  min-height: 1rem;
+  padding: .3rem .6rem .3rem .6rem;
+}
+
+.answers .expectation-answers .expectation-answer .expectation-container {
+  min-width: 30px;
+  min-height: 30px;
+}
+
+.answers .expectation-answers .expectation-answer .expectation-container .expectation-label input {
+  position: absolute;
+  opacity: 0;
+  height: 1.5rem;
+  width: 1rem;
+  cursor: pointer;
+}
+
+.answers .expectation-answers .expectation-answer .expectation-container .expectation-label .expectation-custom {
+  background-color: #e2e2e2;
+  padding: 0.75rem;
+  width: 3.25rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  border-style: none;
+  -webkit-box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+          box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Exo 2", sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  margin-left: -4px;
+  outline: 0;
+  text-align: center;
+  -webkit-transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: bottom;
+  margin-bottom: 1em;
+}
+
+.answers .expectation-answers .expectation-answer .expectation-container .expectation-label input:checked ~ .expectation-custom {
   opacity: 0.7;
   background-color: #000080;
   color: white;
