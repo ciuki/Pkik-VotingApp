@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-const CreateQuestion = () => {
+const CreateQuestions = (props) => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [changed, setChanged] = useState([]);
+  const [inputComplete, setInputComplete] = useState([]);
   
   const questionsToRender = [];
   const addQuestionToList = (i) => {
-    console.log(questions.length, i);
     if (
       questions.length >= i + 1 &&
       questions[i].question !== currentQuestion.question
@@ -16,7 +16,6 @@ const CreateQuestion = () => {
       let tempQuestionArray = [...questions];
       tempQuestionArray.splice(i, 0, currentQuestion);
       tempQuestionArray.splice(i + 1, 1);
-      console.log(tempQuestionArray);
       setQuestions(tempQuestionArray);
     } else if (
       questions.length >= i + 1 &&
@@ -29,7 +28,6 @@ const CreateQuestion = () => {
     if (changed.includes(i)) {
       setChanged((prevState) => prevState.filter((prevItem) => prevItem !== i));
     }
-    console.log(questions);
   };
 
   const changeCurrentQuestion = (i, e) => {
@@ -43,6 +41,15 @@ const CreateQuestion = () => {
         setChanged((changed) => [...changed, i]);
       }
     }
+    if (e.target.value !== "" && e.target.value !== null){
+      if (!inputComplete.includes(i)){
+        setInputComplete([...inputComplete, i]);
+      }
+    }else{
+      if (inputComplete.includes(i)){
+        setInputComplete((prevState) => prevState.filter((prevItem) => prevItem !== i));
+      }
+    }
   };
 
   for (let i = 0; i < questions.length + 1; i++) {
@@ -54,7 +61,9 @@ const CreateQuestion = () => {
           return item.index === i;
         }) && !changed.some(function (item){
           return item === i;
-        }) ? (
+        }) && inputComplete.some(function(item){
+          return item === i;
+        })? (
           <button onClick={(e) => addQuestionToList(i)}> Dodaj </button>
         ) : (
           <></>
@@ -71,7 +80,12 @@ const CreateQuestion = () => {
       </div>
     );
   }
-  return <div>{questionsToRender}</div>;
+  return <div>
+    {questionsToRender}
+    <div>
+      <button onClick ={()=> props.onChange(questions)}>Dalej</button>
+    </div>
+  </div>;
 };
 
-export default CreateQuestion;
+export default CreateQuestions;
