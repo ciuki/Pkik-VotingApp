@@ -10,7 +10,8 @@ function App() {
   return (
     <div>
     <NavBar/>
-    <CreatePoll/>
+    <div className="hero"><CreatePoll/></div>
+    
     </div>
   );
 }
