@@ -54,6 +54,8 @@
 .navbar .navbar-nav .link-text {
   display: none;
   margin-left: 1rem;
+  color: black;
+  text-decoration: none;
 }
 
 .navbar .navbar-nav .nav-link img {
@@ -113,7 +115,6 @@
 }
 
 .poll-container {
-  margin-top: 4em;
   margin-bottom: 4em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -124,6 +125,7 @@
 }
 
 .poll-container .inner-poll-container {
+  padding-block: 4em;
   width: 50%;
 }
 
@@ -655,5 +657,30 @@ button:hover {
   100% {
     opacity: 0;
   }
+}
+
+.parent {
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.parent div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=style.css.map */

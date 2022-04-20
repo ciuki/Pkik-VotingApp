@@ -1,31 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = ({ isLoggedIn, permission }) => {
   let navBarItems = [];
   if (isLoggedIn) {
     navBarItems.push(
       <li className="nav-item">
-        <a href="#" className="nav-link">
+        <Link to="\poll" className="nav-link">
           <img src="Utilities/survey.svg" alt="Przegladaj swoje ankiety" />
           <span className="link-text">Przegladaj swoje ankiety</span>
-        </a>
+        </Link>
       </li>
     );
     navBarItems.push(
       <li className="nav-item">
-        <a href="#" className="nav-link">
+        <Link to="\login" className="nav-link">
           <img src="Utilities/logout.svg" alt="Wyloguj się" />
           <span className="link-text">Wyloguj się</span>
-        </a>
+        </Link>
       </li>
     );
   } else {
     navBarItems.push(
       <li className="nav-item">
-        <a href="#" className="nav-link">
+        <Link to="\login" className="nav-link">
           <img src="Utilities/login.svg" alt="Zaloguj się" />
           <span className="link-text">Zaloguj się</span>
-        </a>
+        </Link>
       </li>
     );
   }
@@ -33,10 +34,10 @@ const NavBar = ({ isLoggedIn, permission }) => {
     <nav className="navbar">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a href="" className="nav-link">
+        <Link to="\createpoll" className="nav-link">
             <img src="Utilities/pen.svg" alt="Stwórz ankietę" />
             <span className="link-text">Stwórz ankietę</span>
-          </a>
+          </Link>
         </li>
         {navBarItems}
       </ul>

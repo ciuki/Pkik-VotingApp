@@ -9,24 +9,34 @@ import { Link} from 'react-router-dom';
 
 const LoginView = () => {
 
+    
+
+
     return (
         <div className='login-view'>
             <Grid className='login-window' container direction='column'>
                 <div className='login-title'>
+                    LOGOWANIE
                 </div>
                 <Grid className='login-form' container direction='column'
                     justifyContent='space-around' alignItems='stretch'>
                     <TextField className='login-textfield'>
+                        nazwa użytkownika
                     </TextField>
                     <TextField className='login-textfield'>
+                        hasło
                     </TextField>
                     <Grid gap='16px' container direction='column'>
                         <Button className='login-button'>
-
+                            zaloguj
                         </Button>
                         <Divider />
                         <Typography textAlign='center' variant="caption">
+                            Jeśli nie posiadasz jeszcze konta,
                             <br />
+                            <Link to='/register'>
+                                    załóż je
+                            </Link>
                         </Typography>
                     </Grid>
                 </Grid>

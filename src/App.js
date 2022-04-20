@@ -1,30 +1,34 @@
 import './App.css';
 import './scssConfig/style.css'
 import NavBar from './components/NavBar/NavBar';
-import CreatePoll from './components/CreatePoll/CreatePoll';
-import PollContainer from './view/pollContainer/PollContainer';
-import RegisterView from './view/authorization/register-view/register-view';
-import LoginView from './view/authorization/login-view/login-view';
+import CustomRoutes from './routes/routes';
+import { ThemeProvider } from '@mui/material';
+import baseTheme from './theme/base-theme';
+import { BrowserRouter } from 'react-router-dom';
 
 
 function App() {
   return (
-      <div className='area'>
-        <NavBar />
-        <PollContainer/>
+    <div className='area'>
+      <ThemeProvider theme={baseTheme}>
+        <BrowserRouter>  
+          <NavBar /> 
+                <CustomRoutes></CustomRoutes>
+        </BrowserRouter>
         <ul class="circles">
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-          </ul>
-      </div>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </ThemeProvider>
+    </div>
   );
 }
 

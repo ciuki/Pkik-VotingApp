@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import CreateQuestions from "../CreateQuestion/CreateQuestion";
-import CreateAnswers from "../CreateAnswers/CreateAnswers";
+import React, { useState} from "react";
+import CreateQuestions from "../../components/CreateQuestion/CreateQuestion";
+import CreateAnswers from "../../components/CreateAnswers/CreateAnswers";
 
 const CreatePoll = () =>{
     const [questions, setQuestions] = useState([]);
