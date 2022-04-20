@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import CreateQuestions from "../CreateQuestion/CreateQuestion";
 
 const CreateAnswers = (props) => {
   const [answers, setAnswers] = useState([]);
