@@ -413,4 +413,190 @@ button:hover {
   background-color: #000080;
   color: white;
 }
+
+.login-view {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: black;
+}
+
+.login-view .login-window {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  padding-top: 0;
+  z-index: 2;
+  margin: 0 auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  height: 550px;
+  width: 325px;
+  background-color: #74747433;
+  border-radius: 3rem;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.login-view .login-window .login-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1.5rem 0;
+  border-radius: 3rem 3rem 0 0;
+  text-shadow: 1px 1px 0 black;
+  color: white;
+  font-size: 2rem;
+}
+
+.login-view .login-window .login-form {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 1rem;
+  border-radius: 3rem;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 0px 15px -5px black;
+          box-shadow: 0px 0px 15px -5px black;
+}
+
+@-webkit-keyframes login-background {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes login-background {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.register-view {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: black;
+}
+
+.register-view .register-window {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  padding-top: 0;
+  z-index: 2;
+  margin: 0 auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  height: 550px;
+  width: 325px;
+  background-color: #74747433;
+  border-radius: 3rem;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.register-view .register-window .register-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1.5rem 0;
+  border-radius: 3rem 3rem 0 0;
+  text-shadow: 1px 1px 0 black;
+  color: white;
+  font-size: 2rem;
+}
+
+.register-view .register-window .register-form {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 1rem;
+  border-radius: 3rem;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 0px 15px -5px black;
+          box-shadow: 0px 0px 15px -5px black;
+}
+
+@-webkit-keyframes register-background {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes register-background {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 /*# sourceMappingURL=style.css.map */

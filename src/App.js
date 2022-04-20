@@ -1,17 +1,30 @@
 import './App.css';
 import './scssConfig/style.css'
-import PollContainer from './view/pollContainer/PollContainer';
 import NavBar from './components/NavBar/NavBar';
 import CreatePoll from './components/CreatePoll/CreatePoll';
-import QuestionBoard from './components/QuestionBoard/QuestionBoard';
+import PollContainer from './view/pollContainer/PollContainer';
+import RegisterView from './view/authorization/register-view/register-view';
+import LoginView from './view/authorization/login-view/login-view';
 
 
 function App() {
   return (
-    <div>
-    <NavBar/>
-    <CreatePoll/>
-    </div>
+      <div className='area'>
+        <NavBar />
+        <PollContainer/>
+        <ul class="circles">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+          </ul>
+      </div>
   );
 }
 
