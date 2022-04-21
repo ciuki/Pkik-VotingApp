@@ -26,6 +26,7 @@ const CreatePoll = () =>{
                 {questions.length<1 ?
                 <CreateQuestions onChange={(value) => {setQuestions(value); setCurrentQuestionIndex(0)}}/>
                 : <CreateAnswers nextQuestion={(value) => handleQuestionChange(value)} questionParameter={questions[currentQuestionIndex]} questionsLength={questions.length}/>}  
+                
             </div>
         </div>
     )

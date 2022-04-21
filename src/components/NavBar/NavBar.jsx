@@ -6,7 +6,7 @@ const NavBar = ({ isLoggedIn, permission }) => {
   if (isLoggedIn) {
     navBarItems.push(
       <li className="nav-item">
-        <Link to="\poll" className="nav-link">
+        <Link to="/poll" className="nav-link">
           <img src="Utilities/survey.svg" alt="Przegladaj swoje ankiety" />
           <span className="link-text">Przegladaj swoje ankiety</span>
         </Link>
@@ -14,7 +14,7 @@ const NavBar = ({ isLoggedIn, permission }) => {
     );
     navBarItems.push(
       <li className="nav-item">
-        <Link to="\login" className="nav-link">
+        <Link to="/login" className="nav-link">
           <img src="Utilities/logout.svg" alt="Wyloguj się" />
           <span className="link-text">Wyloguj się</span>
         </Link>
@@ -23,7 +23,7 @@ const NavBar = ({ isLoggedIn, permission }) => {
   } else {
     navBarItems.push(
       <li className="nav-item">
-        <Link to="\login" className="nav-link">
+        <Link to="/login" className="nav-link">
           <img src="Utilities/login.svg" alt="Zaloguj się" />
           <span className="link-text">Zaloguj się</span>
         </Link>
@@ -34,7 +34,7 @@ const NavBar = ({ isLoggedIn, permission }) => {
     <nav className="navbar">
       <ul className="navbar-nav">
         <li className="nav-item">
-        <Link to="\createpoll" className="nav-link">
+        <Link to="/pollcreate" className="nav-link">
             <img src="Utilities/pen.svg" alt="Stwórz ankietę" />
             <span className="link-text">Stwórz ankietę</span>
           </Link>

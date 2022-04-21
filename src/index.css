@@ -12,11 +12,12 @@ body{
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
 
 
 html{
-  height: 100%;
+  height: 100vh;
 }
 
 body::-webkit-scrollbar{
@@ -44,7 +45,7 @@ code {
 .area{
   background: #f69b9f;  
   background: -webkit-linear-gradient(to left, #f69b9f, #fbd1d3);  
-  
+  height: 100vh;
 }
 .circles{
      width: 100%;

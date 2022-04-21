@@ -4,6 +4,7 @@ import PollContainer from '../view/pollContainer/PollContainer';
 import LoginView from '../view/authorization/login-view/login-view';
 import RegisterView from '../view/authorization/register-view/register-view';
 import NotFound from '../view/404/404';
+import NotificationsView from '../view/notifications/NotificationsView';
 
 
 const CustomRoutes = () => 
@@ -12,7 +13,8 @@ const CustomRoutes = () =>
         <Route path='poll' element={<PollContainer/>}/>  
         <Route path='login' element={<LoginView />}/> 
         <Route path='register' element={<RegisterView />}/>
-        <Route path='*' element = {<NotFound/>}/>   
+        <Route path='*' element = {<NotFound/>}/>  
+        <Route path='notifications' element = {<NotificationsView/>}/>
     </Routes>
 ;
 

@@ -1,21 +1,21 @@
-import './App.css';
-import './scssConfig/style.css'
-import NavBar from './components/NavBar/NavBar';
-import CustomRoutes from './routes/routes';
-import { ThemeProvider } from '@mui/material';
-import baseTheme from './theme/base-theme';
-import { BrowserRouter } from 'react-router-dom';
-
+import "./App.css";
+import "./scssConfig/style.css";
+import NavBar from "./components/NavBar/NavBar";
+import CustomRoutes from "./routes/routes";
+import { ThemeProvider } from "@mui/material";
+import baseTheme from "./theme/base-theme";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className='area'>
+    <div className="area">
       <ThemeProvider theme={baseTheme}>
-        <BrowserRouter>  
-          <NavBar /> 
-                <CustomRoutes></CustomRoutes>
+        <BrowserRouter>
+          <CustomRoutes />
+          <NavBar />
+          
         </BrowserRouter>
-        <ul class="circles">
+        <ul className="circles">
           <li></li>
           <li></li>
           <li></li>

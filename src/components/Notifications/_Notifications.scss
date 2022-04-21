@@ -1,0 +1,40 @@
+.notifications{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    .notification-button{
+        top: 0px;
+        right: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5rem;
+        height: 5rem;
+        background: #ccc5c5;
+        
+        border: none;
+        outline: none;
+        border-radius: 50%;
+        img{
+            height: 3rem;
+        }
+        .notifications-badge{
+            position: absolute;
+            top: -0.75rem;
+            right: -0.75rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: red;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+        &:hover{
+            background: #1f1e1e;
+        }
+    }
+
+}
+

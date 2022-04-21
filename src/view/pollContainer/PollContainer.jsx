@@ -1,6 +1,6 @@
 import React from "react";
 import QuestionBoard from "../../components/QuestionBoard/QuestionBoard";
-
+import Notifications from "../../components/Notifications/Notifications";
 
 
 const PollContainer = () => {
@@ -17,6 +17,7 @@ const PollContainer = () => {
             </div>
           </div>
       </div>
+      <Notifications />
     </div>
   );
 };
