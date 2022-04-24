@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
+import { Link } from "react-router-dom";
 
 const CreateAnswers = (props) => {
   const [answers, setAnswers] = useState([]);
@@ -69,6 +70,8 @@ const CreateAnswers = (props) => {
         }) &&
         changed.some(function (item) {
           return item === i;
+        })&& inputComplete.some(function(item){
+          return item === i;
         }) ? (
           <button onClick={(e) => addAnswerToList(i)}> Zaktualizuj </button>
         ) : (
@@ -89,7 +92,9 @@ const CreateAnswers = (props) => {
         setInputComplete(array);
         setCurrentAnswer(array);
         setChanged(array);}}>Dalej</button>) :
-        (<button>Zakończ</button>)}
+        (<Link to="/invite" pollID={3}>
+          <button>Zakończ</button>
+        </Link>)}
       
       </div>
 };

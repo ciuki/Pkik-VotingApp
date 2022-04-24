@@ -40,6 +40,19 @@
             min-width: 2rem;
             margin: 0 1.5rem;
         }
+        .notifications-badge{
+            top: 1rem;
+            right: 1rem;
+            position: absolute;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: red;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
     }
   
 }

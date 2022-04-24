@@ -72,7 +72,9 @@ const CreateQuestions = (props) => {
           return item.index === i;
         }) && changed.some(function (item){
           return item === i;
-        }) ? (
+        }) && inputComplete.some(function(item){
+          return item === i;
+        })? (
           <button onClick={(e) => addQuestionToList(i)}> Zaktualizuj </button>
         ) : (
           <></>

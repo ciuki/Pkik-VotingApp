@@ -1,14 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavBar = ({ isLoggedIn, permission }) => {
+const NavBar = (props) => {
   let navBarItems = [];
-  if (isLoggedIn) {
+  if (props.isLoggedIn) {
     navBarItems.push(
       <li className="nav-item">
         <Link to="/poll" className="nav-link">
           <img src="Utilities/survey.svg" alt="Przegladaj swoje ankiety" />
           <span className="link-text">Przegladaj swoje ankiety</span>
+        </Link>
+      </li>
+    );
+    navBarItems.push(
+      <li className="nav-item">
+        <Link to="/notifications" className="nav-link">
+          <img src="Utilities/notifications.svg" alt="Powiadomienia"/>
+          <span className="notifications-badge">2</span>
+          <span className="link-text">Powiadomienia</span>
         </Link>
       </li>
     );
@@ -20,6 +29,7 @@ const NavBar = ({ isLoggedIn, permission }) => {
         </Link>
       </li>
     );
+    
   } else {
     navBarItems.push(
       <li className="nav-item">

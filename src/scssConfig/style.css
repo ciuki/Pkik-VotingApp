@@ -641,60 +641,6 @@ button:hover {
   color: white;
 }
 
-.notifications {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-
-.notifications .notification-button {
-  top: 0px;
-  right: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 5rem;
-  height: 5rem;
-  background: #d06e73;
-  border: none;
-  outline: none;
-  border-radius: 50%;
-}
-
-.notifications .notification-button img {
-  height: 3rem;
-}
-
-.notifications .notification-button .notifications-badge {
-  position: absolute;
-  top: -0.75rem;
-  right: -0.75rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: red;
-  color: #ffffff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 50%;
-}
-
-.notifications .notification-button:hover {
-  background: #1f1e1e;
-}
-
 .navbar {
   color: #fff;
   position: fixed;
@@ -760,6 +706,26 @@ button:hover {
   margin: 0 1.5rem;
 }
 
+.navbar .navbar-nav .notifications-badge {
+  top: 1rem;
+  right: 1rem;
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: red;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+}
+
 @media only screen and (min-width: 600px) {
   .navbar {
     top: 0;
@@ -809,5 +775,9 @@ button:hover {
   color: #949494;
   float: left;
   width: 100%;
+}
+
+.inviteArea {
+  margin-left: 5rem;
 }
 /*# sourceMappingURL=style.css.map */

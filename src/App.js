@@ -12,7 +12,7 @@ function App() {
       <ThemeProvider theme={baseTheme}>
         <BrowserRouter>
           <CustomRoutes />
-          <NavBar />
+          <NavBar isLoggedIn={true}/>
           
         </BrowserRouter>
         <ul className="circles">
