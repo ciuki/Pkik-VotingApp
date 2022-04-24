@@ -1,11 +1,13 @@
 @import "ScssConfig";
-@import "../components/NavBar/NavBar";
-@import "../components/QuestionBoard/QuestionBoard";
 @import "../view/pollContainer/PollContainer";
-@import "../components/LikenessGrid/LikenessGrid";
-@import "../components/CheckboxGrid/CheckboxGrid";
-@import "../components/ExpectationGrid/ExpectationGrid";
 @import "../view/authorization/login-view/styles";
 @import "../view/authorization/register-view/styles";
 @import "../view/404/404";
+@import "../view/CreatePoll/CreatePoll";
+@import "../components/LikenessGrid/LikenessGrid";
+@import "../components/CheckboxGrid/CheckboxGrid";
+@import "../components/ExpectationGrid/ExpectationGrid";
 @import "../components/Notifications/Notifications";
+@import "../components/NavBar/NavBar";
+@import "../components/QuestionBoard/QuestionBoard";
+

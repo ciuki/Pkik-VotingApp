@@ -20,12 +20,8 @@ const LoginView = () => {
                 </div>
                 <Grid className='login-form' container direction='column'
                     justifyContent='space-around' alignItems='stretch'>
-                    <TextField className='login-textfield'>
-                        nazwa użytkownika
-                    </TextField>
-                    <TextField className='login-textfield'>
-                        hasło
-                    </TextField>
+                    <TextField className='login-textfield' label='nazwa użytkownika'/>
+                    <TextField className='login-textfield' label='hasło'/>
                     <Grid gap='16px' container direction='column'>
                         <Button className='login-button'>
                             zaloguj

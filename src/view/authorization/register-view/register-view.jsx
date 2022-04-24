@@ -16,13 +16,9 @@ const RegisterView = () => {
                 </div>
                 <Grid className='register-form' container direction='column'
                     justifyContent='space-around' alignItems='stretch'>
-                    <TextField className='login-textfield' >
-                        nazwa użytkownika
-                    </TextField>
-                    <TextField className='login-textfield'>
-                        e-mail
-                    </TextField>
-                    <TextField className='login-textfield' type='password'>hasło</TextField>
+                    <TextField className='login-textfield' label='nazwa użytkownika'/>
+                    <TextField className='login-textfield' label='e-mail'/>
+                    <TextField className='login-textfield' type='password' label='hasło'/>
                     <Grid gap='16px' container direction='column'>
                         <Button className='login-button' >
                             zarejestruj
