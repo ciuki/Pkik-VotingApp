@@ -4,10 +4,20 @@
 @import "../view/authorization/register-view/styles";
 @import "../view/404/404";
 @import "../view/CreatePoll/CreatePoll";
-@import "../components/LikenessGrid/LikenessGrid";
-@import "../components/CheckboxGrid/CheckboxGrid";
-@import "../components/ExpectationGrid/ExpectationGrid";
+@import "../view/PollSummary/PollSummary";
+
+@import "../components/SummaryComponents/SummaryBoard/SummaryBoard";
+@import "../components/SummaryComponents/PieChart/PieChart";
+@import "../components/SummaryComponents/BarChart/BarChart";
+
+@import "../components/PollComponents/LikenessGrid/LikenessGrid";
+@import "../components/PollComponents/CheckboxGrid/CheckboxGrid";
+@import "../components/PollComponents/ExpectationGrid/ExpectationGrid";
+@import "../components/PollComponents/OpenQuestion/OpenQuestion";
+@import "../components/PollComponents/QuestionBoard/QuestionBoard";
+
 @import "../components/NavBar/NavBar";
-@import "../components/QuestionBoard/QuestionBoard";
+@import "../components/CreateQuestion/CreateQuestion";
+@import "../components/CreateAnswers/CreateAnswers";
 @import "../view/invite/Invite";
 

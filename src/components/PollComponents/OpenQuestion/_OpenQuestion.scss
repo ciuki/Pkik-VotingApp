@@ -1,0 +1,24 @@
+.answers {
+    padding: 1.5rem;
+    padding-inline: 3rem;
+
+    .openquestion-answers {
+        display: flex;
+
+        .textbox {
+            width: 100%;
+            resize: none;
+            min-height: 10rem;
+            overflow: hidden;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+        }
+
+        .textbox:focus {
+            outline: none !important;
+            border: 1px solid #000080;
+            box-shadow: 0 0 10px #719ECE;
+        }
+    }
+}

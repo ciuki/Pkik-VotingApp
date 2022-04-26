@@ -6,6 +6,7 @@ import RegisterView from '../view/authorization/register-view/register-view';
 import NotFound from '../view/404/404';
 import NotificationsView from '../view/notifications/NotificationsView';
 import Invite from '../view/invite/Invite';
+import PollSummary from '../view/PollSummary/PollSummary';
 
 
 const CustomRoutes = () => 
@@ -17,6 +18,7 @@ const CustomRoutes = () =>
         <Route path='*' element = {<NotFound/>}/>  
         <Route path='notifications' element = {<NotificationsView/>}/>
         <Route path='invite' element = {<Invite/>}/>
+        <Route path='summary' element = {<PollSummary/>}/>
     </Routes>
 ;
 

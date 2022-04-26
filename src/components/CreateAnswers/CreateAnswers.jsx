@@ -51,8 +51,13 @@ const CreateAnswers = (props) => {
   const answersToRender = [];
   for (let i = 0; i < answers.length + 1; i++) {
     answersToRender.push(
-      <div className={`Answer${i + 1}`}>
-        <input type="text" onChange={(e) => changeCurrentAnswer(i, e)} />
+      <div className='question'>
+        <h3>Odpowiedź {i+1}</h3>
+        <div className="answers">
+            <div className="create-answers">
+                <textarea type='text'className="textbox" onChange={(e) => changeCurrentAnswer(i, e)} />
+            </div>
+        </div>
         {!answers.some(function (item) {
           return item.index === i;
         }) &&
@@ -61,7 +66,7 @@ const CreateAnswers = (props) => {
         }) && inputComplete.some(function(item){
           return item === i;
         })? (
-          <button onClick={(e) => addAnswerToList(i)}> Dodaj</button>
+          <button onClick={(e) => addAnswerToList(i)}> Dodaj odpowiedź</button>
         ) : (
           <></>
         )}
@@ -73,7 +78,7 @@ const CreateAnswers = (props) => {
         })&& inputComplete.some(function(item){
           return item === i;
         }) ? (
-          <button onClick={(e) => addAnswerToList(i)}> Zaktualizuj </button>
+          <button onClick={(e) => addAnswerToList(i)}> Zaktualizuj odpowiedź</button>
         ) : (
           <></>
         )}

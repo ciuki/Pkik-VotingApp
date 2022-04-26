@@ -1,0 +1,35 @@
+.question {
+    h3 {
+        margin: 1rem 2rem 1rem 2rem;
+        text-align: left;
+        padding: 1em;
+        color: #949494;
+        float: left;
+        width: 100%;
+    }
+
+    .answers {
+        padding: 1.5rem;
+        padding-inline: 3rem;
+
+        .create-answers {
+            display: flex;
+
+            .textbox {
+                width: 100%;
+                resize: none;
+                min-height: 7.5rem;
+                overflow: hidden;
+                font-size: 16px;
+                border-radius: 10px;
+                border: 1px solid rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+            }
+
+            .textbox:focus {
+                outline: none !important;
+                border: 1px solid #000080;
+                box-shadow: 0 0 10px #719ECE;
+            }
+        }
+    }
+}

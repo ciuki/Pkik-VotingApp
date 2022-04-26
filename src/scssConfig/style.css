@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
 .poll-container {
   margin-bottom: 4em;
   display: -webkit-box;
@@ -354,6 +355,102 @@ button:hover {
   color: white;
 }
 
+.summary-container {
+  margin-bottom: 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.summary-container .inner-poll-container {
+  padding-block: 4em;
+  width: 50%;
+}
+
+.question-board {
+  border-radius: 1em;
+  color: #4a3231;
+  background: white;
+  font-family: "Exo 2", sans-serif;
+  text-align: center;
+}
+
+.question-board .questions-area {
+  padding: 1em;
+  overflow: none;
+  min-height: 50px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.question-board .questions-area h1 {
+  color: black;
+  margin-top: 0.5rem;
+  float: left;
+}
+
+button {
+  background-color: #e2e2e2;
+  padding: 1rem;
+  padding-inline: 2rem;
+  border-radius: 5px;
+  border-style: none;
+  -webkit-box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+          box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Exo 2", sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  margin-left: -4px;
+  outline: 0;
+  text-align: center;
+  -webkit-transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: bottom;
+  margin-bottom: 1em;
+}
+
+button:hover {
+  opacity: 0.7;
+  background-color: #000080;
+  color: white;
+}
+
+.answers-area .question {
+  padding-bottom: 3rem;
+}
+
+.answers-area .question h3 {
+  margin: 1rem 2rem 1rem 2rem;
+  text-align: left;
+  padding: 1em;
+  color: #949494;
+  float: left;
+  width: 100%;
+}
+
+.answers {
+  padding: 0;
+  margin: 0;
+}
+
+.answers .piechart .piechart2 {
+  width: 100vw;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
 .answers {
   padding-left: 2rem;
   padding-right: 2rem;
@@ -641,6 +738,47 @@ button:hover {
   color: white;
 }
 
+.answers {
+  padding: 1.5rem;
+  padding-inline: 3rem;
+}
+
+.answers .openquestion-answers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.answers .openquestion-answers .textbox {
+  width: 100%;
+  resize: none;
+  min-height: 10rem;
+  overflow: hidden;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+}
+
+.answers .openquestion-answers .textbox:focus {
+  outline: none !important;
+  border: 1px solid #000080;
+  -webkit-box-shadow: 0 0 10px #719ECE;
+          box-shadow: 0 0 10px #719ECE;
+}
+
+.answers-area .question {
+  padding-bottom: 3rem;
+}
+
+.answers-area .question h3 {
+  margin: 1rem 2rem 1rem 2rem;
+  text-align: left;
+  padding: 1em;
+  color: #949494;
+  float: left;
+  width: 100%;
+}
+
 .navbar {
   color: #fff;
   position: fixed;
@@ -764,17 +902,78 @@ button:hover {
   }
 }
 
-.answers-area .question {
-  padding-bottom: 3rem;
-}
-
-.answers-area .question h3 {
+.question h3 {
   margin: 1rem 2rem 1rem 2rem;
   text-align: left;
   padding: 1em;
   color: #949494;
   float: left;
   width: 100%;
+}
+
+.question .answers {
+  padding: 1.5rem;
+  padding-inline: 3rem;
+}
+
+.question .answers .createquestion-answers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.question .answers .createquestion-answers .textbox {
+  width: 100%;
+  resize: none;
+  min-height: 7.5rem;
+  overflow: hidden;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+}
+
+.question .answers .createquestion-answers .textbox:focus {
+  outline: none !important;
+  border: 1px solid #000080;
+  -webkit-box-shadow: 0 0 10px #719ECE;
+          box-shadow: 0 0 10px #719ECE;
+}
+
+.question h3 {
+  margin: 1rem 2rem 1rem 2rem;
+  text-align: left;
+  padding: 1em;
+  color: #949494;
+  float: left;
+  width: 100%;
+}
+
+.question .answers {
+  padding: 1.5rem;
+  padding-inline: 3rem;
+}
+
+.question .answers .create-answers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.question .answers .create-answers .textbox {
+  width: 100%;
+  resize: none;
+  min-height: 7.5rem;
+  overflow: hidden;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+}
+
+.question .answers .create-answers .textbox:focus {
+  outline: none !important;
+  border: 1px solid #000080;
+  -webkit-box-shadow: 0 0 10px #719ECE;
+          box-shadow: 0 0 10px #719ECE;
 }
 
 .inviteArea {
