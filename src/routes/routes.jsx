@@ -7,18 +7,20 @@ import NotFound from '../view/404/404';
 import NotificationsView from '../view/notifications/NotificationsView';
 import Invite from '../view/invite/Invite';
 import PollSummary from '../view/PollSummary/PollSummary';
-
+import Logout from '../components/Logout/Logout';
+import ProtectedRoute from './ProtectedRoute';
 
 const CustomRoutes = () => 
     <Routes>
-        <Route path='pollcreate' element={<CreatePoll/>}/>
-        <Route path='poll' element={<PollContainer/>}/>  
+        <Route path="pollcreate" element={<ProtectedRoute> <CreatePoll /></ProtectedRoute>}/>
+        <Route path="poll" element={<ProtectedRoute> <PollContainer /></ProtectedRoute>}/>  
         <Route path='login' element={<LoginView />}/> 
         <Route path='register' element={<RegisterView />}/>
         <Route path='*' element = {<NotFound/>}/>  
-        <Route path='notifications' element = {<NotificationsView/>}/>
-        <Route path='invite' element = {<Invite/>}/>
-        <Route path='summary' element = {<PollSummary/>}/>
+        <Route path="notifications" element={<ProtectedRoute> <NotificationsView /></ProtectedRoute>}/>
+        <Route path="invite" element={<ProtectedRoute> <Invite/></ProtectedRoute>}/>
+        <Route path="summary" element={<ProtectedRoute> <PollSummary /></ProtectedRoute>}/>
+        <Route path='logout' element = {<Logout/>}/>
     </Routes>
 ;
 

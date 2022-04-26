@@ -1,5 +1,5 @@
 import React from "react";
-import QuestionBoard from "../../components/QuestionBoard/QuestionBoard";
+import QuestionBoard from "../../components/PollComponents/QuestionBoard/QuestionBoard";
 
 
 const PollContainer = () => {

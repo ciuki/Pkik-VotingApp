@@ -1,14 +1,18 @@
 import APIAddress from '../APIAddress';
+import jwt from 'jwt-decode';
 const axios = require('axios');
 export async function loginUser(loginData){
     try{
-        console.log(loginData);
         const response = await axios.post(APIAddress.value+"/login", 
         {
             username: loginData.username,
             password: loginData.password
         }).then(function (response){
-            console.log(response.data.tokenInfo.token);
+            const token = response.data.tokenInfo.token;
+            const user = jwt(token);
+            localStorage.setItem('token', token);
+            localStorage.setItem('user',user);
+            window.location.reload(false);
         });
         
     }catch (err){

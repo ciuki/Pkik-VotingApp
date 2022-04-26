@@ -3,7 +3,7 @@ import {
     Button, Divider,
     Grid, TextField, Typography
 } from '@mui/material';
-import { Link} from 'react-router-dom';
+import {Navigate, Link} from 'react-router-dom';
 import APIAddress from '../../../APIAddress';
 import { loginUser } from '../../../services/authorizeService';
 
@@ -22,6 +22,9 @@ const LoginView = () => {
         loginUser(loginObject);
     }
 
+    if (localStorage.getItem('token') !== null ){
+        return <Navigate to='/poll' />
+    }
 
     return (
         <div className='login-view'>

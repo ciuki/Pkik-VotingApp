@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavBar = (props) => {
+const NavBar = () => {
   let navBarItems = [];
-  if (props.isLoggedIn) {
+  if (localStorage.getItem('token') !== null ){
     navBarItems.push(
       <li className="nav-item">
         <Link to="/poll" className="nav-link">
@@ -23,7 +23,7 @@ const NavBar = (props) => {
     );
     navBarItems.push(
       <li className="nav-item">
-        <Link to="/login" className="nav-link">
+        <Link to="/logout" className="nav-link">
           <img src="Utilities/logout.svg" alt="Wyloguj się" />
           <span className="link-text">Wyloguj się</span>
         </Link>
