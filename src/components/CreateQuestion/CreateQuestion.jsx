@@ -10,7 +10,7 @@ const CreateQuestions = (props) => {
   const addQuestionToList = (i) => {
     if (
       questions.length >= i + 1 &&
-      questions[i].question !== currentQuestion.question
+      questions[i].text !== currentQuestion.text
     ) {
       setQuestions([...questions.slice(0, i), ...questions.slice(i + 1)]);
       let tempQuestionArray = [...questions];
@@ -19,7 +19,7 @@ const CreateQuestions = (props) => {
       setQuestions(tempQuestionArray);
     } else if (
       questions.length >= i + 1 &&
-      questions[i].question === currentQuestion.question
+      questions[i].text === currentQuestion.text
     ) {
       //moze sie przyda jeszcze
     } else {
@@ -33,10 +33,10 @@ const CreateQuestions = (props) => {
   const changeCurrentQuestion = (i, e) => {
     let tempQuestion = {
       index: i,
-      question: e.target.value,
+      text: e.target.value,
     };
     setCurrentQuestion(tempQuestion);
-    if (questions.length>=i+1 && tempQuestion.question !== questions[i].question) {
+    if (questions.length>=i+1 && tempQuestion.text !== questions[i].text) {
       if (!changed.includes(i)) {
         setChanged((changed) => [...changed, i]);
       }
@@ -95,3 +95,6 @@ const CreateQuestions = (props) => {
 };
 
 export default CreateQuestions;
+
+
+//Naprawic generowanie pytan

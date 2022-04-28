@@ -11,7 +11,8 @@ export async function loginUser(loginData){
             const token = response.data.tokenInfo.token;
             const user = jwt(token);
             localStorage.setItem('token', token);
-            localStorage.setItem('user',user);
+            localStorage.setItem('userName',user.name);
+            localStorage.setItem('userEmail', user.sub);
             window.location.reload(false);
         });
         
@@ -22,3 +23,4 @@ export async function loginUser(loginData){
         console.error(err.response.headers);
     }
 }
+

@@ -1,10 +1,10 @@
 import React from "react";
 
-const CheckboxGrid = ({ question: { Answers, Question } }) => {
+const CheckboxGrid = (props) => {
     
 const answersArray = [];
 
-    for (let i = 0; i < Answers.length; i++) {
+    for (let i = 0; i < props.answers.length; i++) {
         answersArray.push(
           <div className="answer">
             <div className="checkbox-container">
@@ -15,7 +15,7 @@ const answersArray = [];
             </div>
             <div className="answer-container">
               <span className="answer-content">
-                {Answers[i]}
+                {props.answers[i].text}
               </span >
             </div>
           </div>

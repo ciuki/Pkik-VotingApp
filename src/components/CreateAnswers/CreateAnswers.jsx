@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const CreateAnswers = (props) => {
   const [answers, setAnswers] = useState([]);
@@ -28,10 +28,10 @@ const CreateAnswers = (props) => {
   const changeCurrentAnswer = (i, e) => {
     let tempAnswer = {
       index: i,
-      answer: e.target.value,
+      text: e.target.value,
     };
     setCurrentAnswer(tempAnswer);
-    if (answers.length >= i + 1 && tempAnswer.answer !== answers[i].question) {
+    if (answers.length >= i + 1 && tempAnswer.text !== answers[i].text) {
       if (!changed.includes(i)) {
         setChanged((changed) => [...changed, i]);
       }
@@ -45,8 +45,7 @@ const CreateAnswers = (props) => {
         setInputComplete((prevState) => prevState.filter((prevItem) => prevItem !== i));
       }
     }
-    console.log(e.target.value);
-    console.log(inputComplete);
+    console.log(answers);
   };
   const answersToRender = [];
   for (let i = 0; i < answers.length + 1; i++) {
@@ -84,10 +83,13 @@ const CreateAnswers = (props) => {
         )}
       </div>
     );
+    
   }
-  console.log(props);
+  const finalize = () =>{
+    props.finalize(answers);
+  }
   return <div className="CreateAnswersArea">
-      <h1>{props.questionParameter.question}</h1>
+      <h1>{props.questionParameter.text}</h1>
       {answersToRender}
       {props.questionsLength-1 !== props.questionParameter.index ?(
       <button onClick ={()=>{
@@ -97,9 +99,7 @@ const CreateAnswers = (props) => {
         setInputComplete(array);
         setCurrentAnswer(array);
         setChanged(array);}}>Dalej</button>) :
-        (<Link to="/invite" pollID={3}>
-          <button>Zakończ</button>
-        </Link>)}
+        (<button onClick={(e)=>finalize()}>Zakończ</button>)}
       
       </div>
 };
