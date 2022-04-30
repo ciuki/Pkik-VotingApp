@@ -6,12 +6,14 @@ import { postPoll } from "../../services/pollService";
 const CreatePoll = () => {
     const [questions, setQuestions] = useState([]);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState();
+    console.log(questions);
     const handleQuestionChange = (value) => {
         
         let tempQuestion = {
             index: currentQuestionIndex,
             text: questions[currentQuestionIndex].text,
             description: "text",
+            type: questions[currentQuestionIndex].type,
             answers: value
         };
         const myNewArray = Object.assign([...questions], {
@@ -25,11 +27,13 @@ const CreatePoll = () => {
             index: currentQuestionIndex,
             text: questions[currentQuestionIndex].text,
             description: "text",
+            type: questions[currentQuestionIndex].type,
             answers: value
         };
         const myNewArray = Object.assign([...questions], {
             [currentQuestionIndex]: tempQuestion
         });
+        
         setQuestions(myNewArray);
         let finalQuestionObject = [];
         console.log(questions);
@@ -44,9 +48,10 @@ const CreatePoll = () => {
             let tempQuestionObject = {
                 text: questions[i].text,
                 description: "text",
-                type: 1,
+                type: questions[i].type,
                 answers: tempAnswerObject
             }
+            console.log(finalQuestionObject);
 
             finalQuestionObject.push(tempQuestionObject);
         }

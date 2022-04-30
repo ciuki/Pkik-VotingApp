@@ -2,6 +2,7 @@ import APIAddress from '../APIAddress';
 const axios = require('axios');
 export async function postPoll(pollData){
     try{
+        console.log(pollData);
         const response = await axios.post(APIAddress.value+"/api/poll", 
         {
             allowAnonymous: true,
