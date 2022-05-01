@@ -65,7 +65,7 @@ const CreateQuestions = (props) => {
         setInputComplete((prevState) => prevState.filter((prevItem) => prevItem !== i));
       }
     }
-    console.log(currentQuestion);
+    
   };
 
   //ogarnac czemu typy nie zostaja przypisane do pytan >:(
@@ -94,8 +94,6 @@ const CreateQuestions = (props) => {
       tempQuestionArray.splice(i, 0, tempQuestion);
       tempQuestionArray.splice(i + 1, 1);
       setQuestions(tempQuestionArray);
-      console.log(tempQuestion);
-      console.log(questions);
     }else if(currentQuestion.index === i){
       let tempCQ = currentQuestion;
       tempCQ.type = e[0].value;

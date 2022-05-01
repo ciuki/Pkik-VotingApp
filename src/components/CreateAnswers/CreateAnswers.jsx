@@ -45,7 +45,7 @@ const CreateAnswers = (props) => {
         setInputComplete((prevState) => prevState.filter((prevItem) => prevItem !== i));
       }
     }
-    console.log(answers);
+    
   };
   const answersToRender = [];
   for (let i = 0; i < answers.length + 1; i++) {
@@ -91,7 +91,7 @@ const CreateAnswers = (props) => {
   return <div className="CreateAnswersArea">
       <h1>{props.questionParameter.text}</h1>
       {answersToRender}
-      {props.questionsLength-1 !== props.questionParameter.index ?(
+      {props.questionsLength !== props.questionParameter.index ?(
       <button onClick ={()=>{
         let array=[];
         props.nextQuestion(answers)

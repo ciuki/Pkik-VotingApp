@@ -1,4 +1,6 @@
 import APIAddress from '../APIAddress';
+
+
 const axios = require('axios');
 export async function postPoll(pollData){
     try{
@@ -13,6 +15,7 @@ export async function postPoll(pollData){
         }).then(function (response){
             console.log(response);
         });
+        
         
     }catch (err){
         console.error("Error response:");

@@ -19,7 +19,6 @@ let question = {
 };
 
 const QuestionBoard = (props) => {
-  console.log(props);
   let questionsToRender = [];
   if (props.Poll !== "") {
     for (let i = 0; i < props.Poll.questions.length-1; i++) {
