@@ -1,5 +1,4 @@
 import APIAddress from '../APIAddress';
-import CreateQuestions from '../components/CreateQuestion/CreateQuestion';
 
 
 const axios = require('axios');
@@ -10,8 +9,6 @@ export async function postPoll(pollDTO){
         pollDTO).then(function (response){
             console.log(response);
         });
-        
-        
     }catch (err){
         console.error("Error response:");
         console.error(err.response.data);    // ***
@@ -24,8 +21,7 @@ export async function GetPollByID(pollID){
     try{
         const response = await axios.get(APIAddress.value+"/api/Poll/"+pollID, 
         ).then(function (response){
-            console.log(response);
-            return response.data;
+            
         });
         
     }catch (err){
@@ -47,6 +43,7 @@ export function CreateQuestionsDTO(text, description, type, answers){
 }
 
 export function CreateAnswerDTO(text){
+    console.log(text);
     let answerDTO = {
         Text: text
     }

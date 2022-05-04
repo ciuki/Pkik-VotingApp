@@ -29,15 +29,15 @@ const data01 = [
     }
 ];
 
-const BarChartComponent = () => {
+const BarChartComponent = (props) => {
     return (
         <div className="answers">
             <div className="barchart">
-                <BarChart width={730} height={250} data={data01} className="barchart2"> 
-                    <XAxis dataKey="name" />
+                <BarChart width={730} height={250} data={props.Votes} className="barchart2"> 
+                    <XAxis dataKey="answerId" />
                     <YAxis />
                     <Tooltip />     
-                    <Bar dataKey="value" fill="#8884d8" >
+                    <Bar dataKey="count" fill="#8884d8" >
                     {data01.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)}
                     </Bar>
                 </BarChart>

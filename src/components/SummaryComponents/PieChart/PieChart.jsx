@@ -29,14 +29,14 @@ const data01 = [
     }
 ];
 
-const PieChartComponent = () => {
+const PieChartComponent = (props) => {
     return (
         <div className="answers">
             <div className="piechart">
                 <PieChart width={730} height={250} className="piechart2">
                     <Tooltip />
                     <Legend verticalAlign="center" align="right" layout="vertical" top/>
-                    <Pie data={data01} dataKey="value" nameKey="name" verticalAlign="center" align="right" outerRadius={100} fill="#8884d8" >
+                    <Pie data={props.Votes} dataKey="count" nameKey="answerId" verticalAlign="center" align="right" outerRadius={100} fill="#8884d8" >
                         {data01.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)}
                     </Pie>
                 </PieChart>

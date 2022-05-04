@@ -20,7 +20,6 @@ const PollContainer = () => {
       }
     };
     fetchData();
-    console.log(2);
   }, []);
   
 
