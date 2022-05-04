@@ -69,7 +69,6 @@ const CreateQuestions = (props) => {
 
   };
 
-  //ogarnac czemu typy nie zostaja przypisane do pytan >:(
 
   const handleTypeChange = (e, i) => {
     if (selectedTypes.length >= 1 &&

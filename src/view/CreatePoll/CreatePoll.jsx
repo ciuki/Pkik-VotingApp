@@ -5,8 +5,6 @@ import { postPoll, CreateAnswerDTO, CreateQuestionsDTO, CreatePollDTO } from "..
 import { Navigate, useNavigate } from "react-router-dom";
 import { Divider } from "@mui/material";
 
-
-
 const CreatePoll = () => {
   const navigate = useNavigate();
   const [questions, setQuestions] = useState([]);
@@ -38,12 +36,28 @@ const CreatePoll = () => {
   }
   const handleFinalize = (value) => {
     let updatedQuestionsArray = createUpdatedQuestionsArray(value);
-
+    for (let i=0; i<updatedQuestionsArray.length; i++){
+      if (updatedQuestionsArray[i].type===3){
+        let answersDTO = [];
+        for (let j=0; j<10; j++){
+          let answerDTO = CreateAnswerDTO(j.toString());
+          answersDTO.push(answerDTO);
+        }
+        updatedQuestionsArray[i].answers = answersDTO;
+      }else if (updatedQuestionsArray[i].type===4){
+        let answersDTO = [];
+        for (let j=0; j<5; j++){
+          let answerDTO = CreateAnswerDTO(j.toString());
+          answersDTO.push(answerDTO);
+        }
+        updatedQuestionsArray[i].answers = answersDTO;
+      }
+    }
     setQuestions(updatedQuestionsArray);
     console.log(updatedQuestionsArray);
     let pollDTO = CreatePollDTO("Ankieta", true, true, 1, null, updatedQuestionsArray, null, null )
     postPoll(pollDTO);
-    navigate('/invite');
+    //navigate('/invite');
   };
 
   const finishAddingQuestions = (value) => {

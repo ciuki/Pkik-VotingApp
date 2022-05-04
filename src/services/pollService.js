@@ -62,7 +62,36 @@ export function CreatePollDTO(pollName, allowAnonymous, isActive, pollType, expi
         AllowedUsersIds: allowedUsersIds,
         ModeratorsIds: moderatorsIds
     }
-    
     return pollDTO;
+}
 
+export function CreateVoteAggregateDTO(pollID, votesArray){
+    let voteAggregateDTO = {
+        pollId: pollID,
+        votes: votesArray
+    }
+    return voteAggregateDTO;
+}
+
+export function CreateVoteDTO(questionID, answerID){
+    let voteDTO = {
+        questionId: questionID,
+        answerId: answerID
+    }
+    return voteDTO;
+}
+
+export async function PostVoteAggregateDTO(voteAggregateDTO){
+    try{
+        console.log(voteAggregateDTO);
+        const response = await axios.post(APIAddress.value+"/api/Vote/Aggregate", 
+        voteAggregateDTO).then(function (response){
+            console.log(response);
+        });
+    }catch (err){
+        console.error("Error response:");
+        console.error(err.response.data);    // ***
+        console.error(err.response.status);  // ***
+        console.error(err.response.headers);
+    }
 }

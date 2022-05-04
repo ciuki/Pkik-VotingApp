@@ -9,11 +9,11 @@ import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
     <div className="area">
+      
       <ThemeProvider theme={baseTheme}>
         <BrowserRouter>
           <CustomRoutes />
           <NavBar isLoggedIn={localStorage.token}/>
-          
         </BrowserRouter>
         <ul className="circles">
           <li></li>

@@ -13,7 +13,7 @@ import ProtectedRoute from './ProtectedRoute';
 const CustomRoutes = () => 
     <Routes>
         <Route path="pollcreate" element={<ProtectedRoute> <CreatePoll /></ProtectedRoute>}/>
-        <Route path="poll" element={<ProtectedRoute> <PollContainer /></ProtectedRoute>}/>  
+        <Route path="poll/:id" element={<ProtectedRoute> <PollContainer /></ProtectedRoute>}/>  
         <Route path='login' element={<LoginView />}/> 
         <Route path='register' element={<RegisterView />}/>
         <Route path='*' element = {<NotFound/>}/>  

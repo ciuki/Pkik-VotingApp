@@ -19,8 +19,11 @@ let question = {
 };
 
 const QuestionBoard = (props) => {
+  const handleVoteChange = (e,i) =>{
+    props.handleVoteChange(e,i);
+
+  }
   let questionsToRender = [];
-  console.log(props.Poll);
   if (props.Poll !== "") {
     for (let i = 0; i < props.Poll.questions.length; i++) {
       switch (props.Poll.questions[i].type) {
@@ -28,7 +31,7 @@ const QuestionBoard = (props) => {
           questionsToRender.push(
             <div className="question">
               <h3>{props.Poll.questions[i].text}</h3>
-              <CheckboxGrid answers={props.Poll.questions[i].answers} />
+              <CheckboxGrid question={props.Poll.questions[i]} index ={i} handleVoteChange={handleVoteChange}/>
             </div>
           );
           break;
@@ -36,10 +39,26 @@ const QuestionBoard = (props) => {
           questionsToRender.push(
             <div className="question">
               <h3>{props.Poll.questions[i].text}</h3>
-              <OpenQuestion question={question} />
+              <OpenQuestion />
             </div>
           );
-        break; 
+        break;
+        case 3:
+          questionsToRender.push(
+            <div className="question">
+              <h3>{props.Poll.questions[i].text}</h3>
+              <LikenessGrid question={props.Poll.questions[i]} index ={i} handleVoteChange={handleVoteChange}/>
+            </div>
+          );
+        break;
+        case 4:
+          questionsToRender.push(
+            <div className="question">
+              <h3>{props.Poll.questions[i].text}</h3>
+              <ExpectationGrid question={props.Poll.questions[i]} index ={i} handleVoteChange={handleVoteChange}/>
+            </div>
+          );
+        break;
       }
     }
   }
