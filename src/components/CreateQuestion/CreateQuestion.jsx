@@ -143,7 +143,7 @@ const CreateQuestions = (props) => {
   return <div>
     {questionsToRender}
     <div>
-      <button onClick={() => props.onChange(questions)}>Dalej</button>
+      <button onClick ={()=> props.onChange(questions)} disabled={questions.length>0 ? false : true} >Dalej</button>
     </div>
   </div>;
 };

@@ -23,9 +23,10 @@ const CreatePoll = () => {
     setQuestions(updatedQuestionsArray);
   };
   const createUpdatedQuestionsArray =(value) => {
+    console.log(value);
     let answersDTOArray = [];
     for (let i=0; i<value.length; i++){
-      let tempAnswer = CreateAnswerDTO(value.text);
+      let tempAnswer = CreateAnswerDTO(value[i].text);
       answersDTOArray.push(tempAnswer);
     };
     console.log(answersDTOArray);

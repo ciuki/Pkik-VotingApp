@@ -100,11 +100,12 @@ const CreateAnswers = (props) => {
         setAnswers(array);
         setInputComplete(array);
         setCurrentAnswer(array);
-        setChanged(array);
-      }}>Dalej</button>) :
-      (<button onClick={(e) => finalize()}>Zakończ</button>)}
-
-  </div>
+        setChanged(array);}}
+        disabled={answers.length>0 ? false : true}>Dalej</button>) :
+        (<button onClick={(e)=>finalize()}
+        disabled={answers.length>0 ? false : true}>Zakończ</button>)}
+      
+      </div>
 };
 
 export default CreateAnswers;
