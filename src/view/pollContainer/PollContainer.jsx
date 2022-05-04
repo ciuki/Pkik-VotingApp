@@ -9,7 +9,7 @@ const PollContainer = () => {
     const fetchData = async () => {
       try {
         const response = await axios
-          .get(APIAddress.value + "/api/Poll/" + 2)
+          .get(APIAddress.value + "/api/Poll/" + 3)
           .then(function (response) {
             console.log(response);
             setPollData(response.data);

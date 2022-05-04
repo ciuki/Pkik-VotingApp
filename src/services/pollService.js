@@ -1,18 +1,13 @@
 import APIAddress from '../APIAddress';
+import CreateQuestions from '../components/CreateQuestion/CreateQuestion';
 
 
 const axios = require('axios');
-export async function postPoll(pollData){
+export async function postPoll(pollDTO){
     try{
-        console.log(pollData);
+        console.log(pollDTO);
         const response = await axios.post(APIAddress.value+"/api/poll", 
-        {
-            allowAnonymous: true,
-            isActive: true,
-            pollType: 1,
-            expirationDate: "2022-06-26T19:12:24.649Z",
-            questions: pollData
-        }).then(function (response){
+        pollDTO).then(function (response){
             console.log(response);
         });
         
@@ -39,4 +34,38 @@ export async function GetPollByID(pollID){
         console.error(err.response.status);  // ***
         console.error(err.response.headers);
     }
+}
+
+export function CreateQuestionsDTO(text, description, type, answers){
+    let questionsDTO = {
+        Text: text,
+        Description: description,
+        Type: type,
+        Answers: answers
+    }
+    return questionsDTO;
+}
+
+export function CreateAnswerDTO(text){
+    let answerDTO = {
+        Text: text
+    }
+    return answerDTO;
+}
+
+export function CreatePollDTO(pollName, allowAnonymous, isActive, pollType, expirationDate, questions, allowedUsersIds, moderatorsIds){
+
+    let pollDTO = {
+        Name: pollName,
+        AllowAnonymous: allowAnonymous,
+        IsActive: isActive,
+        PollType: pollType,
+        ExpirationDate: "2022-06-26T19:12:24.649Z",
+        questions: questions,
+        AllowedUsersIds: allowedUsersIds,
+        ModeratorsIds: moderatorsIds
+    }
+    
+    return pollDTO;
+
 }

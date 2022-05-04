@@ -15,7 +15,7 @@ const LoginView = () => {
 
     const handleLogin = (e) =>{
         let loginObject = {
-            username: emailInput,
+            email: emailInput,
             password: passwordInput
         };
         console.log(loginObject);
@@ -34,8 +34,8 @@ const LoginView = () => {
                 </div>
                 <Grid className='login-form' container direction='column'
                     justifyContent='space-around' alignItems='stretch'>
-                    <TextField onChange={(e) => setEmail(e.target.value)} className='login-textfield' label='nazwa użytkownika'/>
-                    <TextField onChange={(e) => setPassword(e.target.value)} className='login-textfield' label='hasło'/>
+                    <TextField onChange={(e) => setEmail(e.target.value)} className='login-textfield' label='E-mail'/>
+                    <TextField onChange={(e) => setPassword(e.target.value)} className='login-textfield' label='hasło' type="password" />
                     <Grid gap='16px' container direction='column'>
                         <Button onClick={(e) => handleLogin(e)} className='login-button'>
                             zaloguj

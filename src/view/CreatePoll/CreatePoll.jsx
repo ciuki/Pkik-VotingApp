@@ -1,72 +1,47 @@
 import React, { useState } from "react";
 import CreateQuestions from "../../components/CreateQuestion/CreateQuestion";
 import CreateAnswers from "../../components/CreateAnswers/CreateAnswers";
-import { postPoll } from "../../services/pollService";
-import { Navigate } from "react-router-dom";
+import { postPoll, CreateAnswerDTO, CreateQuestionsDTO, CreatePollDTO } from "../../services/pollService";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 
 const CreatePoll = () => {
+  const navigate = useNavigate();
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(null);
   const [finalQuestionWithAnwersToAddIndex, setFinalQuestionWithAnswersToAddIndex] = useState(null);
   const handleQuestionChange = (value) => {
-    let tempQuestion = {
-      index: currentQuestionIndex,
-      text: questions[currentQuestionIndex].text,
-      description: "text",
-      type: questions[currentQuestionIndex].type,
-      answers: value,
-    };
-    const myNewArray = Object.assign([...questions], {
-      [currentQuestionIndex]: tempQuestion,
-    });
+    let updatedQuestionsArray = createUpdatedQuestionsArray(value);
     for (let i=currentQuestionIndex+1; i<=finalQuestionWithAnwersToAddIndex; i++){
-        if (myNewArray[i].type === 1){
-            console.log(i);
+        if (updatedQuestionsArray[i].type === 1){
             setCurrentQuestionIndex(i);
             break;
         }
     }
-    setQuestions(myNewArray);
+    setQuestions(updatedQuestionsArray);
   };
-  const handleFinalize = (value) => {
-    let tempQuestion = {
-      index: currentQuestionIndex,
-      text: questions[currentQuestionIndex].text,
-      description: "text",
-      type: questions[currentQuestionIndex].type,
-      answers: value,
+  const createUpdatedQuestionsArray =(value) => {
+    let answersDTOArray = [];
+    for (let i=0; i<value.length; i++){
+      let tempAnswer = CreateAnswerDTO(value.text);
+      answersDTOArray.push(tempAnswer);
     };
-    const myNewArray = Object.assign([...questions], {
-      [currentQuestionIndex]: tempQuestion,
+    console.log(answersDTOArray);
+    let questionDTO = CreateQuestionsDTO(questions[currentQuestionIndex].text,"description",questions[currentQuestionIndex].type,answersDTOArray);
+    const updatedQuestionsArray = Object.assign([...questions], {
+      [currentQuestionIndex]: questionDTO,
     });
+    return updatedQuestionsArray;
+  }
+  const handleFinalize = (value) => {
+    let updatedQuestionsArray = createUpdatedQuestionsArray(value);
 
-    setQuestions(myNewArray);
-    console.log(myNewArray);
-    let finalQuestionObject = [];
-    for (let i = 0; i < myNewArray.length; i++) {
-      let tempAnswerObject = [];
-      if (myNewArray[i].type === 1){
-        for (let j = 0; j < myNewArray[i].answers.length; j++) {
-            let tempAnswer = {
-              value: myNewArray[i].answers[j],
-            };
-            tempAnswerObject.push(tempAnswer);
-          }
-      }
-      
-      let tempQuestionObject = {
-        text: myNewArray[i].text,
-        description: "text",
-        type: myNewArray[i].type,
-        answers: tempAnswerObject,
-      };
-
-      finalQuestionObject.push(tempQuestionObject);
-    }
-    postPoll(finalQuestionObject);
-    return <Navigate to='/invite' />
+    setQuestions(updatedQuestionsArray);
+    console.log(updatedQuestionsArray);
+    let pollDTO = CreatePollDTO("Ankieta", true, true, 1, null, updatedQuestionsArray, null, null )
+    postPoll(pollDTO);
+    navigate('/invite');
   };
 
   const finishAddingQuestions = (value) => {

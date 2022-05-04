@@ -20,8 +20,9 @@ let question = {
 
 const QuestionBoard = (props) => {
   let questionsToRender = [];
+  console.log(props.Poll);
   if (props.Poll !== "") {
-    for (let i = 0; i < props.Poll.questions.length-1; i++) {
+    for (let i = 0; i < props.Poll.questions.length; i++) {
       switch (props.Poll.questions[i].type) {
         case 1:
           questionsToRender.push(
@@ -30,6 +31,7 @@ const QuestionBoard = (props) => {
               <CheckboxGrid answers={props.Poll.questions[i].answers} />
             </div>
           );
+          break;
         case 2:
           questionsToRender.push(
             <div className="question">
@@ -37,6 +39,7 @@ const QuestionBoard = (props) => {
               <OpenQuestion question={question} />
             </div>
           );
+        break; 
       }
     }
   }
