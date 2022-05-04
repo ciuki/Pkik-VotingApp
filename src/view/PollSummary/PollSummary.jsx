@@ -1,3 +1,4 @@
+import { Divider } from "@mui/material";
 import React from "react";
 import SummaryBoard from "../../components/SummaryComponents/SummaryBoard/SummaryBoard";
 
@@ -11,6 +12,7 @@ const PollSummary = () => {
             <div className="questions-area">
               <h1>Tytuł ankiety</h1>
             </div>
+            <Divider/>
             <SummaryBoard/>
             <div>
               <button type="button">Dalej</button>

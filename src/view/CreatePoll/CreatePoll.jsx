@@ -3,6 +3,7 @@ import CreateQuestions from "../../components/CreateQuestion/CreateQuestion";
 import CreateAnswers from "../../components/CreateAnswers/CreateAnswers";
 import { postPoll, CreateAnswerDTO, CreateQuestionsDTO, CreatePollDTO } from "../../services/pollService";
 import { Navigate, useNavigate } from "react-router-dom";
+import { Divider } from "@mui/material";
 
 
 
@@ -69,6 +70,7 @@ const CreatePoll = () => {
           <div className="questions-area">
             <h1>Stwórz ankiete</h1>
           </div>
+          <Divider/>
           <div>
             {questions.length < 1 ? (
               <CreateQuestions

@@ -40,9 +40,8 @@
             margin: 0 1.5rem;
         }
         .notifications-badge{
-            top: 1rem;
-            right: 1rem;
-            position: absolute;
+            position: inherit;
+            transform: translate(40px,20px);
             width: 1.5rem;
             height: 1.5rem;
             background: red;

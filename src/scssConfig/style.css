@@ -845,9 +845,9 @@ button:hover {
 }
 
 .navbar .navbar-nav .notifications-badge {
-  top: 1rem;
-  right: 1rem;
-  position: absolute;
+  position: inherit;
+  -webkit-transform: translate(40px, 20px);
+          transform: translate(40px, 20px);
   width: 1.5rem;
   height: 1.5rem;
   background: red;
@@ -917,15 +917,16 @@ button:hover {
 }
 
 .question .answers .createquestion-answers {
+  min-height: 9rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
 .question .answers .createquestion-answers .textbox {
-  width: 100%;
+  width: 60%;
   resize: none;
-  min-height: 7.5rem;
+  height: 5rem;
   overflow: hidden;
   font-size: 16px;
   border-radius: 10px;
@@ -937,6 +938,16 @@ button:hover {
   border: 1px solid #000080;
   -webkit-box-shadow: 0 0 10px #719ECE;
           box-shadow: 0 0 10px #719ECE;
+}
+
+.question .answers .createquestion-answers .menu {
+  width: 40%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  row-gap: 1rem;
+  padding-inline: 2rem;
 }
 
 .question h3 {
@@ -960,9 +971,9 @@ button:hover {
 }
 
 .question .answers .create-answers .textbox {
-  width: 100%;
+  width: 60%;
   resize: none;
-  min-height: 7.5rem;
+  height: 5rem;
   overflow: hidden;
   font-size: 16px;
   border-radius: 10px;
@@ -974,6 +985,11 @@ button:hover {
   border: 1px solid #000080;
   -webkit-box-shadow: 0 0 10px #719ECE;
           box-shadow: 0 0 10px #719ECE;
+}
+
+.question .answers .create-answers .button {
+  width: 40%;
+  padding-inline: 2rem;
 }
 
 .inviteArea {

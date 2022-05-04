@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   let navBarItems = [];
-  if (localStorage.getItem('token') !== null ){
+  if (localStorage.getItem('token') !== null) {
     navBarItems.push(
       <li className="nav-item">
         <Link to="/poll" className="nav-link">
@@ -15,8 +15,10 @@ const NavBar = () => {
     navBarItems.push(
       <li className="nav-item">
         <Link to="/notifications" className="nav-link">
-          <img src="Utilities/notifications.svg" alt="Powiadomienia"/>
-          <span className="notifications-badge">2</span>
+          <div>
+            <span className="notifications-badge">2</span>
+            <img src="Utilities/notifications.svg" alt="Powiadomienia" />
+          </div>
           <span className="link-text">Powiadomienia</span>
         </Link>
       </li>
@@ -29,7 +31,7 @@ const NavBar = () => {
         </Link>
       </li>
     );
-    
+
   } else {
     navBarItems.push(
       <li className="nav-item">
@@ -44,7 +46,7 @@ const NavBar = () => {
     <nav className="navbar">
       <ul className="navbar-nav">
         <li className="nav-item">
-        <Link to="/pollcreate" className="nav-link">
+          <Link to="/pollcreate" className="nav-link">
             <img src="Utilities/pen.svg" alt="Stwórz ankietę" />
             <span className="link-text">Stwórz ankietę</span>
           </Link>

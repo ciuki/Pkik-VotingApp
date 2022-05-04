@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 
 const CreateAnswers = (props) => {
@@ -36,72 +36,75 @@ const CreateAnswers = (props) => {
         setChanged((changed) => [...changed, i]);
       }
     }
-    if (e.target.value !== "" && e.target.value !== null){
-      if (!inputComplete.includes(i)){
+    if (e.target.value !== "" && e.target.value !== null) {
+      if (!inputComplete.includes(i)) {
         setInputComplete([...inputComplete, i]);
       }
-    }else{
-      if (inputComplete.includes(i)){
+    } else {
+      if (inputComplete.includes(i)) {
         setInputComplete((prevState) => prevState.filter((prevItem) => prevItem !== i));
       }
     }
-    
+
   };
   const answersToRender = [];
   for (let i = 0; i < answers.length + 1; i++) {
     answersToRender.push(
       <div className='question'>
-        <h3>Odpowiedź {i+1}</h3>
+        <h3>Odpowiedź {i + 1}</h3>
         <div className="answers">
-            <div className="create-answers">
-                <textarea type='text'className="textbox" onChange={(e) => changeCurrentAnswer(i, e)} />
+          <div className="create-answers">
+            <textarea type='text' className="textbox" onChange={(e) => changeCurrentAnswer(i, e)} />
+            <div className='button'>
+            {answers.some(function (item) {
+              return item.index === i;
+            }) &&
+              changed.some(function (item) {
+                return item === i;
+              }) && inputComplete.some(function (item) {
+                return item === i;
+              }) ? (
+              <button onClick={(e) => addAnswerToList(i)}> Zaktualizuj odpowiedź</button>
+            ) : (
+              <></>
+            )}
             </div>
+          </div>
         </div>
         {!answers.some(function (item) {
           return item.index === i;
         }) &&
-        !changed.some(function (item) {
-          return item.index === i;
-        }) && inputComplete.some(function(item){
-          return item === i;
-        })? (
+          !changed.some(function (item) {
+            return item.index === i;
+          }) && inputComplete.some(function (item) {
+            return item === i;
+          }) ? (
           <button onClick={(e) => addAnswerToList(i)}> Dodaj odpowiedź</button>
-        ) : (
-          <></>
-        )}
-        {answers.some(function (item) {
-          return item.index === i;
-        }) &&
-        changed.some(function (item) {
-          return item === i;
-        })&& inputComplete.some(function(item){
-          return item === i;
-        }) ? (
-          <button onClick={(e) => addAnswerToList(i)}> Zaktualizuj odpowiedź</button>
         ) : (
           <></>
         )}
       </div>
     );
-    
+
   }
-  const finalize = () =>{
+  const finalize = () => {
     props.finalize(answers);
   }
   return <div className="CreateAnswersArea">
-      <h1>{props.questionParameter.text}</h1>
-      {answersToRender}
-      {props.questionsLength !== props.questionParameter.index ?(
-      <button onClick ={()=>{
-        let array=[];
+    <h1>{props.questionParameter.text}</h1>
+    {answersToRender}
+    {props.questionsLength !== props.questionParameter.index ? (
+      <button onClick={() => {
+        let array = [];
         props.nextQuestion(answers)
         setAnswers(array);
         setInputComplete(array);
         setCurrentAnswer(array);
-        setChanged(array);}}>Dalej</button>) :
-        (<button onClick={(e)=>finalize()}>Zakończ</button>)}
-      
-      </div>
+        setChanged(array);
+      }}>Dalej</button>) :
+      (<button onClick={(e) => finalize()}>Zakończ</button>)}
+
+  </div>
 };
 
 export default CreateAnswers;
