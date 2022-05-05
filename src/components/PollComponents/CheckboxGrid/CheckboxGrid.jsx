@@ -5,15 +5,15 @@ const CheckboxGrid = (props) => {
 const answersArray = [];
     for (let i = 0; i < props.question.answers.length; i++) {
         answersArray.push(
-          <div className="answer">
-            <div className="checkbox-container">
-              <label className="checkbox-label">
+          <div className="checkboxgrid-answer">
+            <div className="checkboxgrid-checkbox-container">
+              <label className="checkboxgrid-checkbox-label">
                 <input value={props.question.answers[i].id} onChange={(e) => props.handleVoteChange(e,props.question.id)} type="radio" name={"answer"+props.index}></input>
-                <span className="checkbox-custom" />
+                <span className="checkboxgrid-checkbox-custom" />
               </label>
             </div>
-            <div className="answer-container">
-              <span className="answer-content">
+            <div className="checkboxgrid-answer-container">
+              <span className="checkboxgrid-answer-content">
                 {props.question.answers[i].text}
               </span >
             </div>
@@ -21,7 +21,7 @@ const answersArray = [];
         );
       }
     return (
-        <div className="answers">
+        <div className="checkboxgrid-answers">
           {answersArray}
         </div>
     );

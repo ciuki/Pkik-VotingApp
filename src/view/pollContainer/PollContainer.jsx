@@ -52,16 +52,16 @@ const PollContainer = () => {
   }
 
   return (
-    <div className="poll-container">
-      <div className="inner-poll-container">
-        <div className="question-board">
-          <div className="questions-area">
+    <div className="pollcontainer-poll-container">
+      <div className="pollcontainer-inner-poll-container">
+        <div className="pollcontainer-question-board">
+          <div className="pollcontainer-questions-area">
             <h1>Tytuł ankiety</h1>
           </div>
           <Divider/>
           <QuestionBoard Poll={pollData} handleVoteChange={handleVoting}/>
           <div>
-            <button type="button" onClick = {(e) => handleFinalizeVote()}>Dalej</button>
+            <button className='pollcontainer-button' type="button" onClick = {(e) => handleFinalizeVote()}>Dalej</button>
           </div>
         </div>
       </div>

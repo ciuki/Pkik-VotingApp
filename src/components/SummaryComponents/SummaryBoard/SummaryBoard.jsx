@@ -36,7 +36,7 @@ const SummaryBoard = () => {
       switch (votes.voteQuestions[i].questionType) {
         case 1:
           chartsToRender.push(
-            <div className="question">
+            <div className="summaryboard-question">
               <h3>{votes.voteQuestions[i].questionText}</h3>
               <PieChartComponent
                 Votes={votes === "" ? null : votes.voteQuestions[i].answers}
@@ -44,7 +44,7 @@ const SummaryBoard = () => {
             </div>
           );
           chartsToRender.push(
-            <div className="question">
+            <div className="summaryboard-question">
               <h3>{votes.voteQuestions[i].questionText}</h3>
               <BarChartComponent
                 Votes={votes === "" ? null : votes.voteQuestions[i].answers}
@@ -66,7 +66,7 @@ const SummaryBoard = () => {
           }
           let average = count / amount;
           chartsToRender.push(
-            <div className="question">
+            <div className="summaryboard-question">
               <h3>{votes.voteQuestions[i].questionText}</h3>
               <CountUp duration={5} end={average} decimals={2} useEasing={true} prefix="Średni wynik: "/>
             </div>
@@ -76,7 +76,7 @@ const SummaryBoard = () => {
     }
   }
 
-  return <div className="answers-area">{chartsToRender}</div>;
+  return <div className="summaryboard-answers-area">{chartsToRender}</div>;
 };
 
 export default SummaryBoard;

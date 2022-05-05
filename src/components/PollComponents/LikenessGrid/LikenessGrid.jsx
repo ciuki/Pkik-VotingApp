@@ -6,22 +6,22 @@ const LikenessGrid = (props) => {
     const likeness_square = [];
     for (let i = 0; i < 10; i++) {
         likeness_square.push(
-            <div className="radio-answer">
-                <div className="radio-container">
-                    <label className="radio-label">
+            <div className="likenessgrid-radio-answer">
+                <div className="likenessgrid-radio-container">
+                    <label className="likenessgrid-radio-label">
                         <input type="radio" value={props.question.answers[i].id} onChange={(e) => props.handleVoteChange(e,props.question.id)} name={"likenessgroup"+props.index} />
-                        <span className="radio-custom">{i + 1}</span>
+                        <span className="likenessgrid-radio-custom">{i + 1}</span>
                     </label>
                 </div>
             </div>
         );
     }
     return (
-        <div className="answers">
-            <div className="radio-answers">
+        <div className="likenessgrid-answers">
+            <div className="likenessgrid-radio-answers">
                 {likeness_square}
             </div>
-            <div className="radio-signature">
+            <div className="likenessgrid-radio-signature">
                <span>Nie bardzo :/</span>
                <span>Super !!!!</span>
             </div>

@@ -1,40 +1,79 @@
-.question {
-    h3 {
+.createanswer-question {
+    .createanswer-h3 {
         margin: 1rem 2rem 1rem 2rem;
+        font-family: iA Quattro, montserat;
         text-align: left;
         padding: 1em;
         color: #949494;
-        float: left;
         width: 100%;
     }
 
-    .answers {
-        padding: 1.5rem;
+    .createanswer-answers {
         padding-inline: 3rem;
 
         .create-answers {
             display: flex;
-
-            .textbox {
-                width: 60%;
+            min-height: 9rem;
+            align-items: center;
+            justify-content: space-between;
+            .createanswer-textbox {
+                width: 40%;
                 resize: none;
                 height: 5rem;
                 overflow: hidden;
                 font-size: 16px;
                 border-radius: 10px;
                 border: 1px solid rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+                padding: 0.75rem;
+                font-family: iA Quattro, montserat;
+                font-size: 1rem;
+                font-weight: 400;
             }
 
-            .textbox:focus {
+            .createanswer-textbox:focus {
+                transition: 0.5s;
                 outline: none !important;
                 border: 1px solid #000080;
                 box-shadow: 0 0 10px #719ECE;
             }
 
-            .button{
-                width: 40%;
-                padding-inline:2rem;
+            .createanswer-menu {
+                width: 30%;
+                display: grid;
+                grid-template-columns: 1fr;
+                row-gap: 1rem;
+                padding-inline: 2rem;
+
+
             }
+            
         }
     }
 }
+.createanswer-button {
+    background-color: #e2e2e2;
+    padding: 0.5rem;
+    padding-inline: 2rem;
+    border-radius: 5px;
+    border-style: none;
+    box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: iA Quattro,montserat;
+    font-size: 1rem;
+    font-weight:400;
+    outline: 0;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+    user-select: none;
+    touch-action: manipulation;
+    vertical-align: bottom;
+    margin-bottom: 1em;
+  }
+
+  .createanswer-button:hover {
+    opacity: 0.7;
+    background-color: #000080;
+    color: white;
+  }

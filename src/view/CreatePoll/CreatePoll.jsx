@@ -121,9 +121,9 @@ const CreatePoll = () => {
 
   return (
     <div className="PollCreationArea">
-      <div className="inner-poll-container">
-        <div className="question-board">
-          <div className="questions-area">
+      <div className="createpoll-inner-poll-container">
+        <div className="createpoll-question-board">
+          <div className="createpoll-questions-area">
             <h1>Stwórz ankiete</h1>
           </div>
           <Divider />

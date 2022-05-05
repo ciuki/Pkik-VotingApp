@@ -1,7 +1,7 @@
-.answers {
+.expectationgrid-answers {
     padding-left: 2rem;
     padding-right: 2rem;
-    .expectation-signature{
+    .expectationgrid-expectation-signature{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap:20%;
@@ -9,27 +9,30 @@
         font-weight: bolder;
       }
     }
-    .expectation-answers {
+    .expectationgrid-expectation-answers {
       display: flex;
-      .expectation-answer {
+      margin-bottom: 1.5rem;
+      .expectationgrid-expectation-answer {
         flex-grow: 1;
         min-height: 1rem;
         padding: .3rem .6rem .3rem .6rem;
   
-        .expectation-container {
+        .expectationgrid-expectation-container {
           min-width: 30px;
           min-height: 30px;
+          display: flex;
   
-          .expectation-label {
+          .expectationgrid-expectation-label {
             input {
               position: absolute;
               opacity: 0;
               height: 1.5rem;
               width: 1rem;
               cursor: pointer;
+              font-family: iA Quattro, montserat;
             }
   
-            .expectation-custom {
+            .expectationgrid-expectation-custom {
               background-color: #e2e2e2;
               padding: 0.75rem;
               width: 3.25rem;
@@ -39,10 +42,9 @@
               box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
               color: black;
               cursor: pointer;
-              display: inline-block;
-              font-family: "Exo 2", sans-serif;
-              font-size: 30px;
-              font-weight: 500;
+              font-family: iA Quattro, montserat;
+              font-size: 1.75rem;
+              font-weight: 400;
               margin-left: -4px;
               outline: 0;
               text-align: center;
@@ -53,7 +55,7 @@
               margin-bottom: 1em;
             }
   
-            input:checked~.expectation-custom {
+            input:checked~.expectationgrid-expectation-custom {
               opacity: 0.7;
               background-color: #000080;
               color: white;

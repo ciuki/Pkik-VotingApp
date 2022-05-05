@@ -50,24 +50,24 @@ const CreateAnswers = (props) => {
   const answersToRender = [];
   for (let i = 0; i < answers.length + 1; i++) {
     answersToRender.push(
-      <div className='question'>
-        <h3>Odpowiedź {i + 1}</h3>
-        <div className="answers">
+      <div className='createanswer-question'>
+        <h3 className="createanswer-h3">Odpowiedź {i + 1}</h3>
+        <div className="createanswer-answers">
           <div className="create-answers">
-            <textarea type='text' className="textbox" onChange={(e) => changeCurrentAnswer(i, e)} />
-            <div className='button'>
-            {answers.some(function (item) {
-              return item.index === i;
-            }) &&
-              changed.some(function (item) {
-                return item === i;
-              }) && inputComplete.some(function (item) {
-                return item === i;
-              }) ? (
-              <button onClick={(e) => addAnswerToList(i)}> Zaktualizuj odpowiedź</button>
-            ) : (
-              <></>
-            )}
+            <textarea type='text' className="createanswer-textbox" onChange={(e) => changeCurrentAnswer(i, e)} />
+            <div className="createanswer-menu">
+              {answers.some(function (item) {
+                return item.index === i;
+              }) &&
+                changed.some(function (item) {
+                  return item === i;
+                }) && inputComplete.some(function (item) {
+                  return item === i;
+                }) ? (
+                <button className='createanswer-button' onClick={(e) => addAnswerToList(i)}> Zaktualizuj odpowiedź</button>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@ const CreateAnswers = (props) => {
           }) && inputComplete.some(function (item) {
             return item === i;
           }) ? (
-          <button onClick={(e) => addAnswerToList(i)}> Dodaj odpowiedź</button>
+          <button className='createanswer-button' onClick={(e) => addAnswerToList(i)}> Dodaj odpowiedź</button>
         ) : (
           <></>
         )}
@@ -100,12 +100,15 @@ const CreateAnswers = (props) => {
         setAnswers(array);
         setInputComplete(array);
         setCurrentAnswer(array);
-        setChanged(array);}}
-        disabled={answers.length>0 ? false : true}>Dalej</button>) :
-        (<button onClick={(e)=>finalize()}
-        disabled={answers.length>0 ? false : true}>Zakończ</button>)}
-      
-      </div>
+        setChanged(array);
+      }}
+        disabled={answers.length > 0 ? false : true}>Dalej</button>) :
+      (<button
+        className='createanswer-button'
+        onClick={(e) => finalize()}
+        disabled={answers.length > 0 ? false : true}>Zakończ</button>)}
+
+  </div>
 };
 
 export default CreateAnswers;

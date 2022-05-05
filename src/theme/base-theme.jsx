@@ -1,11 +1,12 @@
 import { createTheme } from '@mui/material';
-import { red } from './colors';
+import { red,darkBlue } from './colors';
 
 const baseTheme = createTheme( {
     palette: {
         primary: {
             main: red
-        }
+        },
+        secondary: darkBlue
     },
     typography: {
         fontFamily: 'iA Quattro,montserat',

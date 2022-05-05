@@ -1,6 +1,6 @@
 
 const NotFound = () =>
-    <div className='parent'>
+    <div className='notfound-parent'>
         <h1>  
         404 Not Found
         </h1>

@@ -15,7 +15,7 @@ const PollSummary = () => {
             <Divider/>
             <SummaryBoard/>
             <div>
-              <button type="button">Dalej</button>
+              <button className='button' type="button">Dalej</button>
             </div>
           </div>
       </div>

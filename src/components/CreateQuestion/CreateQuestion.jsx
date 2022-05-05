@@ -103,19 +103,20 @@ const CreateQuestions = (props) => {
 
   for (let i = 0; i < questions.length + 1; i++) {
     questionsToRender.push(
-      <div className="question">
-        <h3>Pytanie {i + 1}</h3>
+      <div className="createquestion-question">
+        <h3 className="createquestion-h3">Pytanie {i + 1}</h3>
         <div className="answers">
           <div className="createquestion-answers">
             <textarea
               type="text"
               readOnly={!changed.includes(i) && changed.length > 0}
-              className="textbox"
+              className="createquestion-textbox"
               onChange={(e) => changeCurrentQuestion(i, e)}
             />
-            <div className="menu">
+            <div className="createquestion-menu">
               <Select
-                className="choose"
+                selectedTypes=''
+                className="createquestion-choose"
                 options={options}
                 onChange={(e) => handleTypeChange(e, i)}
               />
@@ -128,7 +129,7 @@ const CreateQuestions = (props) => {
               inputComplete.some(function (item) {
                 return item === i;
               }) ? (
-                <button onClick={(e) => addQuestionToList(i)}>
+                <button className='createquestion-button' onClick={(e) => addQuestionToList(i)}>
                   {" "}
                   Zaktualizuj pytanie
                 </button>
@@ -147,7 +148,7 @@ const CreateQuestions = (props) => {
         inputComplete.some(function (item) {
           return item === i;
         }) ? (
-          <button onClick={(e) => addQuestionToList(i)}> Dodaj pytanie </button>
+          <button className='createquestion-button' onClick={(e) => addQuestionToList(i)}> Dodaj pytanie </button>
         ) : (
           <></>
         )}
@@ -159,6 +160,7 @@ const CreateQuestions = (props) => {
       {questionsToRender}
       <div>
         <button
+          className='createquestion-button'
           onClick={() => props.onChange(questions)}
           disabled={questions.length > 0 ? false : true}
         >

@@ -36,22 +36,22 @@ const ExpectationGrid = (props) => {
                 break;
         }
         likeness_square.push(
-            <div className="expectation-answer">
-                <div className="expectation-container">
-                    <label className="expectation-label">
+            <div className="expectationgrid-expectation-answer">
+                <div className="expectationgrid-expectation-container">
+                    <label className="expectationgrid-expectation-label">
                         <input type="radio" name={"expectationgroup"+props.index} onChange={(e) => props.handleVoteChange(e,props.question.id)} value={props.question.answers[i].id} />
-                        <span className="expectation-custom"><FontAwesomeIcon icon={x} /></span>
+                        <span className="expectationgrid-expectation-custom"><FontAwesomeIcon icon={x} /></span>
                     </label>
                 </div>
             </div>
         );
     }
     return (
-        <div className="answers">
-            <div className="expectation-answers">
+        <div className="expectationgrid-answers">
+            <div className="expectationgrid-expectation-answers">
                 {likeness_square}
             </div>
-            <div className="expectation-signature">
+            <div className="expectationgrid-expectation-signature">
                <span>Nie bardzo :/</span>
                <span>Sredniawa</span>
                <span>Super!!!</span>

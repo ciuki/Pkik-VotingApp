@@ -4,9 +4,9 @@ import React from "react";
 
 const OpenQuestion = () => {
     return (
-        <div className="answers">
-            <div className="openquestion-answers">
-                <textarea className="textbox" />
+        <div className="openquestion-answers">
+            <div className="openquestion-inside-answers">
+                <textarea className="openquestion-textbox" />
             </div>
         </div>
     );
