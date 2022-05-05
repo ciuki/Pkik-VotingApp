@@ -1,6 +1,9 @@
 import APIAddress from '../APIAddress';
 import jwt from 'jwt-decode';
 const axios = require('axios');
+
+axios.defaults.headers.common['header1'] = 'value'
+
 export async function loginUser(loginData){
     console.log(loginData);
     try{

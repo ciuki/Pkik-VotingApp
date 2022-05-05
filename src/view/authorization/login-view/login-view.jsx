@@ -23,7 +23,7 @@ const LoginView = () => {
     }
 
     if (localStorage.getItem('token') !== null ){
-        return <Navigate to='/poll' />
+        return <Navigate to='/myPolls' />
     }
 
     return (

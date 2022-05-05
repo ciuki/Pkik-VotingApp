@@ -9,6 +9,7 @@ import {
 } from "../../services/pollService";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Divider } from "@mui/material";
+import ConfigPoll from "../../components/ConfigPoll/ConfigPoll";
 
 const CreatePoll = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const CreatePoll = () => {
     finalQuestionWithAnwersToAddIndex,
     setFinalQuestionWithAnswersToAddIndex,
   ] = useState(null);
+  const [pollConfig, setPollConfig] = useState(null);
   const handleQuestionChange = (value) => {
     let updatedQuestionsArray = createUpdatedQuestionsArray(value);
     for (
@@ -32,6 +34,7 @@ const CreatePoll = () => {
     }
     setQuestions(updatedQuestionsArray);
   };
+  console.log(pollConfig);
   const createUpdatedQuestionsArray = (value) => {
     console.log(value);
     let answersDTOArray = [];
@@ -53,7 +56,7 @@ const CreatePoll = () => {
   };
   const handleFinalize = (value, flag) => {
     let updatedQuestionsArray = value;
-    if (flag){
+    if (flag) {
       updatedQuestionsArray = createUpdatedQuestionsArray(value);
     }
     for (let i = 0; i < updatedQuestionsArray.length; i++) {
@@ -76,11 +79,13 @@ const CreatePoll = () => {
     setQuestions(updatedQuestionsArray);
     console.log(updatedQuestionsArray);
     let pollDTO = CreatePollDTO(
-      "Ankieta",
+      pollConfig.name,
+      pollConfig.allowAnonymous,
       true,
-      true,
-      1,
-      null,
+      pollConfig.resultsArePublic,
+      pollConfig.pollType,
+      pollConfig.startDate,
+      pollConfig.endDate,
       updatedQuestionsArray,
       null,
       null
@@ -123,23 +128,29 @@ const CreatePoll = () => {
           </div>
           <Divider />
           <div>
-            {questions.length < 1 ? (
-              <CreateQuestions
-                onChange={(value) => {
-                  finishAddingQuestions(value);
-                }}
-              />
+            {pollConfig === null ? (
+              <ConfigPoll createConfig={(value) => setPollConfig(value)}/>
             ) : (
               <>
-                {currentQuestionIndex !== null ? (
-                  <CreateAnswers
-                    nextQuestion={(value) => handleQuestionChange(value)}
-                    questionParameter={questions[currentQuestionIndex]}
-                    questionsLength={finalQuestionWithAnwersToAddIndex}
-                    finalize={(value) => handleFinalize(value, true)}
+                {questions.length < 1 ? (
+                  <CreateQuestions
+                    onChange={(value) => {
+                      finishAddingQuestions(value);
+                    }}
                   />
                 ) : (
-                  <></>
+                  <>
+                    {currentQuestionIndex !== null ? (
+                      <CreateAnswers
+                        nextQuestion={(value) => handleQuestionChange(value)}
+                        questionParameter={questions[currentQuestionIndex]}
+                        questionsLength={finalQuestionWithAnwersToAddIndex}
+                        finalize={(value) => handleFinalize(value, true)}
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </>
                 )}
               </>
             )}

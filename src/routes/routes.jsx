@@ -9,6 +9,7 @@ import Invite from '../view/invite/Invite';
 import PollSummary from '../view/PollSummary/PollSummary';
 import Logout from '../components/Logout/Logout';
 import ProtectedRoute from './ProtectedRoute';
+import MyPolls from '../view/myPolls/MyPolls';
 
 const CustomRoutes = () => 
     <Routes>
@@ -20,6 +21,7 @@ const CustomRoutes = () =>
         <Route path="notifications" element={<ProtectedRoute> <NotificationsView /></ProtectedRoute>}/>
         <Route path="invite" element={<ProtectedRoute> <Invite/></ProtectedRoute>}/>
         <Route path="summary/:id" element={<ProtectedRoute> <PollSummary /></ProtectedRoute>}/>
+        <Route path="myPolls" element={<ProtectedRoute> <MyPolls /></ProtectedRoute>}/>
         <Route path='logout' element = {<Logout/>}/>
     </Routes>
 ;

@@ -6,7 +6,7 @@ const NavBar = () => {
   if (localStorage.getItem('token') !== null) {
     navBarItems.push(
       <li className="nav-item">
-        <Link to="/poll" className="nav-link">
+        <Link to="/myPolls" className="nav-link">
           <img src="/Utilities/survey.svg" alt="Przegladaj swoje ankiety" />
           <span className="link-text">Przegladaj swoje ankiety</span>
         </Link>
