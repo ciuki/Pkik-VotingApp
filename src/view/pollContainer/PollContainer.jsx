@@ -8,7 +8,6 @@ import { CreateVoteAggregateDTO, CreateVoteDTO, PostVoteAggregateDTO } from "../
 
 const PollContainer = () => {
   const {id} = useParams();
-  console.log(id);
   const [pollData, setPollData] = useState("");
   const [chosenVotes, setChosenVotes] = useState([]);
   useEffect(() => {

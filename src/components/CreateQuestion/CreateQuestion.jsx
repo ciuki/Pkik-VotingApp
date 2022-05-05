@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import Select from "react-dropdown-select";
 
 const options = [
-  { value: 1, label: 'Zamknięte' },
-  { value: 2, label: 'Otwarte' },
-  { value: 3, label: 'Emoji' },
-  { value: 4, label: 'Reakcja' }
-]
+  { value: 1, label: "Zamknięte" },
+  { value: 2, label: "Otwarte" },
+  { value: 3, label: "Emoji" },
+  { value: 4, label: "Reakcja" },
+];
 
 const CreateQuestions = (props) => {
   const [questions, setQuestions] = useState([]);
@@ -38,7 +38,6 @@ const CreateQuestions = (props) => {
     if (changed.includes(i)) {
       setChanged((prevState) => prevState.filter((prevItem) => prevItem !== i));
     }
-    console.log(questions);
   };
 
   const changeCurrentQuestion = (i, e) => {
@@ -49,7 +48,7 @@ const CreateQuestions = (props) => {
     let tempQuestion = {
       index: i,
       text: e.target.value,
-      type: typeToAssign
+      type: typeToAssign,
     };
     setCurrentQuestion(tempQuestion);
     if (questions.length >= i + 1 && tempQuestion.text !== questions[i].text) {
@@ -63,26 +62,27 @@ const CreateQuestions = (props) => {
       }
     } else {
       if (inputComplete.includes(i)) {
-        setInputComplete((prevState) => prevState.filter((prevItem) => prevItem !== i));
+        setInputComplete((prevState) =>
+          prevState.filter((prevItem) => prevItem !== i)
+        );
       }
     }
-
+    console.log(changed);
   };
 
-
   const handleTypeChange = (e, i) => {
-    if (selectedTypes.length >= 1 &&
-      selectedTypes[i] !== e[0].value) {
-      setSelectedTypes([...selectedTypes.slice(0, i), ...selectedTypes.slice(i + 1)]);
+    if (selectedTypes.length >= 1 && selectedTypes[i] !== e[0].value) {
+      setSelectedTypes([
+        ...selectedTypes.slice(0, i),
+        ...selectedTypes.slice(i + 1),
+      ]);
       let tempSelectedTypesArray = [...selectedTypes];
       tempSelectedTypesArray.splice(i, 0, e[0].value);
       tempSelectedTypesArray.splice(i + 1, 1);
       setSelectedTypes(tempSelectedTypesArray);
     } else if (selectedTypes[i] === e[0].value) {
-
       //moze sie przyda
-    }
-    else {
+    } else {
       setSelectedTypes([...selectedTypes, e[0].value]);
     }
 
@@ -99,26 +99,39 @@ const CreateQuestions = (props) => {
       tempCQ.type = e[0].value;
       setCurrentQuestion(tempCQ);
     }
-
-  }
+  };
 
   for (let i = 0; i < questions.length + 1; i++) {
     questionsToRender.push(
-      <div className='question'>
+      <div className="question">
         <h3>Pytanie {i + 1}</h3>
         <div className="answers">
           <div className="createquestion-answers">
-            <textarea type='text' className="textbox" onChange={(e) => changeCurrentQuestion(i, e)} />
+            <textarea
+              type="text"
+              readOnly={!changed.includes(i) && changed.length > 0}
+              className="textbox"
+              onChange={(e) => changeCurrentQuestion(i, e)}
+            />
             <div className="menu">
-              <Select  className="choose" options={options} onChange={(e) => handleTypeChange(e, i)} />
+              <Select
+                className="choose"
+                options={options}
+                onChange={(e) => handleTypeChange(e, i)}
+              />
               {questions.some(function (item) {
                 return item.index === i;
-              }) && changed.some(function (item) {
+              }) &&
+              changed.some(function (item) {
                 return item === i;
-              }) && inputComplete.some(function (item) {
+              }) &&
+              inputComplete.some(function (item) {
                 return item === i;
               }) ? (
-                <button onClick={(e) => addQuestionToList(i)}> Zaktualizuj pytanie</button>
+                <button onClick={(e) => addQuestionToList(i)}>
+                  {" "}
+                  Zaktualizuj pytanie
+                </button>
               ) : (
                 <></>
               )}
@@ -127,9 +140,11 @@ const CreateQuestions = (props) => {
         </div>
         {!questions.some(function (item) {
           return item.index === i;
-        }) && !changed.some(function (item) {
+        }) &&
+        !changed.some(function (item) {
           return item === i;
-        }) && inputComplete.some(function (item) {
+        }) &&
+        inputComplete.some(function (item) {
           return item === i;
         }) ? (
           <button onClick={(e) => addQuestionToList(i)}> Dodaj pytanie </button>
@@ -139,12 +154,19 @@ const CreateQuestions = (props) => {
       </div>
     );
   }
-  return <div>
-    {questionsToRender}
+  return (
     <div>
-      <button onClick ={()=> props.onChange(questions)} disabled={questions.length>0 ? false : true} >Dalej</button>
+      {questionsToRender}
+      <div>
+        <button
+          onClick={() => props.onChange(questions)}
+          disabled={questions.length > 0 ? false : true}
+        >
+          Dalej
+        </button>
+      </div>
     </div>
-  </div>;
+  );
 };
 
 export default CreateQuestions;

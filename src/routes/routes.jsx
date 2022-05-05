@@ -19,7 +19,7 @@ const CustomRoutes = () =>
         <Route path='*' element = {<NotFound/>}/>  
         <Route path="notifications" element={<ProtectedRoute> <NotificationsView /></ProtectedRoute>}/>
         <Route path="invite" element={<ProtectedRoute> <Invite/></ProtectedRoute>}/>
-        <Route path="summary" element={<ProtectedRoute> <PollSummary /></ProtectedRoute>}/>
+        <Route path="summary/:id" element={<ProtectedRoute> <PollSummary /></ProtectedRoute>}/>
         <Route path='logout' element = {<Logout/>}/>
     </Routes>
 ;

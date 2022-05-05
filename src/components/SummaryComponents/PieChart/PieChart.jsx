@@ -36,7 +36,7 @@ const PieChartComponent = (props) => {
                 <PieChart width={730} height={250} className="piechart2">
                     <Tooltip />
                     <Legend verticalAlign="center" align="right" layout="vertical" top/>
-                    <Pie data={props.Votes} dataKey="count" nameKey="answerId" verticalAlign="center" align="right" outerRadius={100} fill="#8884d8" >
+                    <Pie data={props.Votes} dataKey="count" nameKey="answerText" verticalAlign="center" align="right" outerRadius={100} fill="#8884d8" >
                         {data01.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)}
                     </Pie>
                 </PieChart>

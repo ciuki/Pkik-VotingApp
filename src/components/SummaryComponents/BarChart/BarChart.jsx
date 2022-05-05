@@ -34,7 +34,7 @@ const BarChartComponent = (props) => {
         <div className="answers">
             <div className="barchart">
                 <BarChart width={730} height={250} data={props.Votes} className="barchart2"> 
-                    <XAxis dataKey="answerId" />
+                    <XAxis dataKey="answerText" />
                     <YAxis />
                     <Tooltip />     
                     <Bar dataKey="count" fill="#8884d8" >

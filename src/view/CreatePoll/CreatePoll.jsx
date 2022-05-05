@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import CreateQuestions from "../../components/CreateQuestion/CreateQuestion";
 import CreateAnswers from "../../components/CreateAnswers/CreateAnswers";
-import { postPoll, CreateAnswerDTO, CreateQuestionsDTO, CreatePollDTO } from "../../services/pollService";
+import {
+  postPoll,
+  CreateAnswerDTO,
+  CreateQuestionsDTO,
+  CreatePollDTO,
+} from "../../services/pollService";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Divider } from "@mui/material";
 
@@ -9,44 +14,59 @@ const CreatePoll = () => {
   const navigate = useNavigate();
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(null);
-  const [finalQuestionWithAnwersToAddIndex, setFinalQuestionWithAnswersToAddIndex] = useState(null);
+  const [
+    finalQuestionWithAnwersToAddIndex,
+    setFinalQuestionWithAnswersToAddIndex,
+  ] = useState(null);
   const handleQuestionChange = (value) => {
     let updatedQuestionsArray = createUpdatedQuestionsArray(value);
-    for (let i=currentQuestionIndex+1; i<=finalQuestionWithAnwersToAddIndex; i++){
-        if (updatedQuestionsArray[i].type === 1){
-            setCurrentQuestionIndex(i);
-            break;
-        }
+    for (
+      let i = currentQuestionIndex + 1;
+      i <= finalQuestionWithAnwersToAddIndex;
+      i++
+    ) {
+      if (updatedQuestionsArray[i].type === 1) {
+        setCurrentQuestionIndex(i);
+        break;
+      }
     }
     setQuestions(updatedQuestionsArray);
   };
-  const createUpdatedQuestionsArray =(value) => {
+  const createUpdatedQuestionsArray = (value) => {
     console.log(value);
     let answersDTOArray = [];
-    for (let i=0; i<value.length; i++){
+    for (let i = 0; i < value.length; i++) {
       let tempAnswer = CreateAnswerDTO(value[i].text);
       answersDTOArray.push(tempAnswer);
-    };
+    }
     console.log(answersDTOArray);
-    let questionDTO = CreateQuestionsDTO(questions[currentQuestionIndex].text,"description",questions[currentQuestionIndex].type,answersDTOArray);
+    let questionDTO = CreateQuestionsDTO(
+      questions[currentQuestionIndex].text,
+      "description",
+      questions[currentQuestionIndex].type,
+      answersDTOArray
+    );
     const updatedQuestionsArray = Object.assign([...questions], {
       [currentQuestionIndex]: questionDTO,
     });
     return updatedQuestionsArray;
-  }
-  const handleFinalize = (value) => {
-    let updatedQuestionsArray = createUpdatedQuestionsArray(value);
-    for (let i=0; i<updatedQuestionsArray.length; i++){
-      if (updatedQuestionsArray[i].type===3){
+  };
+  const handleFinalize = (value, flag) => {
+    let updatedQuestionsArray = value;
+    if (flag){
+      updatedQuestionsArray = createUpdatedQuestionsArray(value);
+    }
+    for (let i = 0; i < updatedQuestionsArray.length; i++) {
+      if (updatedQuestionsArray[i].type === 3) {
         let answersDTO = [];
-        for (let j=0; j<10; j++){
+        for (let j = 1; j < 11; j++) {
           let answerDTO = CreateAnswerDTO(j.toString());
           answersDTO.push(answerDTO);
         }
         updatedQuestionsArray[i].answers = answersDTO;
-      }else if (updatedQuestionsArray[i].type===4){
+      } else if (updatedQuestionsArray[i].type === 4) {
         let answersDTO = [];
-        for (let j=0; j<5; j++){
+        for (let j = 1; j < 6; j++) {
           let answerDTO = CreateAnswerDTO(j.toString());
           answersDTO.push(answerDTO);
         }
@@ -55,9 +75,19 @@ const CreatePoll = () => {
     }
     setQuestions(updatedQuestionsArray);
     console.log(updatedQuestionsArray);
-    let pollDTO = CreatePollDTO("Ankieta", true, true, 1, null, updatedQuestionsArray, null, null )
+    let pollDTO = CreatePollDTO(
+      "Ankieta",
+      true,
+      true,
+      1,
+      null,
+      updatedQuestionsArray,
+      null,
+      null
+    );
+    console.trace();
     postPoll(pollDTO);
-    //navigate('/invite');
+    navigate("/invite");
   };
 
   const finishAddingQuestions = (value) => {
@@ -67,14 +97,20 @@ const CreatePoll = () => {
     for (let i = 0; i < value.length; i++) {
       if (value[i].type === 1) {
         if (temp2 === null) {
-          temp2=i;
+          temp2 = i;
           console.log(i);
         }
         temp = i;
         console.log(i);
       }
-      setCurrentQuestionIndex(temp2);
-      setFinalQuestionWithAnswersToAddIndex(temp);
+      console.log(temp, temp2);
+      if (temp2 === null) {
+        console.log(value);
+        handleFinalize(value, false);
+      } else {
+        setCurrentQuestionIndex(temp2);
+        setFinalQuestionWithAnswersToAddIndex(temp);
+      }
     }
   };
 
@@ -85,21 +121,27 @@ const CreatePoll = () => {
           <div className="questions-area">
             <h1>Stwórz ankiete</h1>
           </div>
-          <Divider/>
+          <Divider />
           <div>
             {questions.length < 1 ? (
               <CreateQuestions
                 onChange={(value) => {
-                  finishAddingQuestions(value)
+                  finishAddingQuestions(value);
                 }}
               />
             ) : (
-              <CreateAnswers
-                nextQuestion={(value) => handleQuestionChange(value)}
-                questionParameter={questions[currentQuestionIndex]}
-                questionsLength={finalQuestionWithAnwersToAddIndex}
-                finalize={(value) => handleFinalize(value)}
-              />
+              <>
+                {currentQuestionIndex !== null ? (
+                  <CreateAnswers
+                    nextQuestion={(value) => handleQuestionChange(value)}
+                    questionParameter={questions[currentQuestionIndex]}
+                    questionsLength={finalQuestionWithAnwersToAddIndex}
+                    finalize={(value) => handleFinalize(value, true)}
+                  />
+                ) : (
+                  <></>
+                )}
+              </>
             )}
           </div>
         </div>
