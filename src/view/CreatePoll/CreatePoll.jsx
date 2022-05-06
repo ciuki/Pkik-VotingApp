@@ -7,11 +7,20 @@ import {
   CreateQuestionsDTO,
   CreatePollDTO,
 } from "../../services/pollService";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Divider } from "@mui/material";
 import ConfigPoll from "../../components/ConfigPoll/ConfigPoll";
+import { css } from "@emotion/react";
+import SyncLoader from "react-spinners/SyncLoader";
+import {toast} from "react-toastify"
+
+const override = css`
+  margin: 0 auto;
+  border-color: red;
+`;
 
 const CreatePoll = () => {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(null);
@@ -34,8 +43,8 @@ const CreatePoll = () => {
     }
     setQuestions(updatedQuestionsArray);
   };
-  console.log(pollConfig);
   const createUpdatedQuestionsArray = (value) => {
+    setLoading(true);
     console.log(value);
     let answersDTOArray = [];
     for (let i = 0; i < value.length; i++) {
@@ -55,6 +64,7 @@ const CreatePoll = () => {
     return updatedQuestionsArray;
   };
   const handleFinalize = (value, flag) => {
+    setLoading(true);
     let updatedQuestionsArray = value;
     if (flag) {
       updatedQuestionsArray = createUpdatedQuestionsArray(value);
@@ -90,10 +100,16 @@ const CreatePoll = () => {
       null,
       null
     );
-    console.trace();
-    postPoll(pollDTO);
-    navigate("/invite");
+    SendPoll(pollDTO);
+    
   };
+
+  const SendPoll = async (pollDTO) =>{
+    await postPoll(pollDTO);
+    setLoading (false);
+    navigate("/invite");
+  }
+  
 
   const finishAddingQuestions = (value) => {
     setQuestions(value);
@@ -156,6 +172,12 @@ const CreatePoll = () => {
             )}
           </div>
         </div>
+        <SyncLoader
+          loading={loading}
+          color={"#ffffff"}
+          css={override}
+          size={15}
+        />
       </div>
     </div>
   );

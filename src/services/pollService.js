@@ -1,6 +1,7 @@
 import APIAddress from "../APIAddress";
+import axios from "../services/api-interceptor"
+import {toast} from "react-toastify";
 
-const axios = require("axios");
 export async function postPoll(pollDTO) {
   try {
     console.log(pollDTO);
@@ -10,10 +11,7 @@ export async function postPoll(pollDTO) {
         console.log(response);
       });
   } catch (err) {
-    console.error("Error response:");
-    console.error(err.response.data); // ***
-    console.error(err.response.status); // ***
-    console.error(err.response.headers);
+    toast.error(err.response.data.message);
   }
 }
 
@@ -23,10 +21,7 @@ export async function GetPollByID(pollID) {
       .get(APIAddress.value + "/api/Poll/" + pollID)
       .then(function (response) {});
   } catch (err) {
-    console.error("Error response:");
-    console.error(err.response.data); // ***
-    console.error(err.response.status); // ***
-    console.error(err.response.headers);
+    toast.error(err.response.data.message);
   }
 }
 
@@ -100,9 +95,6 @@ export async function PostVoteAggregateDTO(voteAggregateDTO) {
         console.log(response);
       });
   } catch (err) {
-    console.error("Error response:");
-    console.error(err.response.data); // ***
-    console.error(err.response.status); // ***
-    console.error(err.response.headers);
+    toast.error(err.response.data.message);
   }
 }

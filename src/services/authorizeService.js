@@ -1,11 +1,10 @@
 import APIAddress from '../APIAddress';
 import jwt from 'jwt-decode';
-const axios = require('axios');
+import { toast } from 'react-toastify';
+import axios from "../services/api-interceptor";
 
-axios.defaults.headers.common['header1'] = 'value'
 
 export async function loginUser(loginData){
-    console.log(loginData);
     try{
         const response = await axios.post(APIAddress.value+"/login", 
         {
@@ -17,14 +16,13 @@ export async function loginUser(loginData){
             localStorage.setItem('token', token);
             localStorage.setItem('userName',user.name);
             localStorage.setItem('userEmail', user.sub);
+            toast.success("Udało się zalogować");
             window.location.reload(false);
         });
         
     }catch (err){
-        console.error("Error response:");
-        console.error(err.response.data);    // ***
-        console.error(err.response.status);  // ***
-        console.error(err.response.headers);
+        toast.error(err.response.data.message);
+        return false;
     }
 }
 
@@ -38,10 +36,7 @@ export async function registerUser(registerData){
             console.log(response);
         });
     }catch (err){
-        console.error("Error response:");
-        console.error(err.response.data);    // ***
-        console.error(err.response.status);  // ***
-        console.error(err.response.headers);
+        toast.error(err.response.data.message);
     }
 }
 

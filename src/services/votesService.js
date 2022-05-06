@@ -1,6 +1,6 @@
 import APIAddress from "../APIAddress";
+import axios from "../services/api-interceptor"
 
-const axios = require('axios');
 
 export async function GetVotesByPollId(pollID){
     try{
@@ -9,9 +9,6 @@ export async function GetVotesByPollId(pollID){
             return response.data;
         });
     }catch (err){
-        console.error("Error response:");
-        console.error(err.response.data);    // ***
-        console.error(err.response.status);  // ***
-        console.error(err.response.headers);
+        toast.error(err.response.data.message);
     }
 }

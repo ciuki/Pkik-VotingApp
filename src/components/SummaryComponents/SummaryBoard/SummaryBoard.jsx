@@ -4,8 +4,9 @@ import PieChartComponent from "../PieChart/PieChart";
 import APIAddress from "../../../APIAddress";
 import { useParams } from "react-router-dom";
 import CountUp from "react-countup";
+import {toast} from "react-toastify";
 
-const axios = require("axios");
+import axios from "../../../services/api-interceptor"
 
 const SummaryBoard = () => {
   const { id } = useParams();
@@ -20,10 +21,7 @@ const SummaryBoard = () => {
             setVotes(response.data);
           });
       } catch (err) {
-        console.error("Error response:");
-        console.error(err.response.data); // ***
-        console.error(err.response.status); // ***
-        console.error(err.response.headers);
+        toast.error(err.response.data.message);
       }
     };
     fetchData();

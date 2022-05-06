@@ -5,8 +5,19 @@ import axios from "axios";
 import APIAddress from "../../APIAddress";
 import { Divider } from "@mui/material";
 import { CreateVoteAggregateDTO, CreateVoteDTO, PostVoteAggregateDTO } from "../../services/pollService";
+import SyncLoader from "react-spinners/SyncLoader";
+import {toast} from "react-toastify"
+import { css } from "@emotion/react";
+
+const override = css`
+  margin: 0 auto;
+  border-color: red;
+`;
+
+
 
 const PollContainer = () => {
+  const [loading, setLoading] = useState(true);
   const {id} = useParams();
   const [pollData, setPollData] = useState("");
   const [chosenVotes, setChosenVotes] = useState([]);
@@ -20,9 +31,9 @@ const PollContainer = () => {
             setPollData(response.data);
           });
       } catch (err) {
-        console.error("Error response:");
-        console.error(err.response.data);
+        toast.error(err.response.data);
       }
+      setLoading(false);
     };
     fetchData();
   }, []);
@@ -56,7 +67,7 @@ const PollContainer = () => {
       <div className="pollcontainer-inner-poll-container">
         <div className="pollcontainer-question-board">
           <div className="pollcontainer-questions-area">
-            <h1>Tytuł ankiety</h1>
+            <h1>{pollData.name}</h1>
           </div>
           <Divider/>
           <QuestionBoard Poll={pollData} handleVoteChange={handleVoting}/>
@@ -64,6 +75,12 @@ const PollContainer = () => {
             <button className='pollcontainer-button' type="button" onClick = {(e) => handleFinalizeVote()}>Dalej</button>
           </div>
         </div>
+        <SyncLoader
+          loading={loading}
+          color={"#ffffff"}
+          css={override}
+          size={15}
+        />
       </div>
     </div>
   );

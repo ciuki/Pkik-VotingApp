@@ -6,9 +6,11 @@ import { ThemeProvider } from "@mui/material";
 import baseTheme from "./theme/base-theme";
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 function App() {
-  axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('token')
+  
+  
   return (
     <div className="area">
       

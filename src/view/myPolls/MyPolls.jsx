@@ -1,10 +1,19 @@
 import React, {useState, useEffect} from "react";
 import APIAddress from "../../APIAddress";
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
+import { css } from "@emotion/react";
+import SyncLoader from "react-spinners/SyncLoader";
+import {toast} from "react-toastify"
 
-const axios = require("axios");
+import axios from "../../services/api-interceptor";
+
+const override = css`
+  margin: 0 auto;
+  border-color: red;
+`;
 
 const MyPolls = () => {
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const [pollsData, setPollsData] = useState(null);
     useEffect(() => {
@@ -13,15 +22,12 @@ const MyPolls = () => {
             const response = await axios
               .get(APIAddress.value + "/api/Poll/MyPolls")
               .then(function (response) {
-                console.log(response.data);
                 setPollsData(response.data);
               });
           } catch (err) {
-            console.error("Error response:");
-            console.error(err.response.data); // ***
-            console.error(err.response.status); // ***
-            console.error(err.response.headers);
+            toast.error(err.response.data); // ***
           }
+          setLoading(false);
         };
         fetchData();
       }, []);
@@ -46,6 +52,12 @@ const MyPolls = () => {
             <th>Wyniki</th>
         </tr>
         {itemsToRender}
+        <SyncLoader
+          loading={loading}
+          color={"#ffffff"}
+          css={override}
+          size={15}
+        />
     </table>
     </>);
 }
