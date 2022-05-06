@@ -6,7 +6,9 @@ const baseTheme = createTheme( {
         primary: {
             main: red
         },
-        secondary: darkBlue
+        secondary: {
+            main: darkBlue
+        }
     },
     typography: {
         fontFamily: 'iA Quattro,montserat',

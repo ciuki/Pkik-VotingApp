@@ -1,33 +1,37 @@
-.pollcontainer-poll-container{
-    margin-bottom: 4em;
-    display: flex;
-    justify-content: center;
-    .pollcontainer-inner-poll-container{
-        padding-block: 4em;
-        width: 50%;
-    }
-}
-.pollcontainer-question-board {
-    border-radius: 1em;
-    color: $text-on-light-background;
-    background: white;
-    font-family: "Exo 2", sans-serif;
-    text-align: center;
-    .pollcontainer-questions-area {
-      padding: 1em;
-      overflow:none;
-      min-height: 50px;
-      margin-left: 2rem;
-      margin-right: 2rem;
-  
-      h1 {
-        color: black;
-        margin-top: 0.5rem;
-        float:left; 
-        font-family: iA Quattro, montserat;
-      }
+.pollcontainer-poll-container {
+  margin-bottom: 4em;
+  display: flex;
+  justify-content: center;
+
+  .pollcontainer-inner-poll-container {
+    padding-block: 4em;
+    width: 40%;
   }
 }
+
+.pollcontainer-question-board {
+  border-radius: 1em;
+  color: $text-on-light-background;
+  background: white;
+  font-family: "Exo 2", sans-serif;
+  text-align: center;
+
+  .pollcontainer-questions-area {
+    padding: 1em;
+    overflow: none;
+    min-height: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+    h1 {
+      color: black;
+      margin-top: 0.5rem;
+      float: left;
+      font-family: iA Quattro, montserat;
+    }
+  }
+}
+
 .pollcontainer-button {
   background-color: #e2e2e2;
   padding: 0.5rem;
@@ -38,9 +42,9 @@
   color: black;
   cursor: pointer;
   display: inline-block;
-  font-family: iA Quattro,montserat;
+  font-family: iA Quattro, montserat;
   font-size: 1rem;
-  font-weight:400;
+  font-weight: 400;
   outline: 0;
   text-align: center;
   transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
@@ -48,11 +52,17 @@
   touch-action: manipulation;
   vertical-align: bottom;
   margin-bottom: 1em;
-  }
+}
 
-  .pollcontainer-button:hover {
-    opacity: 0.7;
-    background-color: #000080;
-    color: white;
-  }
+.pollcontainer-button:hover {
+  opacity: 0.7;
+  background-color: #000080;
+  color: white;
+}
 
+
+@media screen and (max-width: 600px) {
+  .pollcontainer-inner-poll-container {
+    width: 80% !important;
+  }
+}

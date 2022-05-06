@@ -13,12 +13,13 @@
     }
   }
   .likenessgrid-radio-answers {
-    display: flex;
+    display: grid;
     margin-bottom: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    justify-items: center;
     .likenessgrid-radio-answer {
-      flex-grow: 1;
       min-height: 1rem;
-      padding: .3rem .6rem .3rem .6rem;
+      padding: 1rem .6rem 1rem .6rem;
 
       .likenessgrid-radio-container {
         min-width: 30px;
@@ -63,5 +64,15 @@
         }
       }
     }
+  }
+}
+@media screen and (max-width: 930px) {
+  .likenessgrid-radio-signature{
+    span{
+      display: none;
+    }
+  }
+  .likenessgrid-radio-answers{
+    grid-column-gap: 1rem;
   }
 }
