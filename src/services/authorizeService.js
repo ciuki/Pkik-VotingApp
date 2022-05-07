@@ -14,8 +14,8 @@ export async function loginUser(loginData){
             const token = response.data.tokenInfo.token;
             const user = jwt(token);
             localStorage.setItem('token', token);
-            toast.success("Udało się zalogować");
-            window.location.reload(false);
+            localStorage.setItem('userName',user.name);
+            localStorage.setItem('userEmail', user.sub);
         });
         
     }catch (err){
@@ -31,8 +31,12 @@ export async function registerUser(registerData){
             Email: registerData.Email,
             Password: registerData.Password
         }).then(function (response){
-            console.log(response);
+            toast.success(
+                "Na podany adres email został wysłany link aktywujący konto!"
+              );
+            return true;
         });
+        return response;
     }catch (err){
         toast.error(err.response.data.message);
     }

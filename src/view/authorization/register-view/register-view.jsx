@@ -25,12 +25,12 @@ const RegisterView = () => {
   const handleRegister = async (e) => {
     setLoading(true);
     let registerDTO = createRegisterDTO(email, password);
-    await registerUser(registerDTO);
+    let respone = await registerUser(registerDTO);
     setLoading(false);
-    toast.success(
-      "Na podany adres email został wysłany link aktywujący konto!"
-    );
-    navigate("/login");
+    if (respone){
+        navigate("/login");
+    }
+    
   };
 
   return (

@@ -23,11 +23,12 @@ const LoginView = () => {
     };
     if (emailInput !== null && emailInput !== "") {
       await loginUser(loginObject);
+      window.location.reload(false);
     }else{
-      console.log("here");
       toast.error("Wypełnij wszystkie dane!")
     }
     setLoading(false);
+    
   };
 
   const handleLogin = (e) => {
@@ -36,7 +37,7 @@ const LoginView = () => {
   };
 
   if (localStorage.getItem("token") !== null) {
-    return <Navigate to="/myPolls" />;
+    return <Navigate to="/" />;
   }
 
   return (

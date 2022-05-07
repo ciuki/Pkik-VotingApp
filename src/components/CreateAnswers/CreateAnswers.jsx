@@ -7,7 +7,7 @@ const CreateAnswers = (props) => {
   const [currentAnswer, setCurrentAnswer] = useState("");
   const [inputComplete, setInputComplete] = useState([]);
   const addAnswerToList = (i) => {
-    if (answers.length >= i + 1 && answers[i].answer !== currentAnswer.answer) {
+    if (answers.length >= i + 1 && answers[i].text !== currentAnswer.answer) {
       setAnswers([...answers.slice(0, i), ...answers.slice(i + 1)]);
       let tempAnswerArray = [...answers];
       tempAnswerArray.splice(i, 0, currentAnswer);
@@ -24,6 +24,8 @@ const CreateAnswers = (props) => {
     if (changed.includes(i)) {
       setChanged((prevState) => prevState.filter((prevItem) => prevItem !== i));
     }
+    setCurrentAnswer("");
+    console.log(answers);
   };
   const changeCurrentAnswer = (i, e) => {
     let tempAnswer = {
@@ -47,6 +49,7 @@ const CreateAnswers = (props) => {
         );
       }
     }
+    
   };
   const answersToRender = [];
   for (let i = 0; i < answers.length + 1; i++) {
@@ -57,6 +60,7 @@ const CreateAnswers = (props) => {
           <div className="create-answers">
             <textarea
               type="text"
+              readOnly={!changed.includes(i) && changed.length > 0}
               className="createanswer-textbox"
               onChange={(e) => changeCurrentAnswer(i, e)}
             />

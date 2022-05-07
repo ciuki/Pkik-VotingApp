@@ -129,16 +129,18 @@ const CreatePoll = () => {
         temp = i;
         console.log(i);
       }
+    }
       console.log(temp, temp2);
-      if (temp2 === null) {
+      if (temp === null) {
+        console.trace();
         console.log(value);
         handleFinalize(value, false);
       } else {
         setCurrentQuestionIndex(temp2);
         setFinalQuestionWithAnswersToAddIndex(temp);
+        console.log(currentQuestionIndex, finalQuestionWithAnwersToAddIndex);
       }
-    }
-  };
+    };
 
   return (
     <div className="PollCreationArea">

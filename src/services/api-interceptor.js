@@ -13,8 +13,9 @@ const errorHandler = (error) => {
       progress: 0,
     });
     if (localStorage.getItem("token") !== null) {
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
+      console.log(error);
+      //localStorage.removeItem("token");
+      //localStorage.removeItem("user");
       window.location.reload(false);
     }
   }
