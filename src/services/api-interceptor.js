@@ -12,12 +12,6 @@ const errorHandler = (error) => {
       draggable: true,
       progress: 0,
     });
-    if (localStorage.getItem("token") !== null) {
-      console.log(error);
-      //localStorage.removeItem("token");
-      //localStorage.removeItem("user");
-      window.location.reload(false);
-    }
   }
   return Promise.reject({ ...error });
 };

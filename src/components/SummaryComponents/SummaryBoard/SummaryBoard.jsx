@@ -21,7 +21,6 @@ const SummaryBoard = () => {
             setVotes(response.data);
           });
       } catch (err) {
-        toast.error(err.response.data.message);
       }
     };
     fetchData();

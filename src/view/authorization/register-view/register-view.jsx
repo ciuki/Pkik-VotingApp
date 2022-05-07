@@ -23,13 +23,18 @@ const RegisterView = () => {
   const [password, setPassword] = useState("");
 
   const handleRegister = async (e) => {
-    setLoading(true);
-    let registerDTO = createRegisterDTO(email, password);
-    let respone = await registerUser(registerDTO);
-    setLoading(false);
-    if (respone){
-        navigate("/login");
+    if (login==="" || email===""){
+      toast.error("Wypełnij wszystkie dane");
+    }else{
+      setLoading(true);
+      let registerDTO = createRegisterDTO(email, password);
+      let respone = await registerUser(registerDTO);
+      setLoading(false);
+      if (respone){
+          navigate("/login");
+      }
     }
+    
     
   };
 
