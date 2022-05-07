@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import QuestionBoard from "../../components/PollComponents/QuestionBoard/QuestionBoard";
 import axios from "axios";
 import APIAddress from "../../APIAddress";
@@ -19,16 +19,19 @@ const override = css`
 const PollContainer = () => {
   const [loading, setLoading] = useState(true);
   const {id} = useParams();
+  const navigate = useNavigate();
   const [pollData, setPollData] = useState("");
   const [chosenVotes, setChosenVotes] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios
-          .get(APIAddress.value + "/api/Poll/" + id)
+          let respone = await axios.get(APIAddress.value + "/api/Poll/" + id)
           .then(function (response) {
             console.log(response);
             setPollData(response.data);
+          }).catch(error =>{
+            toast.error("Nie masz dostępu do głosowania w tej ankiecie!");
+            navigate("/");
           });
       } catch (err) {
         toast.error(err.response.data);
@@ -58,8 +61,18 @@ const PollContainer = () => {
     }
   }
   const handleFinalizeVote = () => {
+    setLoading(true);
     let VoteAggregateDTO = CreateVoteAggregateDTO(pollData.id, chosenVotes);
-    PostVoteAggregateDTO(VoteAggregateDTO);
+    vote(VoteAggregateDTO);
+  }
+
+  const vote = async (VoteAggregateDTO) => {
+    let status = await PostVoteAggregateDTO(VoteAggregateDTO);
+    console.log(status);
+    setLoading(false);
+    if (status === 200){
+      navigate("/summary/"+id);
+    } 
   }
 
   return (
@@ -72,7 +85,7 @@ const PollContainer = () => {
           <Divider/>
           <QuestionBoard Poll={pollData} handleVoteChange={handleVoting}/>
           <div>
-            <button className='pollcontainer-button' type="button" onClick = {(e) => handleFinalizeVote()}>Dalej</button>
+            <button className='pollcontainer-button' type="button" onClick = {(e) => handleFinalizeVote()}>Zagłosuj</button>
           </div>
         </div>
         <SyncLoader

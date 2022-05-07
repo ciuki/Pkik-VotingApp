@@ -14,8 +14,6 @@ export async function loginUser(loginData){
             const token = response.data.tokenInfo.token;
             const user = jwt(token);
             localStorage.setItem('token', token);
-            localStorage.setItem('userName',user.name);
-            localStorage.setItem('userEmail', user.sub);
             toast.success("Udało się zalogować");
             window.location.reload(false);
         });

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-dropdown-select";
+import { toast } from "react-toastify";
 
 const options = [
   { value: 1, label: "Zamknięte" },
@@ -38,6 +39,7 @@ const CreateQuestions = (props) => {
     if (changed.includes(i)) {
       setChanged((prevState) => prevState.filter((prevItem) => prevItem !== i));
     }
+    setCurrentQuestion("");
   };
 
   const changeCurrentQuestion = (i, e) => {
@@ -67,7 +69,7 @@ const CreateQuestions = (props) => {
         );
       }
     }
-    console.log(changed);
+    console.log(inputComplete);
   };
 
   const handleTypeChange = (e, i) => {
@@ -100,7 +102,17 @@ const CreateQuestions = (props) => {
       setCurrentQuestion(tempCQ);
     }
   };
-
+  const handleGoToAnswerCreations = () =>{
+    if (currentQuestion === "" && questions.length>0){
+      props.onChange(questions);
+    }else{
+      if (!questions.length>0){
+        toast.warning("Nie dokończono dodawania pytania!");
+      }else{
+        toast.warning("Nie dokończono dodawania pytania! \n Kliknij 'Dodaj odpowiedź', lub usuń wpisaną treść")
+      }
+    }
+  }
   for (let i = 0; i < questions.length + 1; i++) {
     questionsToRender.push(
       <div className="createquestion-question">
@@ -115,6 +127,7 @@ const CreateQuestions = (props) => {
             />
             <div className="createquestion-menu">
               <Select
+                placeholder="Zamknięte"
                 selectedTypes=''
                 className="createquestion-choose"
                 options={options}
@@ -161,8 +174,7 @@ const CreateQuestions = (props) => {
       <div>
         <button
           className='createquestion-button'
-          onClick={() => props.onChange(questions)}
-          disabled={questions.length > 0 ? false : true}
+          onClick={() => handleGoToAnswerCreations() }
         >
           Dalej
         </button>

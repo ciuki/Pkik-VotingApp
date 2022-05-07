@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import Select from "react-dropdown-select";
 import 'react-calendar/dist/Calendar.css';
+import { toast } from "react-toastify";
 
 const options = [
   { value: 0, label: "Prywatna" },
@@ -15,11 +16,11 @@ const axios = require("axios");
 
 const ConfigPoll = (props) => {
   const [configData, setConfigData] = useState({
-    name: "defuatName",
+    name: "defualtName",
     allowAnonymous: true,
     isActive: true,
     resultsArePublic: true,
-    pollType: 0,
+    pollType: 1,
     startDate: new Date().toLocaleString(),
     endDate: null,
     questions: [],
@@ -65,6 +66,14 @@ const ConfigPoll = (props) => {
     tempConfig.endDate = value;
     setConfigData(tempConfig);
   };
+
+  const finalizeConfig = () =>{
+    if (configData.name !== "defualtName" && configData.name !== ""){
+      props.createConfig(configData);
+    }else{
+      toast.error("Podaj nazwę ankiety");
+    }
+  }
 
   return (
     <FormControl component="fieldset" variant="standard">
@@ -117,6 +126,8 @@ const ConfigPoll = (props) => {
           className="configpoll-formcontrollabel"
           control={
             <Select
+              disabled={localStorage.getItem('token')===null}
+              placeholder="Publiczna"
               className="choose"
               options={options}
               onChange={(e) => changePollType(e)}
@@ -142,7 +153,7 @@ const ConfigPoll = (props) => {
         <FormControlLabel
           className="configpoll-formcontrollabel"
           control={
-            <button className="configpoll-button" onClick={() => props.createConfig(configData)}>Dalej</button>
+            <button className="configpoll-button" onClick={() => finalizeConfig()}>Dalej</button>
           }
           labelPlacement="top"
         />

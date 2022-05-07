@@ -4,6 +4,7 @@ import { Navigate, Link } from "react-router-dom";
 import { loginUser } from "../../../services/authorizeService";
 import { css } from "@emotion/react";
 import SyncLoader from "react-spinners/SyncLoader";
+import { toast } from "react-toastify";
 
 const override = css`
   margin: 0 auto;
@@ -20,8 +21,11 @@ const LoginView = () => {
       email: emailInput,
       password: passwordInput,
     };
-    if (emailInput !== null) {
+    if (emailInput !== null && emailInput !== "") {
       await loginUser(loginObject);
+    }else{
+      console.log("here");
+      toast.error("Wypełnij wszystkie dane!")
     }
     setLoading(false);
   };

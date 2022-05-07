@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CreateAnswers = (props) => {
   const [answers, setAnswers] = useState([]);
@@ -42,29 +42,41 @@ const CreateAnswers = (props) => {
       }
     } else {
       if (inputComplete.includes(i)) {
-        setInputComplete((prevState) => prevState.filter((prevItem) => prevItem !== i));
+        setInputComplete((prevState) =>
+          prevState.filter((prevItem) => prevItem !== i)
+        );
       }
     }
-
   };
   const answersToRender = [];
   for (let i = 0; i < answers.length + 1; i++) {
     answersToRender.push(
-      <div className='createanswer-question'>
+      <div className="createanswer-question">
         <h3 className="createanswer-h3">Odpowiedź {i + 1}</h3>
         <div className="createanswer-answers">
           <div className="create-answers">
-            <textarea type='text' className="createanswer-textbox" onChange={(e) => changeCurrentAnswer(i, e)} />
+            <textarea
+              type="text"
+              className="createanswer-textbox"
+              onChange={(e) => changeCurrentAnswer(i, e)}
+            />
             <div className="createanswer-menu">
               {answers.some(function (item) {
                 return item.index === i;
               }) &&
-                changed.some(function (item) {
-                  return item === i;
-                }) && inputComplete.some(function (item) {
-                  return item === i;
-                }) ? (
-                <button className='createanswer-button' onClick={(e) => addAnswerToList(i)}> Zaktualizuj odpowiedź</button>
+              changed.some(function (item) {
+                return item === i;
+              }) &&
+              inputComplete.some(function (item) {
+                return item === i;
+              }) ? (
+                <button
+                  className="createanswer-button"
+                  onClick={(e) => addAnswerToList(i)}
+                >
+                  {" "}
+                  Zaktualizuj odpowiedź
+                </button>
               ) : (
                 <></>
               )}
@@ -74,41 +86,78 @@ const CreateAnswers = (props) => {
         {!answers.some(function (item) {
           return item.index === i;
         }) &&
-          !changed.some(function (item) {
-            return item.index === i;
-          }) && inputComplete.some(function (item) {
-            return item === i;
-          }) ? (
-          <button className='createanswer-button' onClick={(e) => addAnswerToList(i)}> Dodaj odpowiedź</button>
+        !changed.some(function (item) {
+          return item.index === i;
+        }) &&
+        inputComplete.some(function (item) {
+          return item === i;
+        }) ? (
+          <button
+            className="createanswer-button"
+            onClick={(e) => addAnswerToList(i)}
+          >
+            {" "}
+            Dodaj odpowiedź
+          </button>
         ) : (
           <></>
         )}
       </div>
     );
-
   }
   const finalize = () => {
-    props.finalize(answers);
-  }
-  return <div className="CreateAnswersArea">
-    <h1>{props.questionParameter.text}</h1>
-    {answersToRender}
-    {props.questionsLength !== props.questionParameter.index ? (
-      <button onClick={() => {
-        let array = [];
-        props.nextQuestion(answers)
-        setAnswers(array);
-        setInputComplete(array);
-        setCurrentAnswer(array);
-        setChanged(array);
-      }}
-        disabled={answers.length > 0 ? false : true}>Dalej</button>) :
-      (<button
-        className='createanswer-button'
-        onClick={(e) => finalize()}
-        disabled={answers.length > 0 ? false : true}>Zakończ</button>)}
-
-  </div>
+    console.log(currentAnswer,answers);
+    if (currentAnswer.text === "" && answers.length > 0) {
+      props.finalize(answers);
+    } else {
+      if (!answers.length > 0) {
+        toast.warning("Nie dokończono dodawania odpowiedzi!");
+      } else {
+        toast.warning(
+          "Nie dokończono dodawania odpowiedz! \n Kliknij 'Dodaj odpowiedź', lub usuń wpisaną treść"
+        );
+      }
+    }
+    
+  };
+  return (
+    <div className="CreateAnswersArea">
+      <h1>{props.questionParameter.text}</h1>
+      {answersToRender}
+      {props.questionsLength !== props.questionParameter.index ? (
+        <button
+          onClick={() => {
+            
+            if (currentAnswer === "" && answers.length > 0) {
+              let array = [];
+              props.nextQuestion(answers);
+              setAnswers(array);
+              setInputComplete(array);
+              setCurrentAnswer(array);
+              setChanged(array);
+            } else {
+              if (!answers.length > 0) {
+                toast.warning("Nie dokończono dodawania odpowiedzi!");
+              } else {
+                toast.warning(
+                  "Nie dokończono dodawania odpowiedz! \n Kliknij 'Dodaj odpowiedź', lub usuń wpisaną treść"
+                );
+              }
+            }
+          }}
+        >
+          Dalej
+        </button>
+      ) : (
+        <button
+          className="createanswer-button"
+          onClick={(e) => finalize()}
+        >
+          Zakończ
+        </button>
+      )}
+    </div>
+  );
 };
 
 export default CreateAnswers;

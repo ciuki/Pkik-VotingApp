@@ -10,19 +10,25 @@ import PollSummary from '../view/PollSummary/PollSummary';
 import Logout from '../components/Logout/Logout';
 import ProtectedRoute from './ProtectedRoute';
 import MyPolls from '../view/myPolls/MyPolls';
+import Home from '../view/home/home';
+import ConfirmEmail from '../components/ConfirmEmail/ConfirmEmail';
+import AddModerators from '../components/addModerators/addModerators';
 
 const CustomRoutes = () => 
     <Routes>
-        <Route path="pollcreate" element={<ProtectedRoute> <CreatePoll /></ProtectedRoute>}/>
-        <Route path="poll/:id" element={<ProtectedRoute> <PollContainer /></ProtectedRoute>}/>  
+        <Route path="pollcreate" element={ <CreatePoll />}/>
+        <Route path="poll/:id" element={<PollContainer />}/>  
         <Route path='login' element={<LoginView />}/> 
         <Route path='register' element={<RegisterView />}/>
         <Route path='*' element = {<NotFound/>}/>  
         <Route path="notifications" element={<ProtectedRoute> <NotificationsView /></ProtectedRoute>}/>
-        <Route path="invite" element={<ProtectedRoute> <Invite/></ProtectedRoute>}/>
-        <Route path="summary/:id" element={<ProtectedRoute> <PollSummary /></ProtectedRoute>}/>
+        <Route path="invite/:id" element={<ProtectedRoute> <Invite/></ProtectedRoute>}/>
+        <Route path="summary/:id" element={<PollSummary />}/>
         <Route path="myPolls" element={<ProtectedRoute> <MyPolls /></ProtectedRoute>}/>
+        <Route path="/" element={<Home />}/>
         <Route path='logout' element = {<Logout/>}/>
+        <Route path='ConfirmEmail/:id/:token' element = {<ConfirmEmail/>}/>
+        <Route path="AddModerators/:id" element={<ProtectedRoute> <AddModerators /></ProtectedRoute>}/>
     </Routes>
 ;
 

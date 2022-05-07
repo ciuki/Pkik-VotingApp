@@ -1,6 +1,9 @@
 import APIAddress from "../APIAddress";
 import axios from "../services/api-interceptor"
 import {toast} from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
+
 
 export async function postPoll(pollDTO) {
   try {
@@ -92,8 +95,9 @@ export async function PostVoteAggregateDTO(voteAggregateDTO) {
     const response = await axios
       .post(APIAddress.value + "/api/Vote/Aggregate", voteAggregateDTO)
       .then(function (response) {
-        console.log(response);
+        return response.status;
       });
+      return response;
   } catch (err) {
     toast.error(err.response.data.message);
   }
