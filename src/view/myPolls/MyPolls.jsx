@@ -49,7 +49,7 @@ const MyPolls = () => {
                 Zobacz wyniki
               </button>
             </td>
-            {pollsData[i].allowAnonymous ? (
+            {!pollsData[i].allowAnonymous ? (
               <td>
                 <button onClick={(e) => navigate("/invite/" + pollsData[i].id)}>
                   Zaproś do ankiety

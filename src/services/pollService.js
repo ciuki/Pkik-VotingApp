@@ -97,7 +97,9 @@ export async function PostVoteAggregateDTO(voteAggregateDTO) {
       .post(APIAddress.value + "/api/Vote/Aggregate", voteAggregateDTO)
       .then(function (response) {
         return response.status;
-      });
+      }).catch(function(e){
+        toast.error(e.message);
+    });;
       return response;
   } catch (err) {
     toast.error(err.response.data.message);

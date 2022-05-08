@@ -35,12 +35,15 @@ export async function registerUser(registerData){
                 "Na podany adres email został wysłany link aktywujący konto!"
               );
             return true;
+        }).catch(function(e){
+            toast.error(e.message);
         });
         return response;
-    }catch (err){
+        }catch (err){
         toast.error(err.response.data.message);
     }
 }
+
 
 export function createRegisterDTO(email, password){
     let registerDTO = {
