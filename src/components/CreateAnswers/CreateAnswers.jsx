@@ -136,6 +136,7 @@ const CreateAnswers = (props) => {
       {answersToRender}
       {props.questionsLength !== props.questionParameter.index ? (
         <button
+        className="createanswer-button"
           onClick={() => {
             
             if (currentAnswer.text === "" && answers.length > 0) {

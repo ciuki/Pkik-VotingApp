@@ -418,6 +418,200 @@
   color: white;
 }
 
+.home-container {
+  margin-bottom: 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home-container .home-inner-poll-container {
+  padding-block: 4em;
+  width: 40%;
+}
+
+.home-question-board {
+  border-radius: 1em;
+  color: #4a3231;
+  background: white;
+  font-family: "Exo 2", sans-serif;
+  text-align: center;
+}
+
+.home-question-board .home-questions-area {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr (2fr)[3];
+      grid-template-columns: 1fr repeat(3, 2fr);
+  grid-gap: 0.5rem;
+  padding: 1em;
+  overflow: none;
+  min-height: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home-question-board .home-questions-area .home-questions-area-title {
+  color: #949494;
+  width: 100%;
+  font-family: iA Quattro, montserat;
+  text-align: center;
+  font-size: large;
+}
+
+.home-question-board .home-questions-area .home-questions-area-cell {
+  color: black;
+  width: 100%;
+  font-family: iA Quattro, montserat;
+  text-align: center;
+}
+
+.home-question-board .home-questions-area .home-questions-area-cell .home-button {
+  background-color: #e2e2e2;
+  padding: 0.5rem;
+  padding-inline: 1rem;
+  border-radius: 5px;
+  border-style: none;
+  -webkit-box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+          box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: iA Quattro, montserat;
+  font-size: 1rem;
+  font-weight: 400;
+  outline: 0;
+  text-align: center;
+  -webkit-transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: bottom;
+}
+
+.home-question-board .home-questions-area .home-questions-area-cell .home-button:hover {
+  opacity: 0.7;
+  background-color: #000080;
+  color: white;
+}
+
+@media screen and (max-width: 1250px) {
+  .home-inner-poll-container {
+    width: 60% !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home-inner-poll-container {
+    width: 80% !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-questions-area {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .home-questions-area-title {
+    display: none;
+  }
+}
+
+.notificationview-poll-container {
+  margin-bottom: 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.notificationview-poll-container .notificationview-inner-poll-container {
+  padding-block: 4em;
+  width: 40%;
+}
+
+.notificationview-question-board {
+  border-radius: 1em;
+  color: #4a3231;
+  background: white;
+  font-family: "Exo 2", sans-serif;
+  text-align: center;
+}
+
+.notificationview-question-board .notificationview-questions-area {
+  padding: 1em;
+  overflow: none;
+  min-height: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.notificationview-question-board .notificationview-questions-area h1 {
+  color: black;
+  margin-top: 0.5rem;
+  float: left;
+  font-family: iA Quattro, montserat;
+}
+
+.notificationview-question-board .notificationview-item-container {
+  padding-bottom: 1rem;
+}
+
+.notificationview-button {
+  background-color: #e2e2e2;
+  padding: 0.5rem;
+  padding-inline: 2rem;
+  border-radius: 5px;
+  border-style: none;
+  -webkit-box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+          box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: iA Quattro, montserat;
+  font-size: 1rem;
+  font-weight: 400;
+  outline: 0;
+  text-align: center;
+  -webkit-transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: bottom;
+  margin-bottom: 1em;
+}
+
+.notificationview-button:hover {
+  opacity: 0.7;
+  background-color: #000080;
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .notificationview-inner-poll-container {
+    width: 80% !important;
+  }
+}
+
 .summaryboard-answers-area .summaryboard-question {
   padding-bottom: 3rem;
 }
@@ -764,9 +958,9 @@
 }
 
 .openquestion-answers .openquestion-inside-answers .openquestion-textbox {
-  width: 100%;
+  width: 50%;
   resize: none;
-  min-height: 5rem;
+  min-height: 2rem;
   overflow: hidden;
   border-radius: 10px;
   border: 1px solid rgba(245, 244, 247, 0.25) 0 1px 1px inset;
@@ -796,6 +990,35 @@
   color: #949494;
   width: 100%;
   font-family: iA Quattro, montserat;
+}
+
+.notificationsitem {
+  min-height: 3rem;
+  background-color: white;
+}
+
+.notificationsitem-unread {
+  background-color: #d2eff8;
+  min-height: 3rem;
+}
+
+.notificationsitem-button {
+  min-height: 3rem;
+  width: 100%;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.notificationsitem-button .notificationsitem-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 4fr 1fr;
+      grid-template-columns: 2fr 4fr 1fr;
+}
+
+.notificationsitem-button .notificationsitem-grid .notificationsitem-grid-time {
+  padding-left: 3rem;
+  text-align: left;
 }
 
 .navbar {
@@ -935,7 +1158,7 @@
 }
 
 .createquestion-question .answers .createquestion-answers {
-  min-height: 9rem;
+  padding-bottom: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -947,12 +1170,12 @@
 .createquestion-question .answers .createquestion-answers .createquestion-textbox {
   width: 40%;
   resize: none;
-  height: 4rem;
+  height: 28px;
   overflow: hidden;
   font-size: 16px;
   border-radius: 10px;
   border: 1px solid rgba(245, 244, 247, 0.25) 0 1px 1px inset;
-  padding: 0.75rem;
+  padding: 4px;
   font-family: iA Quattro, montserat;
   font-size: 1rem;
   font-weight: 400;
@@ -1053,7 +1276,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 9rem;
+  padding-bottom: 1rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1065,12 +1288,12 @@
 .createanswer-question .createanswer-answers .create-answers .createanswer-textbox {
   width: 40%;
   resize: none;
-  height: 5rem;
+  height: 28px;
   overflow: hidden;
   font-size: 16px;
   border-radius: 10px;
   border: 1px solid rgba(245, 244, 247, 0.25) 0 1px 1px inset;
-  padding: 0.75rem;
+  padding: 4px;
   font-family: iA Quattro, montserat;
   font-size: 1rem;
   font-weight: 400;
@@ -1189,7 +1412,127 @@
   margin-left: 5rem;
 }
 
-table {
-  margin-left: 5rem;
+.mypolls-container {
+  margin-bottom: 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mypolls-container .mypolls-inner-poll-container {
+  padding-block: 4em;
+  width: 40%;
+}
+
+.mypolls-question-board {
+  border-radius: 1em;
+  color: #4a3231;
+  background: white;
+  font-family: "Exo 2", sans-serif;
+  text-align: center;
+}
+
+.mypolls-question-board .mypolls-questions-area {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr (2fr)[3] 3fr;
+      grid-template-columns: 1fr repeat(3, 2fr) 3fr;
+  grid-gap: 0.5rem;
+  padding: 1em;
+  overflow: none;
+  min-height: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mypolls-question-board .mypolls-questions-area .mypolls-questions-area-title {
+  color: #949494;
+  width: 100%;
+  font-family: iA Quattro, montserat;
+  text-align: center;
+  font-size: large;
+}
+
+.mypolls-question-board .mypolls-questions-area .mypolls-questions-area-cell {
+  color: black;
+  width: 100%;
+  font-family: iA Quattro, montserat;
+  text-align: center;
+}
+
+.mypolls-question-board .mypolls-questions-area .mypolls-questions-area-cell .mypolls-button {
+  background-color: #e2e2e2;
+  padding: 0.5rem;
+  padding-inline: 1rem;
+  border-radius: 5px;
+  border-style: none;
+  -webkit-box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+          box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: iA Quattro, montserat;
+  font-size: 1rem;
+  font-weight: 400;
+  outline: 0;
+  text-align: center;
+  -webkit-transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: bottom;
+}
+
+.mypolls-question-board .mypolls-questions-area .mypolls-questions-area-cell .mypolls-button:hover {
+  opacity: 0.7;
+  background-color: #000080;
+  color: white;
+}
+
+.mypolls-questions-area-cell-group {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  grid-gap: 0.5rem;
+}
+
+.mypolls-questions-area-cell-group .mypolls-button {
+  width: 100%;
+}
+
+@media screen and (max-width: 1250px) {
+  .mypolls-inner-poll-container {
+    width: 60% !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .mypolls-inner-poll-container {
+    width: 80% !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mypolls-questions-area {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .mypolls-questions-area-title {
+    display: none;
+  }
 }
 /*# sourceMappingURL=style.css.map */
