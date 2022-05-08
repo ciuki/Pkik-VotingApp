@@ -116,6 +116,7 @@ const CreateAnswers = (props) => {
   }
   const finalize = () => {
     console.log(currentAnswer);
+    console.log(answers);
     if (currentAnswer.text === "" && answers.length > 0) {
       props.finalize(answers);
     } else {
@@ -138,7 +139,8 @@ const CreateAnswers = (props) => {
         className="createanswer-button"
           onClick={() => {
             
-            if (currentAnswer === "" && answers.length > 0) {
+            if (currentAnswer.text === "" && answers.length > 0) {
+              console.log(props);
               let array = [];
               props.nextQuestion(answers);
               setAnswers(array);

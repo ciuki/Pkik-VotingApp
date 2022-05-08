@@ -11,11 +11,13 @@ const ConfirmEmail = () =>{
     useEffect(() => {
         const fetchData = async () => {
           try {
+            console.log(id, token);
+            let confirmMailDTO = {
+              userId: id,
+              confirmationToken: token 
+            };
             const response = await axios
-              .post(APIAddress.value + "/api/Vote/" + {
-                  userId: id,
-                  confirmationToken: token 
-              })
+              .post(APIAddress.value + "/api/User/ConfirmMail/",confirmMailDTO)
               .then(function (response) {
                 console.log(response.data);
               });

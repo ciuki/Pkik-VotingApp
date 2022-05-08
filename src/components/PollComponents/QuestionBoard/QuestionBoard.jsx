@@ -19,19 +19,34 @@ let question = {
 };
 
 const QuestionBoard = (props) => {
-  const handleVoteChange = (e,i) =>{
-    props.handleVoteChange(e,i);
-
-  }
+  const handleVoteChange = (e, i,text) => {
+    props.handleVoteChange(e, i,text);
+  };
   let questionsToRender = [];
   if (props.Poll !== "") {
     for (let i = 0; i < props.Poll.questions.length; i++) {
       switch (props.Poll.questions[i].type) {
+        case 0:
+          questionsToRender.push(
+            <div className="question">
+              <h3>{props.Poll.questions[i].text}</h3>
+              <CheckboxGrid
+                question={props.Poll.questions[i]}
+                index={i}
+                handleVoteChange={handleVoteChange}
+              />
+            </div>
+          );
+          break;
         case 1:
           questionsToRender.push(
             <div className="question">
               <h3>{props.Poll.questions[i].text}</h3>
-              <CheckboxGrid question={props.Poll.questions[i]} index ={i} handleVoteChange={handleVoteChange}/>
+              <OpenQuestion
+                question={props.Poll.questions[i]}
+                index={i}
+                handleVoteChange={handleVoteChange}
+              />
             </div>
           );
           break;
@@ -39,35 +54,31 @@ const QuestionBoard = (props) => {
           questionsToRender.push(
             <div className="question">
               <h3>{props.Poll.questions[i].text}</h3>
-              <OpenQuestion />
+              <LikenessGrid
+                question={props.Poll.questions[i]}
+                index={i}
+                handleVoteChange={handleVoteChange}
+              />
             </div>
           );
-        break;
+          break;
         case 3:
           questionsToRender.push(
             <div className="question">
               <h3>{props.Poll.questions[i].text}</h3>
-              <LikenessGrid question={props.Poll.questions[i]} index ={i} handleVoteChange={handleVoteChange}/>
+              <ExpectationGrid
+                question={props.Poll.questions[i]}
+                index={i}
+                handleVoteChange={handleVoteChange}
+              />
             </div>
           );
-        break;
-        case 4:
-          questionsToRender.push(
-            <div className="question">
-              <h3>{props.Poll.questions[i].text}</h3>
-              <ExpectationGrid question={props.Poll.questions[i]} index ={i} handleVoteChange={handleVoteChange}/>
-            </div>
-          );
-        break;
+          break;
       }
     }
   }
 
-  return (
-    <div className="answers-area">
-      {questionsToRender}
-    </div>
-  );
+  return <div className="answers-area">{questionsToRender}</div>;
 };
 
 export default QuestionBoard;

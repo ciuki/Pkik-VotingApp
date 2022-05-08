@@ -11,7 +11,7 @@ export async function postPoll(pollDTO) {
     const response = await axios
       .post(APIAddress.value + "/api/poll", pollDTO)
       .then(function (response) {
-        console.log(response);
+        toast.success("Ankieta stworzona!");
       });
   } catch (err) {
     toast.error(err.response.data.message);
@@ -81,10 +81,11 @@ export function CreateVoteAggregateDTO(pollID, votesArray) {
   return voteAggregateDTO;
 }
 
-export function CreateVoteDTO(questionID, answerID) {
+export function CreateVoteDTO(questionID, answerID, answerText) {
   let voteDTO = {
     questionId: questionID,
     answerId: answerID,
+    answerText: answerText
   };
   return voteDTO;
 }

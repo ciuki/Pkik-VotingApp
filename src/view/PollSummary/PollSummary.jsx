@@ -1,4 +1,5 @@
 import { Divider } from "@mui/material";
+import { Link } from "react-router-dom";
 import React from "react";
 import SummaryBoard from "../../components/SummaryComponents/SummaryBoard/SummaryBoard";
 
@@ -14,9 +15,12 @@ const PollSummary = () => {
             </div>
             <Divider/>
             <SummaryBoard/>
+            <Link to="/" className="nav-link">
             <div>
-              <button className='button' type="button">Dalej</button>
+              <button className='button' type="button">Powrót</button>
             </div>
+            </Link>
+            
           </div>
       </div>
     </div>
