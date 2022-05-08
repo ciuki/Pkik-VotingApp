@@ -5,7 +5,8 @@
 @import "../view/404/404";
 @import "../view/CreatePoll/CreatePoll";
 @import "../view/PollSummary/PollSummary";
-
+@import "../view/home/home";
+@import "../view/notifications/NotificationsView";
 @import "../components/SummaryComponents/SummaryBoard/SummaryBoard";
 @import "../components/SummaryComponents/PieChart/PieChart";
 @import "../components/SummaryComponents/BarChart/BarChart";
@@ -15,7 +16,7 @@
 @import "../components/PollComponents/ExpectationGrid/ExpectationGrid";
 @import "../components/PollComponents/OpenQuestion/OpenQuestion";
 @import "../components/PollComponents/QuestionBoard/QuestionBoard";
-
+@import "../components/NotificationItem/NotificationsItem";
 @import "../components/NavBar/NavBar";
 @import "../components/CreateQuestion/CreateQuestion";
 @import "../components/CreateAnswers/CreateAnswers";

@@ -1,3 +1,96 @@
-table{
-    margin-left: 5rem;
+.mypolls-container{
+    margin-bottom: 4em;
+    display: flex;
+    justify-content: center;
+    .mypolls-inner-poll-container{
+        padding-block: 4em;
+        width: 40%;
+    }
 }
+.mypolls-question-board {
+    border-radius: 1em;
+    color: $text-on-light-background;
+    background: white;
+    font-family: "Exo 2", sans-serif;
+    text-align: center;
+    .mypolls-questions-area {
+        display: grid;
+        grid-template-columns: 1fr repeat(3,2fr) 3fr;
+        grid-gap:0.5rem;
+        padding: 1em;
+        overflow: none;
+        min-height: 2rem;
+        align-items: center;
+    
+        .mypolls-questions-area-title {
+            color: #949494;
+            width: 100%;
+            font-family: iA Quattro, montserat;
+            text-align: center;
+            font-size: large;
+        }
+        .mypolls-questions-area-cell {
+            color: black;
+            width: 100%;
+            font-family: iA Quattro, montserat;
+            text-align: center;
+
+            .mypolls-button {
+                background-color: #e2e2e2;
+                padding: 0.5rem;
+                padding-inline: 1rem;
+                border-radius: 5px;
+                border-style: none;
+                box-shadow: rgba(245, 244, 247, 0.25) 0 1px 1px inset;
+                color: black;
+                cursor: pointer;
+                display: inline-block;
+                font-family: iA Quattro, montserat;
+                font-size: 1rem;
+                font-weight: 400;
+                outline: 0;
+                text-align: center;
+                transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+                user-select: none;
+                touch-action: manipulation;
+                vertical-align: bottom;
+              }
+            
+              .mypolls-button:hover {
+                opacity: 0.7;
+                background-color: #000080;
+                color: white;
+              }
+            
+        }
+      }
+}
+.mypolls-questions-area-cell-group {
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    grid-gap: 0.5rem;
+    .mypolls-button {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 1250px) {
+    .mypolls-inner-poll-container {
+        width: 60% !important;
+    }
+  }
+
+@media screen and (max-width: 800px) {
+    .mypolls-inner-poll-container {
+      width: 80% !important;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .mypolls-questions-area {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .mypolls-questions-area-title {
+       display: none;
+    }
+  }

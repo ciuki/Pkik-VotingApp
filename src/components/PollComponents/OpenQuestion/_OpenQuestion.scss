@@ -6,9 +6,9 @@
         display: flex;
 
         .openquestion-textbox {
-            width: 100%;
+            width: 50%;
             resize: none;
-            min-height: 5rem;
+            min-height: 2rem;
             overflow: hidden;
             border-radius: 10px;
             border: 1px solid rgba(245, 244, 247, 0.25) 0 1px 1px inset;

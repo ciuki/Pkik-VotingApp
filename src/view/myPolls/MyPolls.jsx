@@ -6,10 +6,13 @@ import SyncLoader from "react-spinners/SyncLoader";
 import { toast } from "react-toastify";
 
 import axios from "../../services/api-interceptor";
+import { Divider } from "@mui/material";
 
 const override = css`
   margin: 0 auto;
-  border-color: red;
+  position: absolute;
+  top:50%;
+  left:50%;
 `;
 
 const MyPolls = () => {
@@ -37,55 +40,64 @@ const MyPolls = () => {
     for (let i = 0; i < pollsData.length; i++) {
       itemsToRender.push(
         <>
-          <tr>
-            <td>{pollsData[i].name}</td>
-            <td>
-              <button onClick={(e) => navigate("/poll/" + pollsData[i].id)}>
+          <tr className="mypolls-questions-area">
+            <div className="mypolls-questions-area-cell">{i + 1}.</div>
+            <div className="mypolls-questions-area-cell">{pollsData[i].name}</div>
+            <div className="mypolls-questions-area-cell">
+              <button className="mypolls-button" onClick={(e) => navigate("/poll/" + pollsData[i].id)}>
                 Zagłosuj
               </button>
-            </td>
-            <td>
-              <button onClick={(e) => navigate("/summary/" + pollsData[i].id)}>
+            </div>
+            <div className="mypolls-questions-area-cell">
+              <button className="mypolls-button" onClick={(e) => navigate("/summary/" + pollsData[i].id)}>
                 Zobacz wyniki
               </button>
-            </td>
-            {pollsData[i].allowAnonymous ? (
-              <td>
-                <button onClick={(e) => navigate("/invite/" + pollsData[i].id)}>
-                  Zaproś do ankiety
+            </div>
+            <div className="mypolls-questions-area-cell-group">
+              {pollsData[i].allowAnonymous ? (
+                <div className="mypolls-questions-area-cell">
+                  <button className="mypolls-button" onClick={(e) => navigate("/invite/" + pollsData[i].id)}>
+                    Zaproś do ankiety
+                  </button>
+                </div>
+              ) : (
+                <>Ankieta jest dostępna dla wszystkich</>
+              )}
+              <div className="mypolls-questions-area-cell">
+                <button className="mypolls-button" onClick={(e) => navigate("/AddModerators/" + pollsData[i].id)}>
+                  Dodaj moderatorów
                 </button>
-              </td>
-            ) : (
-              <>Ankieta jest dostępna dla wszystkich</>
-            )}
-            <td>
-              <button onClick={(e) => navigate("/AddModerators/" + pollsData[i].id)}>
-                Dodaj moderatorów
-              </button>
-            </td>
+              </div>
+            </div>
           </tr>
+          <Divider />
         </>
       );
     }
   }
 
   return (
-    <>
-      <table>
-        <tr>
-          <th>Nazwa</th>
-          <th>Głosowanie</th>
-          <th>Wyniki</th>
-        </tr>
-        {itemsToRender}
-        <SyncLoader
-          loading={loading}
-          color={"#ffffff"}
-          css={override}
-          size={15}
-        />
-      </table>
-    </>
+    <div className="mypolls-container">
+      <div className="mypolls-inner-poll-container">
+        <div className="mypolls-question-board">
+          <div className="mypolls-questions-area">
+            <div className="mypolls-questions-area-title">Lp.</div>
+            <div className="mypolls-questions-area-title">Nazwa</div>
+            <div className="mypolls-questions-area-title">Głosowanie</div>
+            <div className="mypolls-questions-area-title">Wyniki</div>
+            <div className="mypolls-questions-area-title">Dodatkowe opcje</div>
+          </div>
+          <Divider />
+          {itemsToRender}
+          <SyncLoader
+            loading={loading}
+            color={"#ffffff"}
+            css={override}
+            size={15}
+          />
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -12,18 +12,18 @@
         padding-inline: 3rem;
 
         .createquestion-answers {
-            min-height: 9rem;
+            padding-bottom: 1rem;
             display: flex;
             justify-content: space-between;
             .createquestion-textbox {
                 width: 40%;
                 resize: none;
-                height: 4rem;
+                height: 28px;
                 overflow: hidden;
                 font-size: 16px;
                 border-radius: 10px;
                 border: 1px solid rgba(245, 244, 247, 0.25) 0 1px 1px inset;
-                padding: 0.75rem;
+                padding: 4px;
                 font-family: iA Quattro, montserat;
                 font-size: 1rem;
                 font-weight: 400;
@@ -44,7 +44,7 @@
                 padding-inline: 2rem;
 
                 .createquestion-choose{
-                    font-family: iA Quattro, montserat;;
+                    font-family: iA Quattro, montserat;
                 }
             }
 
