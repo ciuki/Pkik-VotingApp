@@ -45,9 +45,11 @@ const CreateQuestions = (props) => {
 
   const changeCurrentQuestion = (i, e) => {
     
-    let typeToAssign = 0;
+    let typeToAssign = 0; //sproboj wymyslic inne przypisywanie
     if (selectedTypes.length >= i + 1) {
       typeToAssign = selectedTypes[i];
+    }else{
+      setSelectedTypes([...selectedTypes, typeToAssign]);
     }
     let tempQuestion = {
       index: i,
@@ -76,8 +78,6 @@ const CreateQuestions = (props) => {
   };
 
   const handleTypeChange = (e, i) => {
-    console.log(e);
-    console.log(i);
     if (selectedTypes.length >= 1 && selectedTypes[i] !== e[0].value) {
       setSelectedTypes([
         ...selectedTypes.slice(0, i),

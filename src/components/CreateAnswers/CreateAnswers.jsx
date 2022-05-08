@@ -54,6 +54,7 @@ const CreateAnswers = (props) => {
         );
       }
     }
+    console.log(answers);
     
   };
   const answersToRender = [];
