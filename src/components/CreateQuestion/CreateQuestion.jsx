@@ -3,10 +3,10 @@ import Select from "react-dropdown-select";
 import { toast } from "react-toastify";
 
 const options = [
-  { value: 1, label: "Zamknięte" },
-  { value: 2, label: "Otwarte" },
-  { value: 3, label: "Emoji" },
-  { value: 4, label: "Reakcja" },
+  { value: 0, label: "Zamknięte" },
+  { value: 1, label: "Otwarte" },
+  { value: 2, label: "Emoji" },
+  { value: 3, label: "Reakcja" },
 ];
 
 const CreateQuestions = (props) => {
@@ -40,10 +40,12 @@ const CreateQuestions = (props) => {
       setChanged((prevState) => prevState.filter((prevItem) => prevItem !== i));
     }
     setCurrentQuestion("");
+    console.log(questions);
   };
 
   const changeCurrentQuestion = (i, e) => {
-    let typeToAssign = 1;
+    
+    let typeToAssign = 0;
     if (selectedTypes.length >= i + 1) {
       typeToAssign = selectedTypes[i];
     }
@@ -69,10 +71,13 @@ const CreateQuestions = (props) => {
         );
       }
     }
-    console.log(inputComplete);
+    console.log(currentQuestion);
+    console.log(questions);
   };
 
   const handleTypeChange = (e, i) => {
+    console.log(e);
+    console.log(i);
     if (selectedTypes.length >= 1 && selectedTypes[i] !== e[0].value) {
       setSelectedTypes([
         ...selectedTypes.slice(0, i),
@@ -86,7 +91,9 @@ const CreateQuestions = (props) => {
       //moze sie przyda
     } else {
       setSelectedTypes([...selectedTypes, e[0].value]);
+      
     }
+    console.log(selectedTypes);
 
     if (questions.length > i) {
       let tempQuestion = questions[i];
@@ -101,6 +108,7 @@ const CreateQuestions = (props) => {
       tempCQ.type = e[0].value;
       setCurrentQuestion(tempCQ);
     }
+    console.log(questions);
   };
   const handleGoToAnswerCreations = () =>{
     if (currentQuestion === "" && questions.length>0){
@@ -161,7 +169,7 @@ const CreateQuestions = (props) => {
         inputComplete.some(function (item) {
           return item === i;
         }) ? (
-          <button className='createquestion-button' onClick={(e) => addQuestionToList(i)}> Dodaj pytanie </button>
+          <button disabled={changed.length>0 ? true : false} className='createquestion-button' onClick={(e) => addQuestionToList(i)}> Dodaj pytanie </button>
         ) : (
           <></>
         )}

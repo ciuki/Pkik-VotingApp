@@ -41,8 +41,16 @@ const PollContainer = () => {
     fetchData();
   }, []);
   
-  const handleVoting = (e,i) => {
-    let voteDTO = CreateVoteDTO(i, e.target.value);
+  const handleVoting = (e,i,text) => {
+    console.log(e);
+    console.log(text);
+    let voteDTO;
+    if (e!==null){
+      voteDTO = CreateVoteDTO(i, e.target.value, null);
+    }else{
+      voteDTO = CreateVoteDTO(i,null,text)
+    }
+    
     console.log(voteDTO);
     let existFlag = false;
     for (let j=0; j<chosenVotes.length;j++){

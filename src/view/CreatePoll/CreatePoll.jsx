@@ -12,7 +12,7 @@ import { Divider } from "@mui/material";
 import ConfigPoll from "../../components/ConfigPoll/ConfigPoll";
 import { css } from "@emotion/react";
 import SyncLoader from "react-spinners/SyncLoader";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 
 const override = css`
   margin: 0 auto;
@@ -31,12 +31,14 @@ const CreatePoll = () => {
   const [pollConfig, setPollConfig] = useState(null);
   const handleQuestionChange = (value) => {
     let updatedQuestionsArray = createUpdatedQuestionsArray(value);
+    console.log(updatedQuestionsArray);
+    console.log(currentQuestionIndex, finalQuestionWithAnwersToAddIndex);
     for (
       let i = currentQuestionIndex + 1;
       i <= finalQuestionWithAnwersToAddIndex;
       i++
     ) {
-      if (updatedQuestionsArray[i].type === 1) {
+      if (updatedQuestionsArray[i].type === 0) {
         setCurrentQuestionIndex(i);
         break;
       }
@@ -44,7 +46,6 @@ const CreatePoll = () => {
     setQuestions(updatedQuestionsArray);
   };
   const createUpdatedQuestionsArray = (value) => {
-    setLoading(true);
     console.log(value);
     let answersDTOArray = [];
     for (let i = 0; i < value.length; i++) {
@@ -70,14 +71,14 @@ const CreatePoll = () => {
       updatedQuestionsArray = createUpdatedQuestionsArray(value);
     }
     for (let i = 0; i < updatedQuestionsArray.length; i++) {
-      if (updatedQuestionsArray[i].type === 3) {
+      if (updatedQuestionsArray[i].type === 2) {
         let answersDTO = [];
         for (let j = 1; j < 11; j++) {
           let answerDTO = CreateAnswerDTO(j.toString());
           answersDTO.push(answerDTO);
         }
         updatedQuestionsArray[i].answers = answersDTO;
-      } else if (updatedQuestionsArray[i].type === 4) {
+      } else if (updatedQuestionsArray[i].type === 3) {
         let answersDTO = [];
         for (let j = 1; j < 6; j++) {
           let answerDTO = CreateAnswerDTO(j.toString());
@@ -101,27 +102,24 @@ const CreatePoll = () => {
       null
     );
     SendPoll(pollDTO);
-    
   };
 
-  const SendPoll = async (pollDTO) =>{
+  const SendPoll = async (pollDTO) => {
     await postPoll(pollDTO);
-    setLoading (false);
-    if (localStorage.getItem('token') === null){
-      navigate("/invite");
-    }else{
+    setLoading(false);
+    if (localStorage.getItem("token") === null) {
+      navigate("/MyPolls");
+    } else {
       navigate("/");
     }
-    
-  }
-  
+  };
 
   const finishAddingQuestions = (value) => {
     setQuestions(value);
     let temp = null;
     let temp2 = null;
     for (let i = 0; i < value.length; i++) {
-      if (value[i].type === 1) {
+      if (value[i].type === 0) {
         if (temp2 === null) {
           temp2 = i;
           console.log(i);
@@ -130,17 +128,17 @@ const CreatePoll = () => {
         console.log(i);
       }
     }
-      console.log(temp, temp2);
-      if (temp === null) {
-        console.trace();
-        console.log(value);
-        handleFinalize(value, false);
-      } else {
-        setCurrentQuestionIndex(temp2);
-        setFinalQuestionWithAnswersToAddIndex(temp);
-        console.log(currentQuestionIndex, finalQuestionWithAnwersToAddIndex);
-      }
-    };
+    console.log(temp, temp2);
+    if (temp === null) {
+      console.trace();
+      console.log(value);
+      handleFinalize(value, false);
+    } else {
+      setCurrentQuestionIndex(temp2);
+      setFinalQuestionWithAnswersToAddIndex(temp);
+      console.log(currentQuestionIndex, finalQuestionWithAnwersToAddIndex);
+    }
+  };
 
   return (
     <div className="PollCreationArea">
@@ -152,7 +150,7 @@ const CreatePoll = () => {
           <Divider />
           <div>
             {pollConfig === null ? (
-              <ConfigPoll createConfig={(value) => setPollConfig(value)}/>
+              <ConfigPoll createConfig={(value) => setPollConfig(value)} />
             ) : (
               <>
                 {questions.length < 1 ? (

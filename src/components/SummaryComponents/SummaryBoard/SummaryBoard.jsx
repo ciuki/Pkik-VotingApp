@@ -17,8 +17,8 @@ const SummaryBoard = () => {
         const response = await axios
           .get(APIAddress.value + "/api/Vote/" + id)
           .then(function (response) {
-            console.log(response.data.voteQuestions);
             setVotes(response.data);
+            console.log(response.data);
           });
       } catch (err) {
       }
@@ -26,12 +26,10 @@ const SummaryBoard = () => {
     fetchData();
   }, []);
   let chartsToRender = [];
-  console.log(votes);
   if (votes !== null) {
     for (let i = 0; i < votes.voteQuestions.length; i++) {
-      console.log("here");
       switch (votes.voteQuestions[i].questionType) {
-        case 1:
+        case 0:
           chartsToRender.push(
             <div className="summaryboard-question">
               <h3>{votes.voteQuestions[i].questionText}</h3>
@@ -49,10 +47,10 @@ const SummaryBoard = () => {
             </div>
           );
           break;
-        case 2:
+        case 1:
           break;
+        case 2:
         case 3:
-        case 4:
           let count = 0;
           let amount = 0;
           for (let j = 0; j < votes.voteQuestions[i].answers.length; j++) {
