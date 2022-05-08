@@ -24,7 +24,12 @@ const CreateAnswers = (props) => {
     if (changed.includes(i)) {
       setChanged((prevState) => prevState.filter((prevItem) => prevItem !== i));
     }
-    setCurrentAnswer("");
+    
+    let tempAnswer = {
+      index: 1000,
+      text: "",
+    };
+    setCurrentAnswer(tempAnswer);
     console.log(answers);
   };
   const changeCurrentAnswer = (i, e) => {
@@ -110,7 +115,7 @@ const CreateAnswers = (props) => {
     );
   }
   const finalize = () => {
-    console.log(currentAnswer,answers);
+    console.log(currentAnswer);
     if (currentAnswer.text === "" && answers.length > 0) {
       props.finalize(answers);
     } else {
