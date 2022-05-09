@@ -25,7 +25,9 @@ const MyPolls = () => {
         const response = await axios
           .get(APIAddress.value + "/api/Poll/MyPolls")
           .then(function (response) {
-            setPollsData(response.data);
+            let array = response.data;
+            array.reverse();
+            setPollsData(array);
           });
       } catch (err) {
         toast.error(err.response.data); // ***

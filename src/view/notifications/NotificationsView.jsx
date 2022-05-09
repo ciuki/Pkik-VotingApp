@@ -25,7 +25,9 @@ const NotificationsView = () => {
         const response = await axios
           .get(APIAddress.value + "/api/Notification")
           .then(function (response) {
-            setNotifications(response.data);
+            let array = response.data;
+            array.reverse();
+            setNotifications(array);
           });
       } catch (err) {
         toast.error(err.response.data.message);
