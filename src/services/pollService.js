@@ -6,11 +6,14 @@ import { useNavigate } from "react-router-dom";
 
 
 export async function postPoll(pollDTO) {
+  console.log(pollDTO);
   try {
     const response = await axios
       .post(APIAddress.value + "/api/poll", pollDTO)
       .then(function (response) {
         toast.success("Ankieta stworzona!");
+      }).catch(error =>{
+        console.log(error);
       });
   } catch (err) {
     toast.error(err.response.data.message);
