@@ -17,8 +17,7 @@ const SummaryBoard = () => {
         const response = await axios
           .get(APIAddress.value + "/api/Vote/" + id)
           .then(function (response) {
-            setVotes(response.data);
-            console.log(response.data);
+            setVotes(response.data);;
           });
       } catch (err) {
       }

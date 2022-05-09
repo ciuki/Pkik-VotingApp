@@ -14,13 +14,11 @@ const NavBar = () => {
           const response = await axios
             .get(APIAddress.value + "/api/Notification")
             .then(function (response) {
-              console.log(response.data);
               let counter=0;
               for (let i=0; i<response.data.length; i++){
                 if(!response.data[i].seen){
                   counter++;
                 }
-                console.log(counter);
                 setNotifications(counter);
               }
             });

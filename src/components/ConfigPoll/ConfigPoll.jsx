@@ -42,15 +42,12 @@ const ConfigPoll = (props) => {
     setConfigData(tempConfig);
   };
   const changePollType = (value) => {
-    console.log(value);
     let tempConfig = configData;
     tempConfig.pollType = value[0].value;
     setConfigData(tempConfig);
   };
 
   const changeDates = (value) => {
-    console.log(value);
-    console.log(value[0].toString())
     changeStartDate(value[0]);
     changeEndDate(value[1]);
   }
@@ -59,7 +56,6 @@ const ConfigPoll = (props) => {
     let tempConfig = configData;
     tempConfig.startDate = value;
     setConfigData(tempConfig);
-    console.log(configData);
   };
   const changeEndDate = (value) => {
     let tempConfig = configData;

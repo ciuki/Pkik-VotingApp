@@ -30,7 +30,6 @@ const CreateAnswers = (props) => {
       text: "",
     };
     setCurrentAnswer(tempAnswer);
-    console.log(answers);
   };
   const changeCurrentAnswer = (i, e) => {
     let tempAnswer = {
@@ -54,7 +53,6 @@ const CreateAnswers = (props) => {
         );
       }
     }
-    console.log(answers);
     
   };
   const answersToRender = [];
@@ -116,8 +114,6 @@ const CreateAnswers = (props) => {
     );
   }
   const finalize = () => {
-    console.log(currentAnswer);
-    console.log(answers);
     if (currentAnswer.text === "" && answers.length > 0) {
       props.finalize(answers);
     } else {
@@ -141,7 +137,7 @@ const CreateAnswers = (props) => {
           onClick={() => {
             
             if (currentAnswer.text === "" && answers.length > 0) {
-              console.log(props);
+
               let array = [];
               props.nextQuestion(answers);
               setAnswers(array);

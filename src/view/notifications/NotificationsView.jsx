@@ -36,11 +36,19 @@ const NotificationsView = () => {
   }, []);
 
   let notificationsToRender = [];
+  let seenNotificationsToRender = [];
   if (notifications !== null) {
     for (let i = 0; i < notifications.length; i++) {
-      notificationsToRender.push(<div>
-        <NotificationItem text={notifications[i].title} id={notifications[i].id} />
-      </div>)
+      if (!notifications[i].seen){
+        notificationsToRender.push(<div>
+          <NotificationItem text={notifications[i].title} id={notifications[i].id} />
+        </div>)
+      }else{
+        seenNotificationsToRender.push(<div>
+          <NotificationItem text={notifications[i].title} id={notifications[i].id} />
+        </div>)
+      }
+      
     }
   }
   return (
@@ -52,7 +60,8 @@ const NotificationsView = () => {
           </div>
           <Divider />
           <div className="notificationview-item-container">
-            {notificationsToRender.length > 0 ? notificationsToRender : <>Brak nowych powiadomień</>}
+            {notificationsToRender.length > 0 ? <>Nowe {notificationsToRender}</> : <>Brak nowych powiadomień</>}
+            {seenNotificationsToRender.length > 0 ? <>Wyświetlone{seenNotificationsToRender}</> : <>Brak powiadomień</>}
           </div>
         </div>
       </div>

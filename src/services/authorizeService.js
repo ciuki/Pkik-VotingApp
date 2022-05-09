@@ -25,7 +25,6 @@ export async function loginUser(loginData){
 }
 
 export async function registerUser(registerData){
-    console.log(registerData);
     try{
         const response = await axios.post(APIAddress.value+"/api/User",{
             Email: registerData.Email,

@@ -31,7 +31,6 @@ const AddModerators = (props) => {
           const response = await axios
             .get(APIAddress.value + "/api/User")
             .then(function (response) {
-              console.log(response.data);
               setUsersData(response.data);
               for (let i = 0; i < response.data.length; i++) {
                 options.push({
@@ -39,7 +38,6 @@ const AddModerators = (props) => {
                   label: response.data[i].email,
                 });
               }
-              console.log(options);
             });
         } catch (err) {
           toast.error(err.response.data.message);
@@ -50,7 +48,6 @@ const AddModerators = (props) => {
     }, []);
   
     const handleChange = (e) => {
-      console.log(e[0].value);
       setUserID(e[0].value);
       setUserEmail(e[0].label);
     };

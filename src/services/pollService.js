@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 export async function postPoll(pollDTO) {
   try {
-    console.log(pollDTO);
     const response = await axios
       .post(APIAddress.value + "/api/poll", pollDTO)
       .then(function (response) {
@@ -39,7 +38,6 @@ export function CreateQuestionsDTO(text, description, type, answers) {
 }
 
 export function CreateAnswerDTO(text) {
-  console.log(text);
   let answerDTO = {
     Text: text,
   };
@@ -64,7 +62,7 @@ export function CreatePollDTO(
     IsActive: isActive,
     ResultsArePublic: resultsArePublic,
     PollType: pollType,
-    StarDate: startDate,
+    StartDate: startDate,
     EndDate: endDate,
     questions: questions,
     AllowedUsersIds: allowedUsersIds,
@@ -92,10 +90,11 @@ export function CreateVoteDTO(questionID, answerID, answerText) {
 
 export async function PostVoteAggregateDTO(voteAggregateDTO) {
   try {
-    console.log(voteAggregateDTO);
     const response = await axios
       .post(APIAddress.value + "/api/Vote/Aggregate", voteAggregateDTO)
       .then(function (response) {
+        
+        
         return response.status;
       }).catch(function(e){
         toast.error(e.message);

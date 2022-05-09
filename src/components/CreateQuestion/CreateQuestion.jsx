@@ -40,7 +40,6 @@ const CreateQuestions = (props) => {
       setChanged((prevState) => prevState.filter((prevItem) => prevItem !== i));
     }
     setCurrentQuestion("");
-    console.log(questions);
   };
 
   const changeCurrentQuestion = (i, e) => {
@@ -73,8 +72,7 @@ const CreateQuestions = (props) => {
         );
       }
     }
-    console.log(currentQuestion);
-    console.log(questions);
+
   };
 
   const handleTypeChange = (e, i) => {
@@ -93,8 +91,6 @@ const CreateQuestions = (props) => {
       setSelectedTypes([...selectedTypes, e[0].value]);
       
     }
-    console.log(selectedTypes);
-
     if (questions.length > i) {
       let tempQuestion = questions[i];
       tempQuestion.type = e[0].value;
@@ -108,7 +104,7 @@ const CreateQuestions = (props) => {
       tempCQ.type = e[0].value;
       setCurrentQuestion(tempCQ);
     }
-    console.log(questions);
+
   };
   const handleGoToAnswerCreations = () =>{
     if (currentQuestion === "" && questions.length>0){

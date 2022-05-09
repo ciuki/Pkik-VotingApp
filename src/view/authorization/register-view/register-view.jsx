@@ -23,7 +23,7 @@ const RegisterView = () => {
   const [password, setPassword] = useState("");
 
   const handleRegister = async (e) => {
-    if (login==="" || email===""){
+    if (email===""){
       toast.error("Wypełnij wszystkie dane");
     }else{
       setLoading(true);
@@ -49,11 +49,6 @@ const RegisterView = () => {
           justifyContent="space-around"
           alignItems="stretch"
         >
-          <TextField
-            className="login-textfield"
-            label="nazwa użytkownika"
-            onChange={(e) => setLogin(e.target.value)}
-          />
           <TextField
             className="login-textfield"
             label="e-mail"

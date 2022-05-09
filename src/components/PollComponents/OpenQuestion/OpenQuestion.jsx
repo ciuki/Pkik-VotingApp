@@ -3,7 +3,6 @@ import React from "react";
 
 
 const OpenQuestion = (props) => {
-    console.log(props);
     return (
         <div className="openquestion-answers">
             <div className="openquestion-inside-answers">

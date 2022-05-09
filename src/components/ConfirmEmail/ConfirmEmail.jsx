@@ -12,15 +12,11 @@ const ConfirmEmail = () =>{
     useEffect(() => {
         const fetchData = async () => {
           try {
-            console.log(id, token);
-            let newToken = token.replace(/\//g, '%2f');
-            newToken = newToken.replace(/\+/g, '%2b');
-            newToken = newToken.replace(/\=/g, '%3d');
+            let newToken = encodeURIComponent(token);
             let confirmMailDTO = {
               userId: id,
               confirmationToken: newToken 
             };
-            console.log(confirmMailDTO);
             const response = await axios
               .post(APIAddress.value + "/api/User/ConfirmMail/",confirmMailDTO)
               .then(function (response) {
@@ -29,7 +25,6 @@ const ConfirmEmail = () =>{
               });
           } catch (err) {
             toast.error(err.response.data.message);
-            console.log(err);
           }
         };
         fetchData();

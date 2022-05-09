@@ -26,7 +26,6 @@ const MyPolls = () => {
           .get(APIAddress.value + "/api/Poll/MyPolls")
           .then(function (response) {
             setPollsData(response.data);
-            console.log(response.data);
           });
       } catch (err) {
         toast.error(err.response.data); // ***

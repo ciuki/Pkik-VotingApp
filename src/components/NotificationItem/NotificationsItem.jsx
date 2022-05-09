@@ -21,7 +21,6 @@ const NotificationItem = (props) => {
       const response = await axios
         .put(APIAddress.value + "/api/Notification/SetAsSeen/" + props.id, props.id)
         .then(function (response) {
-          console.log(response);
           setActive(!isActive);
         });
     } catch (err) {

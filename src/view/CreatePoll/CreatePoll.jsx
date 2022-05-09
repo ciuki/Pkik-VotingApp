@@ -31,8 +31,6 @@ const CreatePoll = () => {
   const [pollConfig, setPollConfig] = useState(null);
   const handleQuestionChange = (value) => {
     let updatedQuestionsArray = createUpdatedQuestionsArray(value);
-    console.log(updatedQuestionsArray);
-    console.log(currentQuestionIndex, finalQuestionWithAnwersToAddIndex);
     for (
       let i = currentQuestionIndex + 1;
       i <= finalQuestionWithAnwersToAddIndex;
@@ -46,13 +44,11 @@ const CreatePoll = () => {
     setQuestions(updatedQuestionsArray);
   };
   const createUpdatedQuestionsArray = (value) => {
-    console.log(value);
     let answersDTOArray = [];
     for (let i = 0; i < value.length; i++) {
       let tempAnswer = CreateAnswerDTO(value[i].text);
       answersDTOArray.push(tempAnswer);
     }
-    console.log(answersDTOArray);
     let questionDTO = CreateQuestionsDTO(
       questions[currentQuestionIndex].text,
       "description",
@@ -88,7 +84,6 @@ const CreatePoll = () => {
       }
     }
     setQuestions(updatedQuestionsArray);
-    console.log(updatedQuestionsArray);
     let pollDTO = CreatePollDTO(
       pollConfig.name,
       pollConfig.allowAnonymous,
@@ -122,21 +117,16 @@ const CreatePoll = () => {
       if (value[i].type === 0) {
         if (temp2 === null) {
           temp2 = i;
-          console.log(i);
         }
         temp = i;
-        console.log(i);
       }
     }
-    console.log(temp, temp2);
     if (temp === null) {
       console.trace();
-      console.log(value);
       handleFinalize(value, false);
     } else {
       setCurrentQuestionIndex(temp2);
       setFinalQuestionWithAnswersToAddIndex(temp);
-      console.log(currentQuestionIndex, finalQuestionWithAnwersToAddIndex);
     }
   };
 
