@@ -9,10 +9,10 @@ import axios from "../../services/api-interceptor";
 import { Divider } from "@mui/material";
 
 const override = css`
-  margin: 0 auto;
-  position: absolute;
-  top:50%;
-  left:50%;
+    margin: 0 auto;
+    position: absolute;
+    top:50%;
+    left:50%;
 `;
 
 

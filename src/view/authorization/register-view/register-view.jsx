@@ -12,7 +12,9 @@ import { css } from "@emotion/react";
 
 const override = css`
   margin: 0 auto;
-  border-color: red;
+  position: absolute;
+  top:50%;
+  left:50%;
 `;
 
 const RegisterView = () => {
@@ -75,7 +77,7 @@ const RegisterView = () => {
       </Grid>
       <SyncLoader
         loading={loading}
-        color={"#ffffff"}
+        color={"#f69b9f"}
         css={override}
         size={15}
       />

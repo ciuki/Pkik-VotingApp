@@ -7,8 +7,10 @@ import SyncLoader from "react-spinners/SyncLoader";
 import { toast } from "react-toastify";
 
 const override = css`
-  margin: 0 auto;
-  border-color: red;
+margin: 0 auto;
+position: absolute;
+top:50%;
+left:50%;
 `;
 
 const LoginView = () => {

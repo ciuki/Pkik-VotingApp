@@ -8,7 +8,9 @@ import { Divider } from "@mui/material";
 
 const override = css`
   margin: 0 auto;
-  border-color: red;
+  position: absolute;
+  top:50%;
+  left:50%;
 `;
 
 const NotificationItem = (props) => {

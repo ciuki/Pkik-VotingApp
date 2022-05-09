@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import APIAddress from "../../APIAddress";
 import { toast } from "react-toastify";
+import {faSun} from "@fortawesome/free-regular-svg-icons";
+import {faMoon} from "@fortawesome/free-regular-svg-icons";
 
 import axios from "../../services/api-interceptor";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NavBar = () => {
   const [notifications, setNotifications] = useState(null);
@@ -80,6 +83,15 @@ const NavBar = () => {
     <nav className="navbar">
       <ul className="navbar-nav">
         <li className="nav-item">
+          <div className="nav-link" id="motywcheck">
+            <label for="checkbox" class="toggler">  
+              <input type="checkbox" id="checkbox"/>  
+              <span class="ball" ></span>
+              <FontAwesomeIcon class="sun" icon={faSun}/>
+              <FontAwesomeIcon  class="moon" icon={faMoon}/>
+            </label>
+            <span className="link-text">Zmień motyw</span>
+          </div>
           <Link to="/" className="nav-link">
             <img src="/Utilities/home.svg" alt="Stwórz ankietę" />
             <span className="link-text">Strona główna</span>
@@ -92,6 +104,7 @@ const NavBar = () => {
         {navBarItems}
       </ul>
     </nav>
+    
   );
 };
 

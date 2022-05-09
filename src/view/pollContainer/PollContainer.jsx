@@ -14,8 +14,10 @@ import { toast } from "react-toastify";
 import { css } from "@emotion/react";
 
 const override = css`
-  margin: 0 auto;
-  border-color: red;
+margin: 0 auto;
+position: absolute;
+top:50%;
+left:50%;
 `;
 
 const PollContainer = () => {
@@ -121,7 +123,7 @@ const PollContainer = () => {
         </div>
         <SyncLoader
           loading={loading}
-          color={"#ffffff"}
+          color={"#f69b9f"}
           css={override}
           size={15}
         />

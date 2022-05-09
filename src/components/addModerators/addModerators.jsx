@@ -8,12 +8,15 @@ import { css } from "@emotion/react";
 import Select from "react-dropdown-select";
 
 import axios from "../../services/api-interceptor"
+import { Divider } from "@mui/material";
 
 const options = [];
 
 const override = css`
-  margin: 0 auto;
-  border-color: red;
+margin: 0 auto;
+position: absolute;
+top:50%;
+left:50%;
 `;
 
 const AddModerators = (props) => {
@@ -80,24 +83,39 @@ const AddModerators = (props) => {
     }
   
     return (
-      <div className="inviteArea">
-        Lista do zaproszenia: {invitedPeopleToRender}
-        <Select
-          placeholder="Użytkownicy"
-          className="choose"
-          options={options}
-          onChange={(e) => handleChange(e)}
-          color="#000080"
-        />
-        <button onClick={() => handleAddToList()}>Dodaj do listy</button>
-        {emails.length > 0 ? <button onClick={async () =>sendInvites()}>Zaproś podane osoby</button> : <></>}
-        <SyncLoader
-          loading={loading}
-          color={"#ffffff"}
-          css={override}
-          size={15}
-        />
+      <div className="mod-container">
+      <div className="mod-inner-poll-container">
+        <div className="mod-question-board">
+          <div className="mod-questions-area">
+            <h1>Zaproś</h1>
+          </div>
+          <Divider />
+          <div className="mod-question-area">
+              <div className="mod-question-area-group">
+                <div className="mod-question-area-title"> Lista do zaproszenia: </div>
+                <div className="mod-question-area-listitem">{invitedPeopleToRender}</div>
+              </div>
+            <div className="mod-question-area-group2">
+              <Select
+                placeholder="Użytkownicy"
+                className="choose"
+                options={options}
+                onChange={(e) => handleChange(e)}
+                color="#000080"
+              />
+              <button className="mod-button2" onClick={() => handleAddToList()}>Dodaj do listy</button>
+            </div>
+          </div>
+          {emails.length > 0 ? <button className="mod-button" onClick={async () => sendInvites()}>Zaproś podane osoby</button> : <></>}
+        </div>
       </div>
+      <SyncLoader
+        loading={loading}
+        color={"#ffffff"}
+        css={override}
+        size={15}
+      />
+    </div>
     );
   };
   

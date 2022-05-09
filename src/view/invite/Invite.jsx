@@ -6,11 +6,14 @@ import Select from "react-dropdown-select";
 import axios from "../../services/api-interceptor";
 import SyncLoader from "react-spinners/SyncLoader";
 import { css } from "@emotion/react";
+import { Divider } from "@mui/material";
 const options = [];
 
 const override = css`
-  margin: 0 auto;
-  border-color: red;
+margin: 0 auto;
+position: absolute;
+top:50%;
+left:50%;
 `;
 
 const Invite = (props) => {
@@ -56,13 +59,13 @@ const Invite = (props) => {
       setIds([...ids, userID]);
     }
   };
-  const sendInvites = async () =>{
+  const sendInvites = async () => {
     setLoading(true);
     try {
-        let respone = await axios.put(APIAddress.value + "/api/Poll/Invite/" + id,{userIds: ids})
+      let respone = await axios.put(APIAddress.value + "/api/Poll/Invite/" + id, { userIds: ids })
         .then(function (response) {
-            toast.success("Podane osoby zostały zaproszone!")
-        }).catch(error =>{
+          toast.success("Podane osoby zostały zaproszone!")
+        }).catch(error => {
           toast.error("Nie możesz zapraszać do tej ankiety");
         });
     } catch (err) {
@@ -77,17 +80,32 @@ const Invite = (props) => {
   }
 
   return (
-    <div className="inviteArea">
-      Lista do zaproszenia: {invitedPeopleToRender}
-      <Select
-        placeholder="Użytkownicy"
-        className="choose"
-        options={options}
-        onChange={(e) => handleChange(e)}
-        color="#000080"
-      />
-      <button onClick={() => handleAddToList()}>Dodaj do listy</button>
-      {emails.length > 0 ? <button onClick={async () =>sendInvites()}>Zaproś podane osoby</button> : <></>}
+    <div className="invite-container">
+      <div className="invite-inner-poll-container">
+        <div className="invite-question-board">
+          <div className="invite-questions-area">
+            <h1>Zaproś</h1>
+          </div>
+          <Divider />
+          <div className="invite-question-area">
+              <div className="invite-question-area-group">
+                <div className="invite-question-area-title"> Lista do zaproszenia: </div>
+                <div className="invite-question-area-listitem">{invitedPeopleToRender}</div>
+              </div>
+            <div className="invite-question-area-group2">
+              <Select
+                placeholder="Użytkownicy"
+                className="choose"
+                options={options}
+                onChange={(e) => handleChange(e)}
+                color="#000080"
+              />
+              <button className="invite-button2" onClick={() => handleAddToList()}>Dodaj do listy</button>
+            </div>
+          </div>
+          {emails.length > 0 ? <button className="invite-button" onClick={async () => sendInvites()}>Zaproś podane osoby</button> : <></>}
+        </div>
+      </div>
       <SyncLoader
         loading={loading}
         color={"#ffffff"}
