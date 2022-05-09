@@ -1,5 +1,5 @@
 import React from "react";
-import { Cell, Legend, Pie, PieChart, Tooltip } from "recharts";
+import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF2F30', '#FF12FF', '#8884d8'];
 const data01 = [
@@ -31,8 +31,8 @@ const data01 = [
 
 const PieChartComponent = (props) => {
     return (
-        <div className="answers">
-            <div className="piechart">
+        <div className="piechart-answers">
+            <ResponsiveContainer min-height="100%">
                 <PieChart width={730} height={250} className="piechart2">
                     <Tooltip />
                     <Legend verticalAlign="center" align="right" layout="vertical" top/>
@@ -40,7 +40,7 @@ const PieChartComponent = (props) => {
                         {data01.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)}
                     </Pie>
                 </PieChart>
-            </div>
+            </ResponsiveContainer>
         </div>
     );
 };

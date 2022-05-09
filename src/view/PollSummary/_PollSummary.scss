@@ -2,18 +2,18 @@
     margin-bottom: 4em;
     display: flex;
     justify-content: center;
-    .inner-poll-container{
+    .summary-inner-poll-container{
         padding-block: 4em;
         width: 40%;
     }
 }
-.question-board {
+.summary-question-board {
     border-radius: 1em;
     color: $text-on-light-background;
     background: white;
     font-family: "Exo 2", sans-serif;
     text-align: center;
-    .questions-area {
+    .summary-questions-area {
       padding: 1em;
       overflow:none;
       min-height: 2rem;
@@ -28,7 +28,7 @@
       }
   }
 }
-.button {
+.summary-button {
     background-color:  #e2e2e2;
     padding: 1rem;
     padding-inline: 2rem;
@@ -51,9 +51,19 @@
     margin-bottom: 1em;
   }
 
-  .button:hover {
+  .summary-button:hover {
     opacity: 0.7;
     background-color: #000080;
     color: white;
   }
 
+  @media screen and (max-width: 800px) {
+    .summary-inner-poll-container {
+      width: 60% !important;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .summary-inner-poll-container {
+      width: 80% !important;
+    }
+  }

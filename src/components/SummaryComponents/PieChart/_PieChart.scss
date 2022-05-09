@@ -1,11 +1,6 @@
-.answers {
-    padding:0;
-    margin: 0;
-    .piechart{
-        .piechart2{
-            width: 100vw;
-            position: sticky;
-        }
-    }
-    
-  }
+.piechart-answers {
+    height: 20rem;
+    overflow: hidden;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}

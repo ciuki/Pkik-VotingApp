@@ -4,7 +4,6 @@ import PieChartComponent from "../PieChart/PieChart";
 import APIAddress from "../../../APIAddress";
 import { useParams } from "react-router-dom";
 import CountUp from "react-countup";
-import {toast} from "react-toastify";
 
 import axios from "../../../services/api-interceptor"
 
@@ -27,6 +26,7 @@ const SummaryBoard = () => {
   let chartsToRender = [];
   if (votes !== null) {
     for (let i = 0; i < votes.voteQuestions.length; i++) {
+      // eslint-disable-next-line default-case
       switch (votes.voteQuestions[i].questionType) {
         case 0:
           chartsToRender.push(

@@ -46,7 +46,7 @@ const NotificationItem = (props) => {
                 {props.text}
               </span>
             </div>
-            <div className="notificationsitem-grid-item">
+            <div>
               <SyncLoader
                 loading={loading}
                 color={"#f69b9f"}

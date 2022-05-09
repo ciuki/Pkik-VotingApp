@@ -8,16 +8,16 @@ import SummaryBoard from "../../components/SummaryComponents/SummaryBoard/Summar
 const PollSummary = () => {
   return (
     <div className="summary-container">
-      <div className="inner-poll-container">
-          <div className="question-board">
-            <div className="questions-area">
+      <div className="summary-inner-poll-container">
+          <div className="summary-question-board">
+            <div className="summary-questions-area">
               <h1>Tytuł ankiety</h1>
             </div>
             <Divider/>
             <SummaryBoard/>
             <Link to="/" className="nav-link">
             <div>
-              <button className='button' type="button">Powrót</button>
+              <button className='summary-button' type="button">Powrót</button>
             </div>
             </Link>
             

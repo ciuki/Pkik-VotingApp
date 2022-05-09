@@ -355,12 +355,12 @@
           justify-content: center;
 }
 
-.summary-container .inner-poll-container {
+.summary-container .summary-inner-poll-container {
   padding-block: 4em;
   width: 40%;
 }
 
-.question-board {
+.summary-question-board {
   border-radius: 1em;
   color: #4a3231;
   background: white;
@@ -368,7 +368,7 @@
   text-align: center;
 }
 
-.question-board .questions-area {
+.summary-question-board .summary-questions-area {
   padding: 1em;
   overflow: none;
   min-height: 2rem;
@@ -376,14 +376,14 @@
   margin-right: 2rem;
 }
 
-.question-board .questions-area h1 {
+.summary-question-board .summary-questions-area h1 {
   color: black;
   margin-top: 0.5rem;
   float: left;
   font-family: iA Quattro, montserat;
 }
 
-.button {
+.summary-button {
   background-color: #e2e2e2;
   padding: 1rem;
   padding-inline: 2rem;
@@ -412,10 +412,22 @@
   margin-bottom: 1em;
 }
 
-.button:hover {
+.summary-button:hover {
   opacity: 0.7;
   background-color: #000080;
   color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .summary-inner-poll-container {
+    width: 60% !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .summary-inner-poll-container {
+    width: 80% !important;
+  }
 }
 
 .home-container {
@@ -572,6 +584,25 @@
   padding-bottom: 1rem;
 }
 
+.notificationview-question-board .notificationview-item-container .notificationview-item-container-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.notificationview-question-board .notificationview-item-container .notificationview-item-container-group .notificationview-item-container-description {
+  margin-block: 2rem;
+  color: #949494;
+  width: 100%;
+  font-family: iA Quattro, montserat;
+  text-align: center;
+  font-size: larger;
+}
+
 .notificationview-button {
   background-color: #e2e2e2;
   padding: 0.5rem;
@@ -624,15 +655,18 @@
   width: 100%;
 }
 
-.answers {
-  padding: 0;
-  margin: 0;
+.piechart-answers {
+  height: 20rem;
+  overflow: hidden;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-.answers .piechart .piechart2 {
-  width: 100vw;
-  position: -webkit-sticky;
-  position: sticky;
+.barchart-answers {
+  height: 20rem;
+  overflow: hidden;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .likenessgrid-answers {
@@ -1012,13 +1046,18 @@
 .notificationsitem-button .notificationsitem-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 4fr 1fr;
-      grid-template-columns: 2fr 4fr 1fr;
+  -ms-grid-columns: 2fr 5fr 1fr;
+      grid-template-columns: 2fr 5fr 1fr;
+  text-align: left;
 }
 
 .notificationsitem-button .notificationsitem-grid .notificationsitem-grid-time {
   padding-left: 3rem;
   text-align: left;
+}
+
+.notificationsitem-button .notificationsitem-grid .notificationsitem-grid-item {
+  padding-left: 5rem;
 }
 
 .navbar {
