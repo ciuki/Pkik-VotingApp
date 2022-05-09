@@ -51,9 +51,7 @@ const ConfigPoll = (props) => {
     let toCompare = new Date().toString().substring(0,15);
     let comparer = value[0].toString().substring(0,15);
     if (toCompare===comparer){
-      let actualDate = new Date();
-      var newDateObj = new Date(actualDate.getTime() + 1*60000);
-      changeStartDate(newDateObj);
+      changeStartDate(null);
     }else{
       changeStartDate(value[0]);
     }

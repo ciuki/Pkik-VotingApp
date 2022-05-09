@@ -11,13 +11,24 @@ import axios from "../../../services/api-interceptor"
 const SummaryBoard = () => {
   const { id } = useParams();
   const [votes, setVotes] = useState(null);
+  const [openAnswers, setOpenAnswers] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios
           .get(APIAddress.value + "/api/Vote/" + id)
           .then(function (response) {
-            setVotes(response.data);;
+            console.log(response.data);
+            setVotes(response.data);
+            let openAnswersData= [];
+            for (let i=0; i<response.data.baseAnswers.length; i++){
+              if (response.data.baseAnswers[i].questionType===1){
+                openAnswersData.push(response.data.baseAnswers[i]);
+              }
+            }
+            if (openAnswersData.length>0){
+              setOpenAnswers(openAnswersData);
+            }
           });
       } catch (err) {
       }
@@ -46,8 +57,6 @@ const SummaryBoard = () => {
             </div>
           );
           break;
-        case 1:
-          break;
         case 2:
         case 3:
           let count = 0;
@@ -68,9 +77,19 @@ const SummaryBoard = () => {
           break;
       }
     }
+    
+  }
+  let openAnswersToRender =[];
+  if (openAnswers !== null){
+    for(let i=0; i<openAnswers.length; i++){
+      openAnswersToRender.push(<div>
+        {openAnswers[i].question}
+        {openAnswers[i].answer}
+      </div>)
+    }
   }
 
-  return <div className="summaryboard-answers-area">{chartsToRender}</div>;
+  return <div className="summaryboard-answers-area">{chartsToRender}{openAnswersToRender}</div>;
 };
 
 export default SummaryBoard;
