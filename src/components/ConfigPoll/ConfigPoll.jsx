@@ -48,7 +48,13 @@ const ConfigPoll = (props) => {
   };
 
   const changeDates = (value) => {
-    changeStartDate(value[0]);
+    let toCompare = new Date().toString().substring(0,15);
+    let comparer = value[0].toString().substring(0,15);
+    if (toCompare===comparer){
+      changeStartDate(null);
+    }else{
+      changeStartDate(value[0]);
+    }
     changeEndDate(value[1]);
   }
 
