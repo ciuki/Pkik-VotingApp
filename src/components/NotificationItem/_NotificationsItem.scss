@@ -1,12 +1,6 @@
 .notificationsitem{
-        min-height: 3rem;
-        background-color: white;
-    
+        min-height: 3rem;   
 }
-.notificationsitem-unread{
-    background-color: rgb(72, 159, 185);
-    min-height: 3rem;
-} 
 .notificationsitem-button{
     min-height: 3rem;
     width:100%;
@@ -16,6 +10,7 @@
         display: grid;
         grid-template-columns: 2fr 5fr 1fr;
         text-align: left; 
+
     }
     
 }  

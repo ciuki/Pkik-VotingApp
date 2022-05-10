@@ -35,6 +35,9 @@
       width: 100%;
       font-family: iA Quattro, montserat;
       text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
 
       .home-button {
           background-color: #e2e2e2;

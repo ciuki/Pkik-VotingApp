@@ -34,8 +34,8 @@ const NotificationItem = (props) => {
   }       
   return (
     <div>
-      <div className={isSeen ? 'notificationsitem': "notificationsitem-unread"}
-      style={{backgroundColor: isDark ? '#374785': '', color: isDark ? '#ffffff' : ''}}>
+      <div className='notificationsitem'
+      style={{backgroundColor: isDark  ?  isSeen ? '#374785': '#5e6b9d' : !isSeen ? '#000080': 'white' , color: isDark ? '#ffffff' : ''}}>
         <button className="notificationsitem-button" onClick={() => markNotificationAsSeen()}>
           <div className="notificationsitem-grid">
           <div className="notificationsitem-grid-time">
@@ -44,8 +44,8 @@ const NotificationItem = (props) => {
               </span>
             </div>
             <div className="notificationsitem-grid-item"
-             style={{color: isDark ?'#9ba3c2' : ''}}>
-              <span>
+             style={{color: isDark ?'#9ba3c2' : isSeen ? '' :'white'}}>
+              <span style= {{fontWeight: isSeen ? '' : 'bold'}}>
                 {props.text}
               </span>
             </div>

@@ -475,6 +475,9 @@
   width: 100%;
   font-family: iA Quattro, montserat;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .home-question-board .home-questions-area .home-questions-area-cell .home-button {
@@ -1104,12 +1107,6 @@
 
 .notificationsitem {
   min-height: 3rem;
-  background-color: white;
-}
-
-.notificationsitem-unread {
-  background-color: #489fb9;
-  min-height: 3rem;
 }
 
 .notificationsitem-button {
@@ -1380,6 +1377,9 @@
   color: black;
   font-size: medium;
   text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .mod-question-board .mod-question-area .mod-question-area-group2 {
@@ -1795,6 +1795,9 @@
   color: black;
   font-size: medium;
   text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .invite-question-board .invite-question-area .invite-question-area-group2 {
@@ -1894,7 +1897,7 @@
 
 .mypolls-container .mypolls-inner-poll-container {
   padding-block: 4em;
-  width: 40%;
+  width: 60%;
 }
 
 .mypolls-question-board {
@@ -1931,6 +1934,9 @@
   width: 100%;
   font-family: iA Quattro, montserat;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .mypolls-question-board .mypolls-questions-area .mypolls-questions-area-cell .mypolls-button {
@@ -1980,17 +1986,11 @@
 
 @media screen and (max-width: 1250px) {
   .mypolls-inner-poll-container {
-    width: 60% !important;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .mypolls-inner-poll-container {
     width: 80% !important;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .mypolls-questions-area {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
