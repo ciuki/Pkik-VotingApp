@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import APIAddress from "../../APIAddress";
 import { SyncLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import { css } from "@emotion/react";
 import axios from "../../services/api-interceptor";
 import { Divider } from "@mui/material";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
 
 const override = css`
   margin: 0 auto;
 `;
 
 const NotificationItem = (props) => {
+  const { currentTheme} = useContext(CustomThemeContext)
+  const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(false);
   const [isSeen, setSeen] = useState(props.isSeen);
   console.log(props);
@@ -54,7 +57,7 @@ const NotificationItem = (props) => {
           </div>
         </button>
       </div>
-      <Divider />
+      <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/>
     </div>
   )
 }

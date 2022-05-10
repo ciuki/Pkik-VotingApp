@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import APIAddress from "../../APIAddress";
 import { toast } from "react-toastify";
@@ -7,8 +7,22 @@ import { faMoon } from "@fortawesome/free-regular-svg-icons";
 
 import axios from "../../services/api-interceptor";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
+
+
 
 const NavBar = () => {
+  const { currentTheme, setTheme } = useContext(CustomThemeContext)
+  const isDark = Boolean(currentTheme === 'dark')
+  
+  const handleThemeChange = (event) => {
+    const checked  = event.target.checked
+    if (checked) {
+      setTheme('dark')
+    } else {
+      setTheme('normal')
+    }
+  }
   const [notifications, setNotifications] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -80,12 +94,14 @@ const NavBar = () => {
     );
   }
   return (
-    <nav className="navbar">
+    <nav className="navbar" style={{
+      backgroundColor: isDark ? '#374785' : '#d06e73'
+  }}>
       <ul className="navbar-nav">
         <li className="nav-item" id="motywcheck2">
           <div className="nav-link" id="motywcheck">
             <label for="checkbox" class="toggler">
-              <input type="checkbox" id="checkbox" />
+              <input onChange={handleThemeChange} type="checkbox" id="checkbox" />
               <span class="ball" ></span>
               <FontAwesomeIcon class="sun" icon={faSun} />
               <FontAwesomeIcon class="moon" icon={faMoon} />

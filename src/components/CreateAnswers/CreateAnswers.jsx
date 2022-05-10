@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { toast } from "react-toastify";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
 
 const CreateAnswers = (props) => {
+  const { currentTheme} = useContext(CustomThemeContext)
+  const isDark = Boolean(currentTheme === 'dark')
   const [answers, setAnswers] = useState([]);
   const [changed, setChanged] = useState([]);
   const [currentAnswer, setCurrentAnswer] = useState("");
@@ -79,6 +82,7 @@ const CreateAnswers = (props) => {
                 return item === i;
               }) ? (
                 <button
+                style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
                   className="createanswer-button"
                   onClick={(e) => addAnswerToList(i)}
                 >
@@ -101,6 +105,7 @@ const CreateAnswers = (props) => {
           return item === i;
         }) ? (
           <button
+          style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
             className="createanswer-button"
             onClick={(e) => addAnswerToList(i)}
           >
@@ -133,6 +138,7 @@ const CreateAnswers = (props) => {
       {answersToRender}
       {props.questionsLength !== props.questionParameter.index ? (
         <button
+        style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
         className="createanswer-button"
           onClick={() => {
             

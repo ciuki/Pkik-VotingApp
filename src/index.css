@@ -1,4 +1,36 @@
-@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+@font-face {
+  font-family: 'iA Quattro';
+  src: url("./assets/fonts/iAWriterQuattroS-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'iA Quattro';
+  src: url("./assets/fonts/iAWriterQuattroS-Bold.woff") format("woff");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'iA Quattro';
+  src: url("./assets/fonts/iAWriterQuattroS-BoldItalic.woff") format("woff");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'iA Quattro';
+  src: url("./assets/fonts/iAWriterQuattroS-Italic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Pixelboy';
+  src: url("./assets/fonts/Pixelboy.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Fipps';
+  src: url("./assets/fonts/Fipps-Regular.woff") format("woff");
+}
 
 * {
   padding: 0;
@@ -43,8 +75,7 @@ code {
 }
 
 .area{
-  background: #f69b9f;  
-  background: -webkit-linear-gradient(to left, #f69b9f, #fbd1d3);  
+  
   min-height: 100vh;
 }
 .circles{
