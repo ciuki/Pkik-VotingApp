@@ -4,7 +4,7 @@
     justify-content: center;
     .mypolls-inner-poll-container{
         padding-block: 4em;
-        width: 40%;
+        width: 60%;
         
     }
 }
@@ -34,7 +34,9 @@
             width: 100%;
             font-family: iA Quattro, montserat;
             text-align: center;
-
+            overflow: hidden;
+           white-space: nowrap;
+            text-overflow: ellipsis;
             .mypolls-button {
                 background-color: #e2e2e2;
                 padding: 0.5rem;
@@ -75,22 +77,16 @@
 }
 @media screen and (max-width: 1250px) {
     .mypolls-inner-poll-container {
-        width: 60% !important;
+        width: 80% !important;
     }
   }
 
 @media screen and (max-width: 800px) {
-    .mypolls-inner-poll-container {
-      width: 80% !important;
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    .mypolls-questions-area {
-        display: flex !important;
-        flex-direction: column !important;
-    }
-    .mypolls-questions-area-title {
-       display: none;
-    }
+  .mypolls-questions-area {
+    display: flex !important;
+    flex-direction: column !important;
+}
+.mypolls-questions-area-title {
+   display: none;
+}
   }

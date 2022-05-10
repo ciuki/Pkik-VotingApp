@@ -79,7 +79,7 @@ const Invite = (props) => {
 
   let invitedPeopleToRender = [];
   for (let i = 0; i < emails.length + 1; i++) {
-    invitedPeopleToRender.push(<div>{emails[i]}</div>);
+    invitedPeopleToRender.push(<div style={{color: isDark ? 'white': ''}}>{emails[i]}</div>);
   }
 
   return (

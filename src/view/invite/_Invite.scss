@@ -50,6 +50,9 @@
                 color: black;
                 font-size: medium; 
                 text-align: left;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
             }
         }
         .invite-question-area-group2{
