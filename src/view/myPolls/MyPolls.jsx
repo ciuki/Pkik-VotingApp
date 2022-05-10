@@ -10,10 +10,10 @@ import axios from "../../services/api-interceptor";
 import { Divider } from "@mui/material";
 
 const override = css`
-  margin: 0 auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+position: fixed;
+top: 50%;
+left: 0;
+width: 100vw;
 `;
 
 const MyPolls = () => {
@@ -25,7 +25,7 @@ const MyPolls = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios
+          await axios
           .get(APIAddress.value + "/api/Poll/MyPolls")
           .then(function (response) {
             let array = response.data;
@@ -76,6 +76,7 @@ const MyPolls = () => {
             </div>
             <div className="mypolls-questions-area-cell">
               <button
+                style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
                 className="mypolls-button"
                 onClick={(e) => navigate("/poll/" + pollsData[i].id)}
               >

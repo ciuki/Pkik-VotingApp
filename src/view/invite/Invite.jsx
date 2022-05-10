@@ -11,10 +11,10 @@ import { CustomThemeContext } from "../../utils/custom-theme-provider";
 const options = [];
 
 const override = css`
-margin: 0 auto;
-position: absolute;
-top:50%;
-left:50%;
+position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100vw;
 `;
 
 const Invite = (props) => {
@@ -31,7 +31,7 @@ const Invite = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios
+          await axios
           .get(APIAddress.value + "/api/User")
           .then(function (response) {
             setUsersData(response.data);
@@ -65,7 +65,7 @@ const Invite = (props) => {
   const sendInvites = async () => {
     setLoading(true);
     try {
-      let respone = await axios.put(APIAddress.value + "/api/Poll/Invite/" + id, { userIds: ids })
+        await axios.put(APIAddress.value + "/api/Poll/Invite/" + id, { userIds: ids })
         .then(function (response) {
           toast.success("Podane osoby zostały zaproszone!")
         }).catch(error => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState,useContext } from "react";
 import CreateQuestions from "../../components/CreateQuestion/CreateQuestion";
 import CreateAnswers from "../../components/CreateAnswers/CreateAnswers";
 import { CustomThemeContext } from "../../utils/custom-theme-provider";
@@ -13,13 +13,12 @@ import { Divider } from "@mui/material";
 import ConfigPoll from "../../components/ConfigPoll/ConfigPoll";
 import { css } from "@emotion/react";
 import SyncLoader from "react-spinners/SyncLoader";
-import { toast } from "react-toastify";
 
 const override = css`
-margin: 0 auto;
-position: absolute;
-top:50%;
-left:50%;
+position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100vw;
 `;
 
 const CreatePoll = () => {

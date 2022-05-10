@@ -444,11 +444,10 @@
 
 .home-question-board {
   border-radius: 1em;
-  color: #4a3231;
-  background: white;
   font-family: "Exo 2", sans-serif;
   text-align: center;
   overflow: hidden;
+  background: white;
 }
 
 .home-question-board .home-questions-area {
@@ -478,22 +477,7 @@
   text-align: center;
 }
 
-.home-question-board .home-questions-area .home-questions-area-cell .home-questions-area-title {
-  color: #949494;
-  width: 100%;
-  font-family: iA Quattro, montserat;
-  text-align: center;
-  font-size: large;
-}
-
-.home-question-board .home-questions-area .home-questions-area-cell .home-questions-area-cell {
-  color: black;
-  width: 100%;
-  font-family: iA Quattro, montserat;
-  text-align: center;
-}
-
-.home-question-board .home-questions-area .home-questions-area-cell .home-questions-area-cell .home-button {
+.home-question-board .home-questions-area .home-questions-area-cell .home-button {
   background-color: #e2e2e2;
   padding: 0.5rem;
   padding-inline: 1rem;
@@ -520,7 +504,7 @@
   vertical-align: bottom;
 }
 
-.home-question-board .home-questions-area .home-questions-area-cell .home-questions-area-cell .home-button:hover {
+.home-question-board .home-questions-area .home-questions-area-cell .home-button:hover {
   opacity: 0.7;
   background-color: #000080;
   color: white;
@@ -1180,7 +1164,7 @@
 }
 
 .notificationsitem-unread {
-  background-color: #d2eff8;
+  background-color: #489fb9;
   min-height: 3rem;
 }
 
@@ -1197,15 +1181,6 @@
   -ms-grid-columns: 2fr 5fr 1fr;
       grid-template-columns: 2fr 5fr 1fr;
   text-align: left;
-}
-
-.notificationsitem-button .notificationsitem-grid .notificationsitem-grid-time {
-  padding-left: 3rem;
-  text-align: left;
-}
-
-.notificationsitem-button .notificationsitem-grid .notificationsitem-grid-item {
-  padding-left: 5rem;
 }
 
 .navbar {

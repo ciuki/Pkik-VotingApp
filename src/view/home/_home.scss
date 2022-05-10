@@ -11,12 +11,10 @@
 
 .home-question-board {
   border-radius: 1em;
-  color: $text-on-light-background;
-  background: white;
   font-family: "Exo 2", sans-serif;
   text-align: center;
   overflow: hidden;
-
+  background: white;
   .home-questions-area {
     display: grid;
     grid-template-columns: 1fr repeat(3, 2fr);
@@ -38,21 +36,7 @@
       font-family: iA Quattro, montserat;
       text-align: center;
 
-      .home-questions-area-title {
-        color: #949494;
-        width: 100%;
-        font-family: iA Quattro, montserat;
-        text-align: center;
-        font-size: large;
-      }
-
-      .home-questions-area-cell {
-        color: black;
-        width: 100%;
-        font-family: iA Quattro, montserat;
-        text-align: center;
-
-        .home-button {
+      .home-button {
           background-color: #e2e2e2;
           padding: 0.5rem;
           padding-inline: 1rem;
@@ -81,7 +65,7 @@
       }
     }
   }
-}
+
 
 @media screen and (max-width: 1250px) {
   .home-inner-poll-container {

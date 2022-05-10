@@ -11,10 +11,10 @@ import { SyncLoader } from "react-spinners";
 import { css } from "@emotion/react";
 
 const override = css`
-  margin: 0 auto;
-  position: absolute;
-  top:50%;
-  left:50%;
+position: fixed;
+top: 50%;
+left: 0;
+width: 100vw;
 `;
 
 const RegisterView = () => {
@@ -77,7 +77,7 @@ const RegisterView = () => {
       </Grid>
       <SyncLoader
         loading={loading}
-        color={"#f69b9f"}
+        color={"#ffffff"}
         css={override}
         size={15}
       />

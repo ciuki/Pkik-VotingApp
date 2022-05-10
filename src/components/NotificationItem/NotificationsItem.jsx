@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useContext } from "react";
 import APIAddress from "../../APIAddress";
 import { SyncLoader } from "react-spinners";
 import { toast } from "react-toastify";
@@ -20,7 +20,7 @@ const NotificationItem = (props) => {
   const markNotificationAsSeen = async () => {
     setLoading(true);
     try {
-      const response = await axios
+        await axios
         .put(APIAddress.value + "/api/Notification/SetAsSeen/" + props.id)
         .then(function (response) {
           setActive(false);
@@ -33,7 +33,8 @@ const NotificationItem = (props) => {
   }       
   return (
     <div>
-      <div className={!isActive ? 'notificationsitem': "notificationsitem-unread"}>
+      <div className={!isActive ? 'notificationsitem': "notificationsitem-unread"} 
+      style={{backgroundColor: isDark ? '#374785': '', color: isDark ? '#ffffff' : ''}}>
         <button className="notificationsitem-button" onClick={() => markNotificationAsSeen()}>
           <div className="notificationsitem-grid">
           <div className="notificationsitem-grid-time">
@@ -41,7 +42,8 @@ const NotificationItem = (props) => {
               
               </span>
             </div>
-            <div className="notificationsitem-grid-item">
+            <div className="notificationsitem-grid-item"
+             style={{color: isDark ?'#9ba3c2' : ''}}>
               <span>
                 {props.text}
               </span>

@@ -14,7 +14,7 @@ const SummaryBoard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios
+          await axios
           .get(APIAddress.value + "/api/Vote/" + id)
           .then(function (response) {
             console.log(response.data);
@@ -61,11 +61,13 @@ const SummaryBoard = () => {
         case "Reaction":
           let count = 0;
           let amount = 0;
+          let bar;
           for (let j = 0; j < votes.voteQuestions[i].answers.length; j++) {
             amount += votes.voteQuestions[i].answers[j].count;
             count +=
               parseInt(votes.voteQuestions[i].answers[j].answerText, 10) *
               votes.voteQuestions[i].answers[j].count;
+              bar = votes.voteQuestions[i].questionType === "Emoji" ? 5 : 10;
           }
           let average = count / amount;
           chartsToRender.push(
@@ -74,7 +76,7 @@ const SummaryBoard = () => {
               <CountUp duration={5} end={average} decimals={2} useEasing={true} prefix="Średni wynik: "/>
               <div className="progressbar-parent">
                 <div className="progressbar">
-                <ProgressBar completed={average} maxCompleted={10} customLabel={average} />
+                <ProgressBar completed={average} maxCompleted={bar} customLabel={average} />
                 </div>
               </div>
             </div>

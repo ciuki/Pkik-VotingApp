@@ -4,7 +4,7 @@
     
 }
 .notificationsitem-unread{
-    background-color: rgb(210, 239, 248);
+    background-color: rgb(72, 159, 185);
     min-height: 3rem;
 } 
 .notificationsitem-button{
@@ -16,13 +16,6 @@
         display: grid;
         grid-template-columns: 2fr 5fr 1fr;
         text-align: left; 
-        .notificationsitem-grid-time{
-            padding-left: 3rem;
-            text-align: left; 
-        }
-        .notificationsitem-grid-item{
-            padding-left: 5rem;
-        }
     }
     
 }  

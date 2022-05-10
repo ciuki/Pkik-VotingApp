@@ -1,6 +1,5 @@
 
 import { createTheme } from '@mui/material'
-import baseTheme from './base-theme'
 
 // Dark theme
 const theme = createTheme({

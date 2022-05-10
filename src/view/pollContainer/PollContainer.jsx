@@ -15,10 +15,10 @@ import { toast } from "react-toastify";
 import { css } from "@emotion/react";
 
 const override = css`
-margin: 0 auto;
-position: absolute;
-top:50%;
-left:50%;
+position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100vw;
 `;
 
 const PollContainer = () => {
@@ -33,7 +33,7 @@ const PollContainer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let respone = await axios
+          await axios
           .get(APIAddress.value + "/api/Poll/" + id)
           .then(function (response) {
             setPollData(response.data);
@@ -134,7 +134,7 @@ const PollContainer = () => {
         </div>
         <SyncLoader
           loading={loading}
-          color={"#f69b9f"}
+          color={"#ffffff"}
           css={override}
           size={15}
         />

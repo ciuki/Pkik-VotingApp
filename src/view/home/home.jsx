@@ -48,7 +48,8 @@ const Home = () => {
       if (pollsData[i].allowAnonymous || localStorage.getItem("token") !== null)
         itemsToRender.push(
           <>
-            <div className="home-questions-area">
+            <div className="home-questions-area" 
+            style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
               <div className="home-questions-area-cell">
                 {pollsData[i].isActive ? (
                   <div className="container">
@@ -96,7 +97,7 @@ const Home = () => {
                 </button>
               </div>
             </div>
-            <Divider />
+            <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/>
           </>
         );
     }

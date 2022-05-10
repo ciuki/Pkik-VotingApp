@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState } from "react";
 import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
 import { Navigate, Link } from "react-router-dom";
 import { loginUser } from "../../../services/authorizeService";
@@ -7,10 +7,10 @@ import SyncLoader from "react-spinners/SyncLoader";
 import { toast } from "react-toastify";
 
 const override = css`
-margin: 0 auto;
-position: absolute;
-top:50%;
-left:50%;
+position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100vw;
 `;
 
 const LoginView = () => {
