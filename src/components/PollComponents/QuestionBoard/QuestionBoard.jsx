@@ -5,13 +5,15 @@ import LikenessGrid from "../LikenessGrid/LikenessGrid";
 import OpenQuestion from "../OpenQuestion/OpenQuestion";
 
 const QuestionBoard = (props) => {
-  const handleVoteChange = (e, i,text) => {
-    props.handleVoteChange(e, i,text);
+  const handleVoteChange = (e, i, text) => {
+    props.handleVoteChange(e, i, text);
+  };
+  const handleTokenInput = (token) => {
+    props.handleTokenInput(token);
   };
   let questionsToRender = [];
   if (props.Poll !== "") {
     for (let i = 0; i < props.Poll.questions.length; i++) {
-      console.log(props.Poll.questions[i].type);
       // eslint-disable-next-line default-case
       switch (props.Poll.questions[i].type) {
         case "Closed":
@@ -66,7 +68,16 @@ const QuestionBoard = (props) => {
     }
   }
 
-  return <div className="answers-area">{questionsToRender}</div>;
+  return (
+    <div className="answers-area">
+      {questionsToRender}
+      {props.Poll.pollType === "Protected" ? 
+      <>
+      <label>Token: </label>
+      <input type="text" onChange={(e) =>handleTokenInput(e.target.value)}/>
+      </> : <></>}
+    </div>
+  );
 };
 
 export default QuestionBoard;

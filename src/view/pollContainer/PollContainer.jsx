@@ -22,6 +22,7 @@ left:50%;
 
 const PollContainer = () => {
   const [loading, setLoading] = useState(true);
+  const [token, setToken] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
   const [pollData, setPollData] = useState("");
@@ -45,6 +46,10 @@ const PollContainer = () => {
     };
     fetchData();
   }, []);
+
+  const handleToken = (token) =>{
+    setToken(token);
+  }
 
   const handleVoting = (e, i, text) => {
     let voteDTO;
@@ -73,13 +78,16 @@ const PollContainer = () => {
   };
   const handleFinalizeVote = () => {
     setLoading(true);
-    let VoteAggregateDTO = CreateVoteAggregateDTO(pollData.id, chosenVotes);
+    let VoteAggregateDTO = CreateVoteAggregateDTO(pollData.id, token, chosenVotes);
     vote(VoteAggregateDTO);
   };
 
   const vote = async (VoteAggregateDTO) => {
-    var storedIDs = JSON.parse(localStorage.getItem("votedIDs"));
-    console.log(storedIDs);
+    var storedIDs = null;
+    localStorage.removeItem("votedIDs");
+    if (localStorage.getItem("token") === null){
+      storedIDs = JSON.parse(localStorage.getItem("votedIDs"));
+    }
     if (storedIDs !== null) {
       for (let i = 0; i < storedIDs.length; i++) {
         if (id === storedIDs[i]) {
@@ -97,7 +105,7 @@ const PollContainer = () => {
     }
     let status = await PostVoteAggregateDTO(VoteAggregateDTO);
     setLoading(false);
-    if (status === 200) {
+    if (status === 204) {
       navigate("/summary/" + id);
     }
   };
@@ -110,7 +118,7 @@ const PollContainer = () => {
             <h1>{pollData.name}</h1>
           </div>
           <Divider />
-          <QuestionBoard Poll={pollData} handleVoteChange={handleVoting} />
+          <QuestionBoard Poll={pollData} handleTokenInput={handleToken} handleVoteChange={handleVoting} />
           <div>
             <button
               className="pollcontainer-button"

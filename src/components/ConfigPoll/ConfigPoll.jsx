@@ -37,7 +37,6 @@ const ConfigPoll = (props) => {
   const changeAnonymous = (value) => {
     let tempConfig = configData;
     tempConfig.allowAnonymous = !value;
-    console.log(tempConfig);
     setConfigData(tempConfig);
   };
   const changeResultsArePublic = (value) => {

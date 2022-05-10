@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 
 export async function postPoll(pollDTO) {
-  console.log(pollDTO);
   try {
     const response = await axios
       .post(APIAddress.value + "/api/poll", pollDTO)
@@ -74,9 +73,10 @@ export function CreatePollDTO(
   return pollDTO;
 }
 
-export function CreateVoteAggregateDTO(pollID, votesArray) {
+export function CreateVoteAggregateDTO(pollID,token,votesArray) {
   let voteAggregateDTO = {
     pollId: pollID,
+    votingToken: token,
     votes: votesArray,
   };
   return voteAggregateDTO;
