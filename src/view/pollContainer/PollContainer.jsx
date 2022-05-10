@@ -84,7 +84,6 @@ const PollContainer = () => {
 
   const vote = async (VoteAggregateDTO) => {
     var storedIDs = null;
-    localStorage.removeItem("votedIDs");
     if (localStorage.getItem("token") === null){
       storedIDs = JSON.parse(localStorage.getItem("votedIDs"));
     }
