@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
@@ -66,7 +66,7 @@ const RegisterView = () => {
             <Button className="login-button" onClick={(e) => handleRegister()}>
               zarejestruj
             </Button>
-            <Divider />
+            <Divider/>
             <Typography textAlign="center" variant="caption">
               Jeśli masz już konto,
               <br />

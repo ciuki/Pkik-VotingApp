@@ -1,37 +1,17 @@
 import "./App.css";
 import "./scssConfig/style.css";
-import NavBar from "./components/NavBar/NavBar";
-import CustomRoutes from "./routes/routes";
-import { ThemeProvider } from "@mui/material";
-import baseTheme from "./theme/base-theme";
-import { BrowserRouter } from "react-router-dom";
-import axios from "axios";
-import { toast } from "react-toastify";
+import { CssBaseline} from "@mui/material";
+import CustomThemeProvider from "./utils/custom-theme-provider";
+import MainPage from "./view/main/main";
 
 function App() {
-  
-  
+
   return (
     <div className="area">
-      
-      <ThemeProvider theme={baseTheme}>
-        <BrowserRouter>
-          <CustomRoutes />
-          <NavBar isLoggedIn={localStorage.token}/>
-        </BrowserRouter>
-        <ul className="circles">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </ThemeProvider>
+      <CustomThemeProvider>
+        <CssBaseline />
+          <MainPage/>
+      </CustomThemeProvider>
     </div>
   );
 }

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import Select from "react-dropdown-select";
 import { toast } from "react-toastify";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
 
 const options = [
   { value: "Closed", label: "Zamknięte" },
@@ -10,6 +11,8 @@ const options = [
 ];
 
 const CreateQuestions = (props) => {
+  const { currentTheme} = useContext(CustomThemeContext)
+  const isDark = Boolean(currentTheme === 'dark')
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [changed, setChanged] = useState([]);
@@ -146,7 +149,9 @@ const CreateQuestions = (props) => {
               inputComplete.some(function (item) {
                 return item === i;
               }) ? (
-                <button className='createquestion-button' onClick={(e) => addQuestionToList(i)}>
+                <button 
+                style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+                className='createquestion-button' onClick={(e) => addQuestionToList(i)}>
                   {" "}
                   Zaktualizuj pytanie
                 </button>
@@ -165,7 +170,9 @@ const CreateQuestions = (props) => {
         inputComplete.some(function (item) {
           return item === i;
         }) ? (
-          <button disabled={changed.length>0 ? true : false} className='createquestion-button' onClick={(e) => addQuestionToList(i)}> Dodaj pytanie </button>
+          <button 
+          style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+          disabled={changed.length>0 ? true : false} className='createquestion-button' onClick={(e) => addQuestionToList(i)}> Dodaj pytanie </button>
         ) : (
           <></>
         )}
@@ -177,6 +184,7 @@ const CreateQuestions = (props) => {
       {questionsToRender}
       <div>
         <button
+          style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
           className='createquestion-button'
           onClick={() => handleGoToAnswerCreations() }
         >

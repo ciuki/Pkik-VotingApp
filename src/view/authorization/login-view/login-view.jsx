@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
 import { Navigate, Link } from "react-router-dom";
 import { loginUser } from "../../../services/authorizeService";
@@ -68,7 +68,7 @@ const LoginView = () => {
             <Button onClick={(e) => handleLogin(e)} className="login-button">
               zaloguj
             </Button>
-            <Divider />
+            <Divider/>
             <Typography textAlign="center" variant="caption">
               Jeśli nie posiadasz jeszcze konta,
               <br />

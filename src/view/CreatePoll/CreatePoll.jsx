@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import CreateQuestions from "../../components/CreateQuestion/CreateQuestion";
 import CreateAnswers from "../../components/CreateAnswers/CreateAnswers";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
 import {
   postPoll,
   CreateAnswerDTO,
@@ -22,6 +23,8 @@ left:50%;
 `;
 
 const CreatePoll = () => {
+  const { currentTheme} = useContext(CustomThemeContext)
+  const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [questions, setQuestions] = useState([]);
@@ -133,13 +136,13 @@ const CreatePoll = () => {
   };
 
   return (
-    <div className="PollCreationArea">
+    <div className="PollCreationArea " >
       <div className="createpoll-inner-poll-container">
-        <div className="createpoll-question-board">
+        <div className="createpoll-question-board" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
           <div className="createpoll-questions-area">
-            <h1>Stwórz ankiete</h1>
+            <h1 style={{color: isDark ? 'white' : '#949494'}}>Stwórz ankiete</h1>
           </div>
-          <Divider />
+          <Divider style={{backgroundColor: isDark ? '#5e6b9d': '',marginBottom:'1rem'}}/>
           <div>
             {pollConfig === null ? (
               <ConfigPoll createConfig={(value) => setPollConfig(value)} />

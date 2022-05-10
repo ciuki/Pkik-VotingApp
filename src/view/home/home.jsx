@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { css } from "@emotion/react";
 import SyncLoader from "react-spinners/SyncLoader";
 import { toast } from "react-toastify"
@@ -7,6 +7,7 @@ import APIAddress from "../../APIAddress";
 
 import axios from "../../services/api-interceptor";
 import { Divider } from "@mui/material";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
 
 const override = css`
   position: fixed;
@@ -16,6 +17,8 @@ const override = css`
 `;
 
 const Home = () => {
+  const { currentTheme} = useContext(CustomThemeContext)
+  const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [pollsData, setPollsData] = useState(null);
@@ -41,13 +44,17 @@ const Home = () => {
     for (let i = 0; i < pollsData.length; i++) {
       if (pollsData[i].allowAnonymous || localStorage.getItem('token') !== null)
         itemsToRender.push(<>
-          <div className="home-questions-area">
+          <div className="home-questions-area" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
             <div className="home-questions-area-cell">{i+1}.</div>
             <div className="home-questions-area-cell">{pollsData[i].name}</div>
-            <div className="home-questions-area-cell"><button className="home-button" onClick={(e) => navigate("/poll/" + pollsData[i].id)}>Zagłosuj</button></div>
-            <div className="home-questions-area-cell"><button className="home-button" onClick={(e) => navigate("/summary/" + pollsData[i].id)}>Zobacz wyniki</button></div>
+            <div className="home-questions-area-cell"><button 
+            style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+            className="home-button" onClick={(e) => navigate("/poll/" + pollsData[i].id)}>Zagłosuj</button></div>
+            <div className="home-questions-area-cell"><button 
+             style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+            className="home-button" onClick={(e) => navigate("/summary/" + pollsData[i].id)}>Zobacz wyniki</button></div>
           </div>
-          <Divider />
+          <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/>
         </>)
     }
   }
@@ -55,13 +62,13 @@ const Home = () => {
     <div className="home-container">
       <div className="home-inner-poll-container">
         <div className="home-question-board">
-          <div className="home-questions-area">
+          <div className="home-questions-area" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'white' : '#949494'}}>
             <div className="home-questions-area-title">Lp.</div>
             <div className="home-questions-area-title">Nazwa</div>
             <div className="home-questions-area-title">Głosowanie</div>
             <div className="home-questions-area-title">Wyniki</div>
           </div>
-          <Divider /> 
+          <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/> 
             {itemsToRender}
             <SyncLoader
               loading={loading}

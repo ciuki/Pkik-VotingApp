@@ -1,14 +1,14 @@
 import { createTheme } from '@mui/material';
-import { red,darkBlue } from './colors';
+import { red } from './colors';
 
 const baseTheme = createTheme( {
     palette: {
         primary: {
             main: red
         },
-        secondary: {
-            main: darkBlue
-        }
+        background: {
+            default: '#f69b9f' 
+        } 
     },
     typography: {
         fontFamily: 'iA Quattro,montserat',
@@ -36,7 +36,7 @@ const baseTheme = createTheme( {
         MuiTextField: {
             styleOverrides: {
                 root: {
-                    '&.login-textfield': {
+                    '&': {
                         '& fieldset': {
                             'border-color': 'transparent',
                             'transition': 'border .25s',
@@ -54,7 +54,7 @@ const baseTheme = createTheme( {
         MuiButton: {
             styleOverrides: {
                 root: {
-                    '&.login-button': {
+                    '&': {
                         'width': '100%',
                         'background-color': red,
                         'color': 'white',

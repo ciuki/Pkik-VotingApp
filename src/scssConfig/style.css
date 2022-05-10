@@ -24,15 +24,14 @@
 }
 
 .pollcontainer-question-board .pollcontainer-questions-area {
-  padding: 1em;
+  padding: 1rem;
   overflow: none;
-  min-height: 2rem;
+  min-height: 5rem;
   margin-left: 2rem;
   margin-right: 2rem;
 }
 
 .pollcontainer-question-board .pollcontainer-questions-area h1 {
-  color: black;
   margin-top: 0.5rem;
   float: left;
   font-family: iA Quattro, montserat;
@@ -315,13 +314,12 @@
 .createpoll-question-board .createpoll-questions-area {
   padding: 1em;
   overflow: none;
-  min-height: 2rem;
+  min-height: 5rem;
   margin-left: 2rem;
   margin-right: 2rem;
 }
 
 .createpoll-question-board .createpoll-questions-area h1 {
-  color: black;
   margin-top: 0.5rem;
   float: left;
   font-family: iA Quattro, montserat;
@@ -371,13 +369,12 @@
 .summary-question-board .summary-questions-area {
   padding: 1em;
   overflow: none;
-  min-height: 2rem;
+  min-height: 5rem;
   margin-left: 2rem;
   margin-right: 2rem;
 }
 
 .summary-question-board .summary-questions-area h1 {
-  color: black;
   margin-top: 0.5rem;
   float: left;
   font-family: iA Quattro, montserat;
@@ -469,7 +466,6 @@
 }
 
 .home-question-board .home-questions-area .home-questions-area-title {
-  color: #949494;
   width: 100%;
   font-family: iA Quattro, montserat;
   text-align: center;
@@ -477,7 +473,6 @@
 }
 
 .home-question-board .home-questions-area .home-questions-area-cell {
-  color: black;
   width: 100%;
   font-family: iA Quattro, montserat;
   text-align: center;
@@ -569,13 +564,12 @@
 .notificationview-question-board .notificationview-questions-area {
   padding: 1em;
   overflow: none;
-  min-height: 2rem;
+  min-height: 5rem;
   margin-left: 2rem;
   margin-right: 2rem;
 }
 
 .notificationview-question-board .notificationview-questions-area h1 {
-  color: black;
   margin-top: 0.5rem;
   float: left;
   font-family: iA Quattro, montserat;
@@ -597,7 +591,6 @@
 
 .notificationview-question-board .notificationview-item-container .notificationview-item-container-group .notificationview-item-container-description {
   margin-block: 2rem;
-  color: #949494;
   width: 100%;
   font-family: iA Quattro, montserat;
   text-align: center;
@@ -654,6 +647,29 @@
   padding: 1em;
   color: #949494;
   width: 100%;
+}
+
+.summaryboard-answers-area .summaryboard-question .progressbar-parent {
+  width: 100%;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+}
+
+.summaryboard-answers-area .summaryboard-question .progressbar-parent .progressbar {
+  width: 80%;
+  display: block;
+}
+
+.summaryboard-answers-area .summaryboard-question .summaryboard-openanswers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .piechart-answers {
@@ -1276,13 +1292,12 @@
 .mod-question-board .mod-questions-area {
   padding: 1em;
   overflow: none;
-  min-height: 2rem;
+  min-height: 5rem;
   margin-left: 2rem;
   margin-right: 2rem;
 }
 
 .mod-question-board .mod-questions-area h1 {
-  color: black;
   margin-top: 0.5rem;
   float: left;
   font-family: iA Quattro, montserat;
@@ -1305,7 +1320,6 @@
 
 .mod-question-board .mod-question-area .mod-question-area-group .mod-question-area-title {
   text-align: left;
-  color: #949494;
   width: 100%;
   font-family: iA Quattro, montserat;
   font-size: larger;
@@ -1693,13 +1707,12 @@
 .invite-question-board .invite-questions-area {
   padding: 1em;
   overflow: none;
-  min-height: 2rem;
+  min-height: 5rem;
   margin-left: 2rem;
   margin-right: 2rem;
 }
 
 .invite-question-board .invite-questions-area h1 {
-  color: black;
   margin-top: 0.5rem;
   float: left;
   font-family: iA Quattro, montserat;
@@ -1722,7 +1735,6 @@
 
 .invite-question-board .invite-question-area .invite-question-area-group .invite-question-area-title {
   text-align: left;
-  color: #949494;
   width: 100%;
   font-family: iA Quattro, montserat;
   font-size: larger;
@@ -1859,7 +1871,6 @@
 }
 
 .mypolls-question-board .mypolls-questions-area .mypolls-questions-area-title {
-  color: #949494;
   width: 100%;
   font-family: iA Quattro, montserat;
   text-align: center;
@@ -1867,7 +1878,6 @@
 }
 
 .mypolls-question-board .mypolls-questions-area .mypolls-questions-area-cell {
-  color: black;
   width: 100%;
   font-family: iA Quattro, montserat;
   text-align: center;

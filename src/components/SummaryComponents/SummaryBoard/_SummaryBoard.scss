@@ -11,5 +11,20 @@
       color: #949494;
       width: 100%;
     }
+    .progressbar-parent{
+      width: 100%;
+      text-align: center;
+      display: grid;
+      justify-items: center;
+      .progressbar{
+        width: 80%;
+        display: block;
+      }
+    }
+    .summaryboard-openanswers{
+        display: flex;
+        flex-direction: column;
+        
+    }
   }
 }

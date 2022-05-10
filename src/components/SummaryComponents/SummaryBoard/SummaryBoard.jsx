@@ -4,7 +4,7 @@ import PieChartComponent from "../PieChart/PieChart";
 import APIAddress from "../../../APIAddress";
 import { useParams } from "react-router-dom";
 import CountUp from "react-countup";
-
+import ProgressBar from "@ramonak/react-progress-bar";
 import axios from "../../../services/api-interceptor"
 
 const SummaryBoard = () => {
@@ -72,6 +72,11 @@ const SummaryBoard = () => {
             <div className="summaryboard-question">
               <h3>{votes.voteQuestions[i].questionText}</h3>
               <CountUp duration={5} end={average} decimals={2} useEasing={true} prefix="Średni wynik: "/>
+              <div className="progressbar-parent">
+                <div className="progressbar">
+                <ProgressBar completed={average} maxCompleted={10} customLabel={average} />
+                </div>
+              </div>
             </div>
           );
           break;
@@ -82,9 +87,12 @@ const SummaryBoard = () => {
   let openAnswersToRender =[];
   if (openAnswers !== null){
     for(let i=0; i<openAnswers.length; i++){
-      openAnswersToRender.push(<div>
-        {openAnswers[i].question}
-        {openAnswers[i].answer}
+      openAnswersToRender.push(
+      <div className="summaryboard-question">
+        <h3>{openAnswers[i].question}</h3>
+        <div className="summaryboard-openanswers">
+          {openAnswers[i].answer}
+        </div>
       </div>)
     }
   }
