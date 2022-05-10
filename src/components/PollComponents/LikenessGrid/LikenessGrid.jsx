@@ -2,7 +2,7 @@ import React from "react";
 
 
 const LikenessGrid = (props) => {
-    
+    console.log(props);
     const likeness_square = [];
     for (let i = 0; i < 10; i++) {
         likeness_square.push(

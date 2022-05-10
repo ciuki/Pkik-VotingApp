@@ -6,10 +6,10 @@ import 'react-calendar/dist/Calendar.css';
 import { toast } from "react-toastify";
 
 const options = [
-  { value: 0, label: "Prywatna" },
-  { value: 1, label: "Publiczna" },
-  { value: 2, label: "Chroniona" },
-  { value: 3, label: "Ukryta" },
+  { value: "Private", label: "Prywatna" },
+  { value: "Public", label: "Publiczna" },
+  { value: "Protected", label: "Chroniona" },
+  { value: "Hidden", label: "Ukryta" },
 ];
 
 const axios = require("axios");
@@ -20,7 +20,7 @@ const ConfigPoll = (props) => {
     allowAnonymous: true,
     isActive: true,
     resultsArePublic: true,
-    pollType: 1,
+    pollType: "Public",
     startDate: new Date().toLocaleString(),
     endDate: null,
     questions: [],

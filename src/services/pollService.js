@@ -13,7 +13,7 @@ export async function postPoll(pollDTO) {
       .then(function (response) {
         toast.success("Ankieta stworzona!");
       }).catch(error =>{
-        console.log(error);
+        toast.error(error.response.data.message);
       });
   } catch (err) {
     toast.error(err.response.data.message);

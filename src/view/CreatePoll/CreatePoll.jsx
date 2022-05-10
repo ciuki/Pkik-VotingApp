@@ -38,7 +38,7 @@ const CreatePoll = () => {
       i <= finalQuestionWithAnwersToAddIndex;
       i++
     ) {
-      if (updatedQuestionsArray[i].type === 0) {
+      if (updatedQuestionsArray[i].type === "Closed") {
         setCurrentQuestionIndex(i);
         break;
       }
@@ -69,14 +69,14 @@ const CreatePoll = () => {
       updatedQuestionsArray = createUpdatedQuestionsArray(value);
     }
     for (let i = 0; i < updatedQuestionsArray.length; i++) {
-      if (updatedQuestionsArray[i].type === 2) {
+      if (updatedQuestionsArray[i].type === "Emoji") {
         let answersDTO = [];
         for (let j = 1; j < 11; j++) {
           let answerDTO = CreateAnswerDTO(j.toString());
           answersDTO.push(answerDTO);
         }
         updatedQuestionsArray[i].answers = answersDTO;
-      } else if (updatedQuestionsArray[i].type === 3) {
+      } else if (updatedQuestionsArray[i].type === "Reaction") {
         let answersDTO = [];
         for (let j = 1; j < 6; j++) {
           let answerDTO = CreateAnswerDTO(j.toString());
@@ -116,7 +116,7 @@ const CreatePoll = () => {
     let temp = null;
     let temp2 = null;
     for (let i = 0; i < value.length; i++) {
-      if (value[i].type === 0) {
+      if (value[i].type === "Closed") {
         if (temp2 === null) {
           temp2 = i;
         }

@@ -3,10 +3,10 @@ import Select from "react-dropdown-select";
 import { toast } from "react-toastify";
 
 const options = [
-  { value: 0, label: "Zamknięte" },
-  { value: 1, label: "Otwarte" },
-  { value: 2, label: "Emoji" },
-  { value: 3, label: "Reakcja" },
+  { value: "Closed", label: "Zamknięte" },
+  { value: "Open", label: "Otwarte" },
+  { value: "Emoji", label: "Emoji" },
+  { value: "Reaction", label: "Reakcja" },
 ];
 
 const CreateQuestions = (props) => {
@@ -44,7 +44,7 @@ const CreateQuestions = (props) => {
 
   const changeCurrentQuestion = (i, e) => {
     
-    let typeToAssign = 0; //sproboj wymyslic inne przypisywanie
+    let typeToAssign = "Closed"; //sproboj wymyslic inne przypisywanie
     if (selectedTypes.length >= i + 1) {
       typeToAssign = selectedTypes[i];
     }else{

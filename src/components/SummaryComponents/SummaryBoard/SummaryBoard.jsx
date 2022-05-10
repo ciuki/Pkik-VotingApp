@@ -21,7 +21,7 @@ const SummaryBoard = () => {
             setVotes(response.data);
             let openAnswersData= [];
             for (let i=0; i<response.data.baseAnswers.length; i++){
-              if (response.data.baseAnswers[i].questionType===1){
+              if (response.data.baseAnswers[i].questionType==="Open"){
                 openAnswersData.push(response.data.baseAnswers[i]);
               }
             }
@@ -39,7 +39,7 @@ const SummaryBoard = () => {
     for (let i = 0; i < votes.voteQuestions.length; i++) {
       // eslint-disable-next-line default-case
       switch (votes.voteQuestions[i].questionType) {
-        case 0:
+        case "Closed":
           chartsToRender.push(
             <div className="summaryboard-question">
               <h3>{votes.voteQuestions[i].questionText}</h3>
@@ -57,8 +57,8 @@ const SummaryBoard = () => {
             </div>
           );
           break;
-        case 2:
-        case 3:
+        case "Emoji":
+        case "Reaction":
           let count = 0;
           let amount = 0;
           for (let j = 0; j < votes.voteQuestions[i].answers.length; j++) {

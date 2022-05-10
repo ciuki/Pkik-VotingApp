@@ -4,20 +4,6 @@ import ExpectationGrid from "../ExpectationGrid/ExpectationGrid";
 import LikenessGrid from "../LikenessGrid/LikenessGrid";
 import OpenQuestion from "../OpenQuestion/OpenQuestion";
 
-let question = {
-  Answers: [
-    "Jedna odp",
-    "druga odp",
-    "trzecia odp",
-    "czwarta odp",
-    "Jedna odp",
-    "druga odp",
-    "trzecia odp",
-    "czwarta odp",
-  ],
-  Question: "Pytanie testowe?",
-};
-
 const QuestionBoard = (props) => {
   const handleVoteChange = (e, i,text) => {
     props.handleVoteChange(e, i,text);
@@ -25,8 +11,10 @@ const QuestionBoard = (props) => {
   let questionsToRender = [];
   if (props.Poll !== "") {
     for (let i = 0; i < props.Poll.questions.length; i++) {
+      console.log(props.Poll.questions[i].type);
+      // eslint-disable-next-line default-case
       switch (props.Poll.questions[i].type) {
-        case 0:
+        case "Closed":
           questionsToRender.push(
             <div className="question">
               <h3>{props.Poll.questions[i].text}</h3>
@@ -38,7 +26,7 @@ const QuestionBoard = (props) => {
             </div>
           );
           break;
-        case 1:
+        case "Open":
           questionsToRender.push(
             <div className="question">
               <h3>{props.Poll.questions[i].text}</h3>
@@ -50,7 +38,7 @@ const QuestionBoard = (props) => {
             </div>
           );
           break;
-        case 2:
+        case "Emoji":
           questionsToRender.push(
             <div className="question">
               <h3>{props.Poll.questions[i].text}</h3>
@@ -62,7 +50,7 @@ const QuestionBoard = (props) => {
             </div>
           );
           break;
-        case 3:
+        case "Reaction":
           questionsToRender.push(
             <div className="question">
               <h3>{props.Poll.questions[i].text}</h3>
