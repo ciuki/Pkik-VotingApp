@@ -12,6 +12,7 @@ const options = [
   { value: "Hidden", label: "Ukryta" },
 ];
 
+
 const axios = require("axios");
 
 const ConfigPoll = (props) => {
@@ -26,6 +27,8 @@ const ConfigPoll = (props) => {
     questions: [],
   });
 
+  const [isPrivateOrProtected, setIsPrivateOrProtected] = useState(false);
+
   const changeName = (value) => {
     let tempConfig = configData;
     tempConfig.name = value;
@@ -34,6 +37,7 @@ const ConfigPoll = (props) => {
   const changeAnonymous = (value) => {
     let tempConfig = configData;
     tempConfig.allowAnonymous = !value;
+    console.log(tempConfig);
     setConfigData(tempConfig);
   };
   const changeResultsArePublic = (value) => {
@@ -45,6 +49,13 @@ const ConfigPoll = (props) => {
     let tempConfig = configData;
     tempConfig.pollType = value[0].value;
     setConfigData(tempConfig);
+    if (value[0].value === "Protected" || value[0].value === "Private"){
+      setIsPrivateOrProtected(true);
+      changeAnonymous(true);
+    }else{
+      changeAnonymous(false);
+      setIsPrivateOrProtected(false);
+    }
   };
 
   const changeDates = (value) => {
@@ -112,6 +123,8 @@ const ConfigPoll = (props) => {
           className="configpoll-formcontrollabel"
           control={
             <Switch 
+            checked={isPrivateOrProtected}
+            disabled={isPrivateOrProtected}
             onChange={(e) => changeAnonymous(e.target.checked)} />
           }
           labelPlacement="top"
