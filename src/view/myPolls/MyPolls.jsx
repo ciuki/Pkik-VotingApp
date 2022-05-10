@@ -9,10 +9,10 @@ import axios from "../../services/api-interceptor";
 import { Divider } from "@mui/material";
 
 const override = css`
-    margin: 0 auto;
-    position: absolute;
-    top:50%;
-    left:50%;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 `;
 
 const MyPolls = () => {
@@ -37,27 +37,63 @@ const MyPolls = () => {
     fetchData();
   }, []);
   let itemsToRender = [];
+  let currentDate = new Date();
   if (pollsData !== null) {
     for (let i = 0; i < pollsData.length; i++) {
       itemsToRender.push(
         <>
           <tr className="mypolls-questions-area">
-            <div className="mypolls-questions-area-cell">{pollsData[i].isActive ? <div>aktywne</div> : <div>nieaktywne</div>}</div>
-            <div className="mypolls-questions-area-cell">{pollsData[i].name}</div>
             <div className="mypolls-questions-area-cell">
-              <button className="mypolls-button" onClick={(e) => navigate("/poll/" + pollsData[i].id)}>
+              {pollsData[i].isActive ? (
+                <div className="container">
+                  <div className="led-box">
+                    <div className="led-green"></div>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {currentDate < new Date(pollsData[i].startDate) ? (
+                    <div className="container">
+                      <div className="led-box">
+                        <div className="led-yellow"></div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="container">
+                      <div className="led-box">
+                        <div className="led-red"></div>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+            <div className="mypolls-questions-area-cell">
+              {pollsData[i].name}
+            </div>
+            <div className="mypolls-questions-area-cell">
+              <button
+                className="mypolls-button"
+                onClick={(e) => navigate("/poll/" + pollsData[i].id)}
+              >
                 Zagłosuj
               </button>
             </div>
             <div className="mypolls-questions-area-cell">
-              <button className="mypolls-button" onClick={(e) => navigate("/summary/" + pollsData[i].id)}>
+              <button
+                className="mypolls-button"
+                onClick={(e) => navigate("/summary/" + pollsData[i].id)}
+              >
                 Zobacz wyniki
               </button>
             </div>
             <div className="mypolls-questions-area-cell-group">
               {!pollsData[i].allowAnonymous ? (
                 <div className="mypolls-questions-area-cell">
-                  <button className="mypolls-button" onClick={(e) => navigate("/invite/" + pollsData[i].id)}>
+                  <button
+                    className="mypolls-button"
+                    onClick={(e) => navigate("/invite/" + pollsData[i].id)}
+                  >
                     Zaproś do ankiety
                   </button>
                 </div>
@@ -65,7 +101,10 @@ const MyPolls = () => {
                 <>Ankieta jest dostępna dla wszystkich</>
               )}
               <div className="mypolls-questions-area-cell">
-                <button className="mypolls-button" onClick={(e) => navigate("/AddModerators/" + pollsData[i].id)}>
+                <button
+                  className="mypolls-button"
+                  onClick={(e) => navigate("/AddModerators/" + pollsData[i].id)}
+                >
                   Dodaj moderatorów
                 </button>
               </div>
