@@ -12,7 +12,6 @@ const options = [
   { value: "Hidden", label: "Ukryta" },
 ];
 
-
 const axios = require("axios");
 
 const ConfigPoll = (props) => {
@@ -120,11 +119,13 @@ const ConfigPoll = (props) => {
         />
         <FormControlLabel
           className="configpoll-formcontrollabel"
-          control={
+          control={isPrivateOrProtected ? 
             <Switch 
             checked={isPrivateOrProtected}
             disabled={isPrivateOrProtected}
-            onChange={(e) => changeAnonymous(e.target.checked)} />
+            onChange={(e) =>  changeAnonymous(e.target.checked)} /> :
+            <Switch 
+            onChange={(e) =>  changeAnonymous(e.target.checked)} />
           }
           labelPlacement="top"
           label="Zablokuj anonimowe głosy"
