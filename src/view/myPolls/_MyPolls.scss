@@ -5,6 +5,7 @@
     .mypolls-inner-poll-container{
         padding-block: 4em;
         width: 40%;
+        
     }
 }
 .mypolls-question-board {
@@ -13,6 +14,7 @@
     background: white;
     font-family: "Exo 2", sans-serif;
     text-align: center;
+    overflow: hidden;
     .mypolls-questions-area {
         display: grid;
         grid-template-columns: 1fr repeat(3,2fr) 3fr;

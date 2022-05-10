@@ -13,6 +13,7 @@
     background: white;
     font-family: "Exo 2", sans-serif;
     text-align: center;
+    overflow: hidden;
     .home-questions-area {
         display: grid;
         grid-template-columns: 1fr repeat(3,2fr);
