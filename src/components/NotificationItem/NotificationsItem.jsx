@@ -12,15 +12,16 @@ const override = css`
 
 const NotificationItem = (props) => {
   const [loading, setLoading] = useState(false);
-  const [isActive, setActive] = useState();
-
+  const [isSeen, setSeen] = useState(props.isSeen);
+  console.log(props);
   const markNotificationAsSeen = async () => {
+
     setLoading(true);
     try {
       const response = await axios
         .put(APIAddress.value + "/api/Notification/SetAsSeen/" + props.id)
         .then(function (response) {
-          setActive(false);
+          setSeen(true);
         });
     } catch (err) {
       toast.error(err.response.data.message);
@@ -30,7 +31,7 @@ const NotificationItem = (props) => {
   }       
   return (
     <div>
-      <div className={!isActive ? 'notificationsitem': "notificationsitem-unread"}>
+      <div className={isSeen ? 'notificationsitem': "notificationsitem-unread"}>
         <button className="notificationsitem-button" onClick={() => markNotificationAsSeen()}>
           <div className="notificationsitem-grid">
           <div className="notificationsitem-grid-time">

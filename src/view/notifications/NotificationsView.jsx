@@ -43,11 +43,11 @@ const NotificationsView = () => {
     for (let i = 0; i < notifications.length; i++) {
       if (!notifications[i].seen) {
         notificationsToRender.push(<div>
-          <NotificationItem text={notifications[i].title} id={notifications[i].id} />
+          <NotificationItem text={notifications[i].title} id={notifications[i].id} isSeen={notifications[i].seen}/>
         </div>)
       } else {
         seenNotificationsToRender.push(<div>
-          <NotificationItem text={notifications[i].title} id={notifications[i].id} />
+          <NotificationItem text={notifications[i].title} id={notifications[i].id } isSeen={notifications[i].seen} />
         </div>)
       }
 
