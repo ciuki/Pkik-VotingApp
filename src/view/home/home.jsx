@@ -1,7 +1,7 @@
 import React, { useState, useEffect,useContext } from "react";
 import { css } from "@emotion/react";
 import SyncLoader from "react-spinners/SyncLoader";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import APIAddress from "../../APIAddress";
 
@@ -29,6 +29,7 @@ const Home = () => {
           .get(APIAddress.value + "/api/Poll")
           .then(function (response) {
             let array = response.data;
+            console.log(array);
             array.reverse();
             setPollsData(array);
           });
@@ -40,22 +41,64 @@ const Home = () => {
     fetchData();
   }, []);
   let itemsToRender = [];
+  let currentDate = new Date();
+  console.log(currentDate);
   if (pollsData !== null) {
     for (let i = 0; i < pollsData.length; i++) {
-      if (pollsData[i].allowAnonymous || localStorage.getItem('token') !== null)
-        itemsToRender.push(<>
-          <div className="home-questions-area" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
-            <div className="home-questions-area-cell">{i+1}.</div>
-            <div className="home-questions-area-cell">{pollsData[i].name}</div>
-            <div className="home-questions-area-cell"><button 
-            style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
-            className="home-button" onClick={(e) => navigate("/poll/" + pollsData[i].id)}>Zagłosuj</button></div>
-            <div className="home-questions-area-cell"><button 
-             style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
-            className="home-button" onClick={(e) => navigate("/summary/" + pollsData[i].id)}>Zobacz wyniki</button></div>
-          </div>
-          <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/>
-        </>)
+      if (pollsData[i].allowAnonymous || localStorage.getItem("token") !== null)
+        itemsToRender.push(
+          <>
+            <div className="home-questions-area">
+              <div className="home-questions-area-cell">
+                {pollsData[i].isActive ? (
+                  <div className="container">
+                    <div className="led-box">
+                      <div className="led-green"></div>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    {currentDate < new Date(pollsData[i].startDate) ? (
+                      <div className="container">
+                        <div className="led-box">
+                          <div className="led-yellow"></div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="container">
+                        <div className="led-box">
+                          <div className="led-red"></div>
+                        </div>
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+              <div className="home-questions-area-cell">
+                {pollsData[i].name}
+              </div>
+              <div className="home-questions-area-cell">
+                <button
+                  style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+                  className="home-button"
+                  onClick={(e) => navigate("/poll/" + pollsData[i].id)}
+                >
+                  Zagłosuj
+                </button>
+              </div>
+              <div className="home-questions-area-cell">
+                <button
+                  style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+                  className="home-button"
+                  onClick={(e) => navigate("/summary/" + pollsData[i].id)}
+                >
+                  Zobacz wyniki
+                </button>
+              </div>
+            </div>
+            <Divider />
+          </>
+        );
     }
   }
   return (
@@ -63,7 +106,7 @@ const Home = () => {
       <div className="home-inner-poll-container">
         <div className="home-question-board">
           <div className="home-questions-area" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'white' : '#949494'}}>
-            <div className="home-questions-area-title">Lp.</div>
+            <div className="home-questions-area-title">Status</div>
             <div className="home-questions-area-title">Nazwa</div>
             <div className="home-questions-area-title">Głosowanie</div>
             <div className="home-questions-area-title">Wyniki</div>
@@ -79,8 +122,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-
   );
-}
+};
 
 export default Home;

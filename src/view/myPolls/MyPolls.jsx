@@ -10,10 +10,10 @@ import axios from "../../services/api-interceptor";
 import { Divider } from "@mui/material";
 
 const override = css`
-    margin: 0 auto;
-    position: absolute;
-    top:50%;
-    left:50%;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 `;
 
 const MyPolls = () => {
@@ -40,17 +40,45 @@ const MyPolls = () => {
     fetchData();
   }, []);
   let itemsToRender = [];
+  let currentDate = new Date();
   if (pollsData !== null) {
     for (let i = 0; i < pollsData.length; i++) {
       itemsToRender.push(
         <>
           <tr className="mypolls-questions-area" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
-            <div className="mypolls-questions-area-cell">{i + 1}.</div>
-            <div className="mypolls-questions-area-cell">{pollsData[i].name}</div>
             <div className="mypolls-questions-area-cell">
-              <button 
-              style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
-              className="mypolls-button" onClick={(e) => navigate("/poll/" + pollsData[i].id)}>
+              {pollsData[i].isActive ? (
+                <div className="container">
+                  <div className="led-box">
+                    <div className="led-green"></div>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {currentDate < new Date(pollsData[i].startDate) ? (
+                    <div className="container">
+                      <div className="led-box">
+                        <div className="led-yellow"></div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="container">
+                      <div className="led-box">
+                        <div className="led-red"></div>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+            <div className="mypolls-questions-area-cell">
+              {pollsData[i].name}
+            </div>
+            <div className="mypolls-questions-area-cell">
+              <button
+                className="mypolls-button"
+                onClick={(e) => navigate("/poll/" + pollsData[i].id)}
+              >
                 Zagłosuj
               </button>
             </div>
@@ -93,7 +121,7 @@ const MyPolls = () => {
       <div className="mypolls-inner-poll-container">
         <div className="mypolls-question-board">
           <div className="mypolls-questions-area" style={{backgroundColor: isDark ? '#374785': '', color: isDark ? 'white' : '#949494'}}>
-            <div className="mypolls-questions-area-title">Lp.</div>
+            <div className="mypolls-questions-area-title">Status</div>
             <div className="mypolls-questions-area-title">Nazwa</div>
             <div className="mypolls-questions-area-title">Głosowanie</div>
             <div className="mypolls-questions-area-title">Wyniki</div>

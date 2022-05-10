@@ -15,32 +15,30 @@ const NotificationItem = (props) => {
   const { currentTheme} = useContext(CustomThemeContext)
   const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(false);
-  const [isActive, setActive] = useState(false);
+  const [isActive, setActive] = useState();
 
   const markNotificationAsSeen = async () => {
     setLoading(true);
     try {
       const response = await axios
-        .put(APIAddress.value + "/api/Notification/SetAsSeen/" + props.id, props.id)
+        .put(APIAddress.value + "/api/Notification/SetAsSeen/" + props.id)
         .then(function (response) {
-          setActive(!isActive);
+          setActive(false);
         });
     } catch (err) {
       toast.error(err.response.data.message);
     }
     setLoading(false);
 
-  }
-       
-    
+  }       
   return (
     <div>
-      <div className={isActive ? 'notificationsitem': "notificationsitem-unread"}>
+      <div className={!isActive ? 'notificationsitem': "notificationsitem-unread"}>
         <button className="notificationsitem-button" onClick={() => markNotificationAsSeen()}>
           <div className="notificationsitem-grid">
           <div className="notificationsitem-grid-time">
               <span>
-                może jakaś data i czas ?
+              
               </span>
             </div>
             <div className="notificationsitem-grid-item">

@@ -29,6 +29,8 @@ const ConfigPoll = (props) => {
     questions: [],
   });
 
+  const [isPrivateOrProtected, setIsPrivateOrProtected] = useState(false);
+
   const changeName = (value) => {
     let tempConfig = configData;
     tempConfig.name = value;
@@ -48,6 +50,13 @@ const ConfigPoll = (props) => {
     let tempConfig = configData;
     tempConfig.pollType = value[0].value;
     setConfigData(tempConfig);
+    if (value[0].value === "Protected" || value[0].value === "Private"){
+      setIsPrivateOrProtected(true);
+      changeAnonymous(true);
+    }else{
+      changeAnonymous(false);
+      setIsPrivateOrProtected(false);
+    }
   };
 
   const changeDates = (value) => {
@@ -115,10 +124,14 @@ const ConfigPoll = (props) => {
         />
         <FormControlLabel
           className="configpoll-formcontrollabel"
-          control={
+          control={isPrivateOrProtected ? 
             <Switch
             style={{color: isDark ?'#A8D0E6' : ''}} 
-            onChange={(e) => changeAnonymous(e.target.checked)} />
+            checked={isPrivateOrProtected}
+            disabled={isPrivateOrProtected}
+            onChange={(e) =>  changeAnonymous(e.target.checked)} /> :
+            <Switch 
+            onChange={(e) =>  changeAnonymous(e.target.checked)} />
           }
           labelPlacement="top"
           label="Zablokuj anonimowe głosy"

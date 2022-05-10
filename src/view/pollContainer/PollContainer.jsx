@@ -25,6 +25,7 @@ const PollContainer = () => {
   const { currentTheme} = useContext(CustomThemeContext)
   const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(true);
+  const [token, setToken] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
   const [pollData, setPollData] = useState("");
@@ -48,6 +49,10 @@ const PollContainer = () => {
     };
     fetchData();
   }, []);
+
+  const handleToken = (token) =>{
+    setToken(token);
+  }
 
   const handleVoting = (e, i, text) => {
     let voteDTO;
@@ -76,13 +81,15 @@ const PollContainer = () => {
   };
   const handleFinalizeVote = () => {
     setLoading(true);
-    let VoteAggregateDTO = CreateVoteAggregateDTO(pollData.id, chosenVotes);
+    let VoteAggregateDTO = CreateVoteAggregateDTO(pollData.id, token, chosenVotes);
     vote(VoteAggregateDTO);
   };
 
   const vote = async (VoteAggregateDTO) => {
-    var storedIDs = JSON.parse(localStorage.getItem("votedIDs"));
-    console.log(storedIDs);
+    var storedIDs = null;
+    if (localStorage.getItem("token") === null){
+      storedIDs = JSON.parse(localStorage.getItem("votedIDs"));
+    }
     if (storedIDs !== null) {
       for (let i = 0; i < storedIDs.length; i++) {
         if (id === storedIDs[i]) {
@@ -100,7 +107,7 @@ const PollContainer = () => {
     }
     let status = await PostVoteAggregateDTO(VoteAggregateDTO);
     setLoading(false);
-    if (status === 200) {
+    if (status === 204) {
       navigate("/summary/" + id);
     }
   };
@@ -113,7 +120,7 @@ const PollContainer = () => {
             <h1 style={{color: isDark ? 'white' : '#949494'}}>{pollData.name}</h1>
           </div>
           <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/>
-          <QuestionBoard Poll={pollData} handleVoteChange={handleVoting} />
+          <QuestionBoard Poll={pollData} handleTokenInput={handleToken} handleVoteChange={handleVoting} />
           <div>
             <button
               style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
