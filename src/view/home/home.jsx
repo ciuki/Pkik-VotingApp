@@ -42,7 +42,7 @@ const Home = () => {
       if (pollsData[i].allowAnonymous || localStorage.getItem('token') !== null)
         itemsToRender.push(<>
           <div className="home-questions-area">
-            <div className="home-questions-area-cell">{i+1}.</div>
+            <div className="home-questions-area-cell">{pollsData[i].isActive ? <div>aktywne</div> : <div>nieaktywne</div>}.</div>
             <div className="home-questions-area-cell">{pollsData[i].name}</div>
             <div className="home-questions-area-cell"><button className="home-button" onClick={(e) => navigate("/poll/" + pollsData[i].id)}>Zagłosuj</button></div>
             <div className="home-questions-area-cell"><button className="home-button" onClick={(e) => navigate("/summary/" + pollsData[i].id)}>Zobacz wyniki</button></div>
@@ -56,7 +56,7 @@ const Home = () => {
       <div className="home-inner-poll-container">
         <div className="home-question-board">
           <div className="home-questions-area">
-            <div className="home-questions-area-title">Lp.</div>
+            <div className="home-questions-area-title">Status</div>
             <div className="home-questions-area-title">Nazwa</div>
             <div className="home-questions-area-title">Głosowanie</div>
             <div className="home-questions-area-title">Wyniki</div>
