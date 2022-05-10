@@ -42,7 +42,7 @@ const MyPolls = () => {
       itemsToRender.push(
         <>
           <tr className="mypolls-questions-area">
-            <div className="mypolls-questions-area-cell">{i + 1}.</div>
+            <div className="mypolls-questions-area-cell">{pollsData[i].isActive ? <div>aktywne</div> : <div>nieaktywne</div>}</div>
             <div className="mypolls-questions-area-cell">{pollsData[i].name}</div>
             <div className="mypolls-questions-area-cell">
               <button className="mypolls-button" onClick={(e) => navigate("/poll/" + pollsData[i].id)}>
@@ -82,7 +82,7 @@ const MyPolls = () => {
       <div className="mypolls-inner-poll-container">
         <div className="mypolls-question-board">
           <div className="mypolls-questions-area">
-            <div className="mypolls-questions-area-title">Lp.</div>
+            <div className="mypolls-questions-area-title">Status</div>
             <div className="mypolls-questions-area-title">Nazwa</div>
             <div className="mypolls-questions-area-title">Głosowanie</div>
             <div className="mypolls-questions-area-title">Wyniki</div>
