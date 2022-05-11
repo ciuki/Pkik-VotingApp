@@ -1376,6 +1376,24 @@
   grid-column-end: 3;
 }
 
+@media only screen and (max-width: 1400px) {
+  .follow {
+    padding-inline: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .authors {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    display: none !important;
+  }
+}
+
 .mod-container {
   margin-bottom: 4em;
   display: -webkit-box;
