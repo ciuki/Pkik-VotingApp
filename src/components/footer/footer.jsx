@@ -50,17 +50,6 @@ const CustomFooter = () => {
       <div className="follow">
         GNU General Public License
       </div>
-      <ToastContainer
-        position="top-center"
-        autoClose={10000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </section>
   );
 };

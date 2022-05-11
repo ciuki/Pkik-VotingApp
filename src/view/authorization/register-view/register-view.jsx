@@ -25,9 +25,19 @@ const RegisterView = () => {
   const [password, setPassword] = useState("");
 
   const handleRegister = async (e) => {
-    if (email===""){
+    if (email==="" || password===""){
       toast.error("Wypełnij wszystkie dane");
     }else{
+      var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+      if (!email.match(validRegex)){
+        toast.error("Wpisz poprawny adres email");
+        return;
+      }else if(!password.match(strongRegex)){
+        toast.error("Hasło musi się składać z conajmniej 6 znaków, dużej i małej litery, cyfry i znaku specjalnego");
+        return;
+      }
+      
       setLoading(true);
       let registerDTO = createRegisterDTO(email, password);
       let respone = await registerUser(registerDTO);
@@ -36,8 +46,6 @@ const RegisterView = () => {
           navigate("/login");
       }
     }
-    
-    
   };
 
   return (

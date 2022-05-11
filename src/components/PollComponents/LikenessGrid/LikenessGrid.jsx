@@ -5,7 +5,6 @@ import { CustomThemeContext } from "../../../utils/custom-theme-provider";
 const LikenessGrid = (props) => {
     const { currentTheme} = useContext(CustomThemeContext)
     const isDark = Boolean(currentTheme === 'dark')
-    console.log(props);
     const likeness_square = [];
     for (let i = 0; i < 10; i++) {
         likeness_square.push(

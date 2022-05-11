@@ -106,7 +106,7 @@ const CreatePoll = () => {
   const SendPoll = async (pollDTO) => {
     await postPoll(pollDTO);
     setLoading(false);
-    if (localStorage.getItem("token") === null) {
+    if (localStorage.getItem("token") !== null) {
       navigate("/MyPolls");
     } else {
       navigate("/");

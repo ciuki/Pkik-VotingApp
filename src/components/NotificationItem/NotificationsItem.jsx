@@ -16,7 +16,6 @@ const NotificationItem = (props) => {
   const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(false);
   const [isSeen, setSeen] = useState(props.isSeen);
-  console.log(props);
   const markNotificationAsSeen = async () => {
 
     setLoading(true);

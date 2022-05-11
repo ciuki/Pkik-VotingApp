@@ -29,7 +29,6 @@ const Home = () => {
           .get(APIAddress.value + "/api/Poll")
           .then(function (response) {
             let array = response.data;
-            console.log(array);
             array.reverse();
             setPollsData(array);
           });
@@ -42,7 +41,6 @@ const Home = () => {
   }, []);
   let itemsToRender = [];
   let currentDate = new Date();
-  console.log(currentDate);
   if (pollsData !== null) {
     for (let i = 0; i < pollsData.length; i++) {
       if (pollsData[i].allowAnonymous || localStorage.getItem("token") !== null)

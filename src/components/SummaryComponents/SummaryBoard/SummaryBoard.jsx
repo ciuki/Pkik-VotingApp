@@ -17,7 +17,6 @@ const SummaryBoard = () => {
           await axios
           .get(APIAddress.value + "/api/Vote/" + id)
           .then(function (response) {
-            console.log(response.data);
             setVotes(response.data);
             let openAnswersData= [];
             for (let i=0; i<response.data.baseAnswers.length; i++){

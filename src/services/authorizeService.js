@@ -16,8 +16,12 @@ export async function loginUser(loginData){
             localStorage.setItem('token', token);
             localStorage.setItem('userName',user.name);
             localStorage.setItem('userEmail', user.sub);
+            return response;
+        }).catch(err =>{
+            toast.error(err.response.data.message);
         });
-        
+        console.log(response);
+        return response;
     }catch (err){
         toast.error(err.response.data.message);
         return false;

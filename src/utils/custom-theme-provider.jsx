@@ -17,7 +17,6 @@ const CustomThemeProvider = (props) => {
   const theme = getTheme(themeName)
   const setThemeName = (name) => {
     localStorage.setItem('appTheme', name)
-    console.log(name);
     _setThemeName(name)
   }
 

@@ -24,8 +24,10 @@ const LoginView = () => {
       password: passwordInput,
     };
     if (emailInput !== null && emailInput !== "") {
-      await loginUser(loginObject);
-      window.location.reload(false);
+      let status = await loginUser(loginObject);
+      if (status === 200){
+        window.location.reload(false);
+      }
     }else{
       toast.error("Wypełnij wszystkie dane!")
     }

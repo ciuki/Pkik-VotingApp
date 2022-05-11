@@ -7,7 +7,7 @@ const ProtectedRoute = ({
     children,
   }) => {
     if (localStorage.getItem('token') === null) {
-      toast.error("Najpierw musz się zalogować!", {
+      toast.error("Najpierw musisz się zalogować!", {
         position: "top-center",
         autoClose: true,
         hideProgressBar: false,

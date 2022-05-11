@@ -24,7 +24,7 @@ const ConfigPoll = (props) => {
     isActive: true,
     resultsArePublic: true,
     pollType: "Public",
-    startDate: new Date().toLocaleString(),
+    startDate: null,
     endDate: null,
     questions: [],
   });
@@ -82,6 +82,10 @@ const ConfigPoll = (props) => {
   };
 
   const finalizeConfig = () =>{
+    if (configData.endDate===null){
+      toast.warning("Wybierz okres czasu, w którym ankieta ma być aktywna");
+      return;
+    }
     if (configData.name !== "defualtName" && configData.name !== ""){
       props.createConfig(configData);
     }else{
