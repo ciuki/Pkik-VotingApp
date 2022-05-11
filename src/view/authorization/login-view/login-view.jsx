@@ -25,7 +25,7 @@ const LoginView = () => {
     };
     if (emailInput !== null && emailInput !== "") {
       let status = await loginUser(loginObject);
-      if (status === 200){
+      if (status.status === 200){
         window.location.reload(false);
       }
     }else{
