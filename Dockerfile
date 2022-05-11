@@ -4,17 +4,24 @@ FROM node:16.15-alpine
 # set working directory
 WORKDIR /app
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+# Copies package.json and package-lock.json to Docker environment
+COPY package*.json ./
 
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
+# Installs all node packages
+RUN npm install
 
-# add app
-COPY . ./
+# Copies everything over to Docker environment
+COPY . .
 
-# start app
-CMD ["npm", "start"]
+# Build for production.
+RUN npm run build --production
+
+# Install `serve` to run the application.
+RUN npm install -g serve
+
+# Uses port which is used by the actual application
+EXPOSE 3000
+
+# Run application
+#CMD [ "npm", "start" ]
+CMD serve -s build
