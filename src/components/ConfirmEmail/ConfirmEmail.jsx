@@ -1,11 +1,14 @@
-import React, {useEffect} from "react";
+import React, {useEffect,useContext} from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import APIAddress from "../../APIAddress";
 import axios from "../../services/api-interceptor";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
 
 const ConfirmEmail = () =>{
+  const { currentTheme} = useContext(CustomThemeContext)
+  const isDark = Boolean(currentTheme === 'dark')
   const navigate = useNavigate();
     const {id} = useParams();
     const {token} = useParams();
@@ -29,7 +32,15 @@ const ConfirmEmail = () =>{
         };
         fetchData();
       }, []);
-      return <>Trwa potwierdzanie...</>
+      return (
+        <div className="summary-container">
+        <div className="summary-inner-poll-container">
+            <div className="summary-question-board" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
+                <h1 style={{paddingTop: '8rem',paddingBottom: '8rem'}}> Trwa potwierdzanie....</h1>
+            </div>
+        </div>
+      </div>
+      )
 }
 
 export default ConfirmEmail;

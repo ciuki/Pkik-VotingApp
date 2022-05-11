@@ -71,11 +71,15 @@ const QuestionBoard = (props) => {
   return (
     <div className="answers-area">
       {questionsToRender}
-      {props.Poll.pollType === "Protected" ? 
-      <>
-      <label>Token: </label>
-      <input type="text" onChange={(e) =>handleTokenInput(e.target.value)}/>
-      </> : <></>}
+      {props.Poll.pollType === "Protected" ?
+        <div className="question">
+          <h3>Wprowadź token: </h3>
+          <div className="openquestion-answers">
+            <div className="openquestion-inside-answers">
+              <textarea className="openquestion-textbox" onChange={(e) => handleTokenInput(e.target.value)} />
+            </div>
+          </div>
+        </div> : <></>}
     </div>
   );
 };

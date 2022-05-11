@@ -8,6 +8,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 90vh;
 }
 
 .pollcontainer-poll-container .pollcontainer-inner-poll-container {
@@ -296,6 +297,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 90vh;
 }
 
 .PollCreationArea .createpoll-inner-poll-container {
@@ -351,6 +353,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 90vh;
 }
 
 .summary-container .summary-inner-poll-container {
@@ -435,6 +438,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 90vh;
 }
 
 .home-container .home-inner-poll-container {
@@ -664,6 +668,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 90vh;
 }
 
 .notificationview-poll-container .notificationview-inner-poll-container {
@@ -1369,6 +1374,64 @@
   }
 }
 
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: 6rem;
+  background: #d06e73;
+  z-index: 10;
+}
+
+.footer .follow {
+  padding-inline: 5rem;
+  color: white;
+}
+
+.footer .follow .link {
+  padding-inline: 1rem;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  text-align: center;
+  text-decoration: none;
+  -webkit-filter: grayscale(100%) opacity(0.5);
+          filter: grayscale(100%) opacity(0.5);
+  -webkit-transition: 600ms;
+  transition: 600ms;
+}
+
+.footer .follow .link:hover {
+  -webkit-filter: grayscale(0%) opacity(1);
+          filter: grayscale(0%) opacity(1);
+}
+
+.footer .follow .link img {
+  height: 3rem;
+}
+
+.footer .follow .authors {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
+}
+
+.footer .follow .authors .authorstitle {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+}
+
 .mod-container {
   margin-bottom: 4em;
   display: -webkit-box;
@@ -1377,6 +1440,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 90vh;
 }
 
 .mod-container .mod-inner-poll-container {
@@ -1795,6 +1859,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 90vh;
 }
 
 .invite-container .invite-inner-poll-container {
@@ -1949,6 +2014,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 90vh;
 }
 
 .mypolls-container .mypolls-inner-poll-container {

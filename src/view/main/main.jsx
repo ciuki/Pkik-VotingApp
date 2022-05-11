@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { BrowserRouter } from "react-router-dom";
+import CustomFooter from "../../components/footer/footer";
 import NavBar from "../../components/NavBar/NavBar";
 import CustomRoutes from "../../routes/routes";
 import { CustomThemeContext } from "../../utils/custom-theme-provider";
@@ -14,7 +15,8 @@ const MainPage = () => {
             <BrowserRouter>
                 <CustomRoutes />
                 <NavBar isLoggedIn={localStorage.token} />
-            </BrowserRouter>
+                <CustomFooter/>
+            </BrowserRouter>          
             <ul className="circles">
                 <li></li>
                 <li></li>
@@ -27,6 +29,7 @@ const MainPage = () => {
                 <li></li>
                 <li></li>
             </ul>
+           
         </div>
     );
 };
