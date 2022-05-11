@@ -67,7 +67,7 @@ const SummaryBoard = () => {
             count +=
               parseInt(votes.voteQuestions[i].answers[j].answerText, 10) *
               votes.voteQuestions[i].answers[j].count;
-              bar = votes.voteQuestions[i].questionType === "Emoji" ? 5 : 10;
+              bar = votes.voteQuestions[i].questionType === "Reaction" ? 5 : 10;
           }
           let average = count / amount;
           chartsToRender.push(
