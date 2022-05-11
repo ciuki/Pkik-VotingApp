@@ -107,6 +107,7 @@ const Home = () => {
       <div className="home-inner-poll-container">
         <div className="home-question-board">
           <div className="home-questions-area" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'white' : '#949494'}}>
+            <div className="home-questions-area-title2">Moje ankiety</div>
             <div className="home-questions-area-title">Status</div>
             <div className="home-questions-area-title">Nazwa</div>
             <div className="home-questions-area-title">Głosowanie</div>

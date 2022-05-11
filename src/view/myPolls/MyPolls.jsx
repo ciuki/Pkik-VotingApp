@@ -122,6 +122,7 @@ const MyPolls = () => {
       <div className="mypolls-inner-poll-container">
         <div className="mypolls-question-board">
           <div className="mypolls-questions-area" style={{backgroundColor: isDark ? '#374785': '', color: isDark ? 'white' : '#949494'}}>
+          <div className="mypolls-questions-area-title2">Moje ankiety</div>
             <div className="mypolls-questions-area-title">Status</div>
             <div className="mypolls-questions-area-title">Nazwa</div>
             <div className="mypolls-questions-area-title">Głosowanie</div>

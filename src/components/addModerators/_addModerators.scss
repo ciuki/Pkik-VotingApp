@@ -128,4 +128,20 @@
     .mod-inner-poll-container {
         width: 80% !important;
     }
+    h1 {
+        font-size: 16px;
+    }
+    .mod-question-area {
+        grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+        grid-template-columns: 1fr !important;
+    }
+    .mod-question-area-group2{
+        text-align:center !important;
+        width:80% !important;
+    }
+    .mod-question-area-group{
+        margin-left: 0 !important;
+        width:90% !important;
+        text-align: center;
+}
 }

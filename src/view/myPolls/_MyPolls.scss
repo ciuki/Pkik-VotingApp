@@ -31,6 +31,13 @@
             text-align: center;
             font-size: large;
         }
+        .mypolls-questions-area-title2 {
+          width: 100%;
+          font-family: iA Quattro, montserat;
+          text-align: center;
+          font-size: large;
+          display: none;
+      }
         .mypolls-questions-area-cell {
             width: 100%;
             font-family: iA Quattro, montserat;
@@ -88,6 +95,11 @@
     flex-direction: column !important;
 }
 .mypolls-questions-area-title {
-   display: none;
+   font-size: 20px !important;
+   display: none !important;
+}
+.mypolls-questions-area-title2 {
+  font-size: 20px !important;
+  display: block !important;
 }
   }
