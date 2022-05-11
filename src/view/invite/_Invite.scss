@@ -122,9 +122,24 @@
     color: white;
 }
 
-
 @media screen and (max-width: 600px) {
     .invite-inner-poll-container {
         width: 80% !important;
     }
+    h1 {
+        font-size: 16px;
+    }
+    .invite-question-area {
+        grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+        grid-template-columns: 1fr !important;
+    }
+    .invite-question-area-group2{
+        text-align:center !important;
+        width:80% !important;
+    }
+    .invite-question-area-group{
+        margin-left: 0 !important;
+        width:90% !important;
+        text-align: center;
+}
 }

@@ -76,6 +76,9 @@
   .pollcontainer-inner-poll-container {
     width: 80% !important;
   }
+  .pollcontainer-questions-area h1 {
+    font-size: 16px;
+  }
 }
 
 .login-view {
@@ -343,6 +346,9 @@
   .createpoll-inner-poll-container {
     width: 80% !important;
   }
+  .createpoll-questions-area h1 {
+    font-size: 20px !important;
+  }
 }
 
 .summary-container {
@@ -428,6 +434,9 @@
   .summary-inner-poll-container {
     width: 80% !important;
   }
+  .summary-questions-area h1 {
+    font-size: 16px !important;
+  }
 }
 
 .home-container {
@@ -470,6 +479,13 @@
 
 .home-question-board .home-questions-area .home-questions-area-title {
   width: 100%;
+  font-family: iA Quattro, montserat;
+  text-align: center;
+  font-size: large;
+}
+
+.home-question-board .home-questions-area .home-questions-area-title2 {
+  display: none;
   font-family: iA Quattro, montserat;
   text-align: center;
   font-size: large;
@@ -541,6 +557,10 @@
   }
   .home-questions-area-title {
     display: none;
+    content: "Wszystkie ankiety" !important;
+  }
+  .home-questions-area-title2 {
+    display: block !important;
   }
 }
 
@@ -714,6 +734,9 @@
   padding: 1em;
   color: #949494;
   width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .summaryboard-answers-area .summaryboard-question .progressbar-parent {
@@ -1097,6 +1120,12 @@
           box-shadow: 0 0 10px #719ECE;
 }
 
+@media screen and (max-width: 600px) {
+  .openquestion-textbox {
+    width: 100% !important;
+  }
+}
+
 .answers-area .question {
   padding-bottom: 1rem;
 }
@@ -1108,6 +1137,16 @@
   color: #949494;
   width: 100%;
   font-family: iA Quattro, montserat;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 600px) {
+  h3 {
+    margin: 0.2rem 0.5rem 0.2rem 0.5rem !important;
+    text-align: center !important;
+  }
 }
 
 .notificationsitem {
@@ -1547,6 +1586,24 @@
   .mod-inner-poll-container {
     width: 80% !important;
   }
+  h1 {
+    font-size: 16px;
+  }
+  .mod-question-area {
+    -ms-grid-rows: (minmax(60px, 1fr))[auto-fit];
+        grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+  }
+  .mod-question-area-group2 {
+    text-align: center !important;
+    width: 80% !important;
+  }
+  .mod-question-area-group {
+    margin-left: 0 !important;
+    width: 90% !important;
+    text-align: center;
+  }
 }
 
 .createquestion-question .createquestion-h3 {
@@ -1813,6 +1870,165 @@
   color: white;
 }
 
+.react-calendar {
+  width: 350px;
+  max-width: 100%;
+  background: white;
+  border: 1px solid #a0a096;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+}
+
+.react-calendar--doubleView {
+  width: 700px;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: -0.5em;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 50%;
+  margin: 0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+
+.react-calendar__navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 44px;
+  margin-bottom: 1em;
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+}
+
+.react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #e6e6e6;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75em;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575;
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+}
+
+.react-calendar__tile {
+  max-width: 100%;
+  padding: 10px 6.6667px;
+  background: none;
+  text-align: center;
+  line-height: 16px;
+}
+
+.react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #e6e6e6;
+}
+
+.react-calendar__tile--now {
+  background: #ffff76;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #ffffa9;
+}
+
+.react-calendar__tile--hasActive {
+  background: #76baff;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #a9d4ff;
+}
+
+.react-calendar__tile--active {
+  background: #006edc;
+  color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #1087ff;
+}
+
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6e6e6;
+}
+
+@media screen and (max-width: 600px) {
+  .react-calendar {
+    width: 250px !important;
+  }
+}
+
 .invite-container {
   margin-bottom: 4em;
   display: -webkit-box;
@@ -1966,6 +2182,24 @@
   .invite-inner-poll-container {
     width: 80% !important;
   }
+  h1 {
+    font-size: 16px;
+  }
+  .invite-question-area {
+    -ms-grid-rows: (minmax(60px, 1fr))[auto-fit];
+        grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+  }
+  .invite-question-area-group2 {
+    text-align: center !important;
+    width: 80% !important;
+  }
+  .invite-question-area-group {
+    margin-left: 0 !important;
+    width: 90% !important;
+    text-align: center;
+  }
 }
 
 .mypolls-container {
@@ -2012,6 +2246,14 @@
   font-family: iA Quattro, montserat;
   text-align: center;
   font-size: large;
+}
+
+.mypolls-question-board .mypolls-questions-area .mypolls-questions-area-title2 {
+  width: 100%;
+  font-family: iA Quattro, montserat;
+  text-align: center;
+  font-size: large;
+  display: none;
 }
 
 .mypolls-question-board .mypolls-questions-area .mypolls-questions-area-cell {
@@ -2085,7 +2327,12 @@
             flex-direction: column !important;
   }
   .mypolls-questions-area-title {
-    display: none;
+    font-size: 20px !important;
+    display: none !important;
+  }
+  .mypolls-questions-area-title2 {
+    font-size: 20px !important;
+    display: block !important;
   }
 }
 /*# sourceMappingURL=style.css.map */
