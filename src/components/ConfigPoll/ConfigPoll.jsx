@@ -18,7 +18,6 @@ const options = [
 const axios = require("axios");
 
 const ConfigPoll = (props) => {
-  const { currentTheme} = useContext(CustomThemeContext)
   const [configData, setConfigData] = useState({
     name: "defualtName",
     allowAnonymous: true,
