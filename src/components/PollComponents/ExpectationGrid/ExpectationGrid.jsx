@@ -1,19 +1,15 @@
-import React, {useContext } from "react";
+import React, {useContext} from "react";
+
 import { CustomThemeContext } from "../../../utils/custom-theme-provider";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faFrown} from "@fortawesome/free-regular-svg-icons"
 import {faFrownOpen} from "@fortawesome/free-regular-svg-icons"
-import {faMeh} from "@fortawesome/free-regular-svg-icons"
 import {faGrin} from "@fortawesome/free-regular-svg-icons"
 import {faLaughBeam} from "@fortawesome/free-regular-svg-icons"
-
-
-
-
+import {faMeh} from "@fortawesome/free-regular-svg-icons"
 
 const ExpectationGrid = (props) => {
     const { currentTheme} = useContext(CustomThemeContext)
-    const isDark = Boolean(currentTheme === 'dark')
     const likeness_square = [];
     let x;
 
@@ -43,7 +39,7 @@ const ExpectationGrid = (props) => {
                 <div className="expectationgrid-expectation-container">
                     <label className="expectationgrid-expectation-label">
                         <input type="radio" name={"expectationgroup"+props.index} onChange={(e) => props.handleVoteChange(e,props.question.id)} value={props.question.answers[i].id} />
-                        <span className="expectationgrid-expectation-custom" style={{backgroundColor: isDark ? '#10152b': '', color: isDark ?'#9ba3c2' : ''}}><FontAwesomeIcon icon={x} /></span>
+                        <span className="expectationgrid-expectation-custom" style={{backgroundColor: '#10152b', color:'#9ba3c2'}}><FontAwesomeIcon icon={x} /></span>
                     </label>
                 </div>
             </div>

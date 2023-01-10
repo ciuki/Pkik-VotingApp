@@ -1,13 +1,13 @@
-import React, { useState, useEffect,useContext } from "react";
-import APIAddress from "../../APIAddress";
-import NotificationItem from "../../components/NotificationItem/NotificationsItem";
-import { toast } from "react-toastify";
-import { SyncLoader } from "react-spinners";
-import { CustomThemeContext } from "../../utils/custom-theme-provider";
-import { css } from "@emotion/react";
+import React, { useContext, useEffect, useState } from "react";
 
-import axios from "../../services/api-interceptor";
+import APIAddress from "../../APIAddress";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
 import { Divider } from "@mui/material";
+import NotificationItem from "../../components/NotificationItem/NotificationsItem";
+import { SyncLoader } from "react-spinners";
+import axios from "../../services/api-interceptor";
+import { css } from "@emotion/react";
+import { toast } from "react-toastify";
 
 const override = css`
 position: fixed;
@@ -18,8 +18,6 @@ width: 100vw;
 
 
 const NotificationsView = () => {
-  const { currentTheme} = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(true);
   const [notifications, setNotifications] = useState(null);
   useEffect(() => {
@@ -60,12 +58,12 @@ const NotificationsView = () => {
     <div className="notificationview-poll-container">
       <div className="notificationview-inner-poll-container">
         <div className="notificationview-question-board" 
-        style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
+        style={{backgroundColor:'#374785', color:'#9ba3c2'}}>
           <div className="notificationview-questions-area"
-            style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
-            <h1 style={{color: isDark ? 'white' : '#949494'}}>Powiadomienia</h1>
+            style={{backgroundColor:'#374785', color:'#9ba3c2'}}>
+            <h1 style={{color:'white'}}>Powiadomienia</h1>
           </div>
-          <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/>
+          <Divider style={{backgroundColor:'#5e6b9d'}}/>
           <div className="notificationview-item-container">
             {notificationsToRender.length > 0 ?
               <div className="notificationview-item-container-group">

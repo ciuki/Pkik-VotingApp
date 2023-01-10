@@ -1,3 +1,3 @@
 export default{
-    value: "https://smprojektapi.herokuapp.com"
+    value: "https://localhost:7238"
 }

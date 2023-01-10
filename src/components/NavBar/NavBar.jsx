@@ -1,28 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+
 import APIAddress from "../../APIAddress";
-import { toast } from "react-toastify";
-import { faSun } from "@fortawesome/free-regular-svg-icons";
-import { faMoon } from "@fortawesome/free-regular-svg-icons";
-
+import { Link } from "react-router-dom";
 import axios from "../../services/api-interceptor";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CustomThemeContext } from "../../utils/custom-theme-provider";
-
-
+import { toast } from "react-toastify";
 
 const NavBar = () => {
-  const { currentTheme, setTheme } = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
   
-  const handleThemeChange = (event) => {
-    const checked  = event.target.checked
-    if (checked) {
-      setTheme('dark')
-    } else {
-      setTheme('normal')
-    }
-  }
   const [notifications, setNotifications] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -95,20 +79,9 @@ const NavBar = () => {
   }
   return (
     <nav className="navbar" style={{
-      backgroundColor: isDark ? '#374785' : '#d06e73'
+      backgroundColor:'#374785'
   }}>
       <ul className="navbar-nav">
-        <li className="nav-item" id="motywcheck2">
-          <div className="nav-link" id="motywcheck">
-            <label for="checkbox" class="toggler">
-              <input onChange={handleThemeChange} type="checkbox" id="checkbox" />
-              <span class="ball" ></span>
-              <FontAwesomeIcon class="sun" icon={faSun} />
-              <FontAwesomeIcon class="moon" icon={faMoon} />
-            </label>
-            <span className="link-text">Zmień motyw</span>
-          </div>
-        </li>
         <li className="nav-item">
           <Link to="/" className="nav-link">
             <img src="/Utilities/home.svg" alt="Stwórz ankietę" />

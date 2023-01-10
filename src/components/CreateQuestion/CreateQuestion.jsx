@@ -1,7 +1,8 @@
-import React, { useState,useContext } from "react";
+import React, { useContext, useState } from "react";
+
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
 import Select from "react-dropdown-select";
 import { toast } from "react-toastify";
-import { CustomThemeContext } from "../../utils/custom-theme-provider";
 
 const options = [
   { value: "Closed", label: "Zamknięte" },
@@ -12,7 +13,6 @@ const options = [
 
 const CreateQuestions = (props) => {
   const { currentTheme} = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [changed, setChanged] = useState([]);
@@ -150,7 +150,7 @@ const CreateQuestions = (props) => {
                 return item === i;
               }) ? (
                 <button 
-                style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+                style={{backgroundColor:'#9ba3c2', color:'white'}}
                 className='createquestion-button' onClick={(e) => addQuestionToList(i)}>
                   {" "}
                   Zaktualizuj pytanie
@@ -171,7 +171,7 @@ const CreateQuestions = (props) => {
           return item === i;
         }) ? (
           <button 
-          style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+          style={{backgroundColor:'#9ba3c2', color:'white'}}
           disabled={changed.length>0 ? true : false} className='createquestion-button' onClick={(e) => addQuestionToList(i)}> Dodaj pytanie </button>
         ) : (
           <></>
@@ -184,7 +184,7 @@ const CreateQuestions = (props) => {
       {questionsToRender}
       <div>
         <button
-          style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+          style={{backgroundColor:'#9ba3c2', color:'white'}}
           className='createquestion-button'
           onClick={() => handleGoToAnswerCreations() }
         >

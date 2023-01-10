@@ -1,14 +1,14 @@
-import React, {useEffect,useContext} from "react";
-import { useParams } from "react-router-dom";
+import React, {useContext, useEffect} from "react";
+
+import APIAddress from "../../APIAddress";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
+import axios from "../../services/api-interceptor";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import APIAddress from "../../APIAddress";
-import axios from "../../services/api-interceptor";
-import { CustomThemeContext } from "../../utils/custom-theme-provider";
+import { useParams } from "react-router-dom";
 
 const ConfirmEmail = () =>{
   const { currentTheme} = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
   const navigate = useNavigate();
     const {id} = useParams();
     const {token} = useParams();
@@ -35,7 +35,7 @@ const ConfirmEmail = () =>{
       return (
         <div className="summary-container">
         <div className="summary-inner-poll-container">
-            <div className="summary-question-board" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
+            <div className="summary-question-board" style={{backgroundColor:'#374785', color:'#9ba3c2'}}>
                 <h1 style={{paddingTop: '8rem',paddingBottom: '8rem'}}> Trwa potwierdzanie....</h1>
             </div>
         </div>

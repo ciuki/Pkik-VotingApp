@@ -1,13 +1,14 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+
 import APIAddress from "../../APIAddress";
-import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
-import SyncLoader from "react-spinners/SyncLoader";
-import { css } from "@emotion/react";
-import Select from "react-dropdown-select";
 import { CustomThemeContext } from "../../utils/custom-theme-provider";
-import axios from "../../services/api-interceptor"
 import { Divider } from "@mui/material";
+import Select from "react-dropdown-select";
+import SyncLoader from "react-spinners/SyncLoader";
+import axios from "../../services/api-interceptor"
+import { css } from "@emotion/react";
+import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
 
 const options = [];
 
@@ -20,7 +21,6 @@ position: fixed;
 
 const AddModerators = (props) => {
   const { currentTheme } = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const [usersData, setUsersData] = useState();
@@ -81,18 +81,18 @@ const AddModerators = (props) => {
   let invitedPeopleToRender = [];
   for (let i = 0; i < emails.length + 1; i++) {
     invitedPeopleToRender.push(<div
-    style={{color: isDark ? 'white': ''}}>{emails[i]}</div>);
+    style={{color:''}}>{emails[i]}</div>);
   }
 
   return (
     <div className="mod-container">
       <div className="mod-inner-poll-container">
         <div className="mod-question-board"
-         style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
+         style={{backgroundColor:'#374785', color:'#9ba3c2'}}>
           <div className="mod-questions-area">
-            <h1 style={{backgroundColor: isDark ? '#374785': '', color: isDark ? 'white' : '#949494'}}>Zaproś</h1>
+            <h1 style={{backgroundColor: '#374785', color:'#949494'}}>Zaproś</h1>
           </div>
-          <Divider style={{ backgroundColor: isDark ? '#5e6b9d' : '' }} />
+          <Divider style={{ backgroundColor:'#5e6b9d'}} />
           <div className="mod-question-area">
             <div className="mod-question-area-group">
               <div className="mod-question-area-title"> Lista do zaproszenia: </div>
@@ -107,12 +107,12 @@ const AddModerators = (props) => {
                 color="#000080"
               />
               <button 
-              style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+              style={{backgroundColor:'#9ba3c2', color:''}}
               className="mod-button2" onClick={() => handleAddToList()}>Dodaj do listy</button>
             </div>
           </div>
           {emails.length > 0 ? <button 
-          style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+          style={{backgroundColor:'#9ba3c2', color:''}}
           className="mod-button" onClick={async () => sendInvites()}>Zaproś podane osoby</button> : <></>}
         </div>
       </div>

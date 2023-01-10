@@ -1,18 +1,19 @@
-import React, { useState, useEffect,useContext } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import QuestionBoard from "../../components/PollComponents/QuestionBoard/QuestionBoard";
-import axios from "../../services/api-interceptor";
-import APIAddress from "../../APIAddress";
-import { Divider } from "@mui/material";
-import { CustomThemeContext } from "../../utils/custom-theme-provider";
 import {
   CreateVoteAggregateDTO,
   CreateVoteDTO,
   PostVoteAggregateDTO,
 } from "../../services/pollService";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
+import APIAddress from "../../APIAddress";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
+import { Divider } from "@mui/material";
+import QuestionBoard from "../../components/PollComponents/QuestionBoard/QuestionBoard";
 import SyncLoader from "react-spinners/SyncLoader";
-import { toast } from "react-toastify";
+import axios from "../../services/api-interceptor";
 import { css } from "@emotion/react";
+import { toast } from "react-toastify";
 
 const override = css`
 position: fixed;
@@ -22,8 +23,6 @@ position: fixed;
 `;
 
 const PollContainer = () => {
-  const { currentTheme} = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(null);
   const { id } = useParams();
@@ -115,15 +114,15 @@ const PollContainer = () => {
   return (
     <div className="pollcontainer-poll-container">
       <div className="pollcontainer-inner-poll-container">
-        <div className="pollcontainer-question-board" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
+        <div className="pollcontainer-question-board" style={{backgroundColor:'#374785', color:'#9ba3c2'}}>
           <div className="pollcontainer-questions-area">
-            <h1 style={{color: isDark ? 'white' : '#949494'}}>{pollData.name}</h1>
+            <h1 style={{color:'white'}}>{pollData.name}</h1>
           </div>
-          <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/>
+          <Divider style={{backgroundColor:'#5e6b9d'}}/>
           <QuestionBoard Poll={pollData} handleTokenInput={handleToken} handleVoteChange={handleVoting} />
           <div>
             <button
-              style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+              style={{backgroundColor:'#9ba3c2', color:'white'}}
               className="pollcontainer-button"
               type="button"
               onClick={(e) => handleFinalizeVote()}

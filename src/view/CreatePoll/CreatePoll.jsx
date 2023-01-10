@@ -1,18 +1,19 @@
-import React, { useState,useContext } from "react";
-import CreateQuestions from "../../components/CreateQuestion/CreateQuestion";
-import CreateAnswers from "../../components/CreateAnswers/CreateAnswers";
-import { CustomThemeContext } from "../../utils/custom-theme-provider";
 import {
-  postPoll,
   CreateAnswerDTO,
-  CreateQuestionsDTO,
   CreatePollDTO,
+  CreateQuestionsDTO,
+  postPoll,
 } from "../../services/pollService";
-import { useNavigate } from "react-router-dom";
-import { Divider } from "@mui/material";
+import React, { useContext, useState } from "react";
+
 import ConfigPoll from "../../components/ConfigPoll/ConfigPoll";
-import { css } from "@emotion/react";
+import CreateAnswers from "../../components/CreateAnswers/CreateAnswers";
+import CreateQuestions from "../../components/CreateQuestion/CreateQuestion";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
+import { Divider } from "@mui/material";
 import SyncLoader from "react-spinners/SyncLoader";
+import { css } from "@emotion/react";
+import { useNavigate } from "react-router-dom";
 
 const override = css`
 position: fixed;
@@ -22,8 +23,6 @@ position: fixed;
 `;
 
 const CreatePoll = () => {
-  const { currentTheme} = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [questions, setQuestions] = useState([]);
@@ -137,11 +136,11 @@ const CreatePoll = () => {
   return (
     <div className="PollCreationArea " >
       <div className="createpoll-inner-poll-container">
-        <div className="createpoll-question-board" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
+        <div className="createpoll-question-board" style={{backgroundColor:'#374785', color:'#9ba3c2' }}>
           <div className="createpoll-questions-area">
-            <h1 style={{color: isDark ? 'white' : '#949494'}}>Stwórz ankiete</h1>
+            <h1 style={{color:'white'}}>Stwórz ankiete</h1>
           </div>
-          <Divider style={{backgroundColor: isDark ? '#5e6b9d': '',marginBottom:'1rem'}}/>
+          <Divider style={{backgroundColor:'#5e6b9d',marginBottom:'1rem'}}/>
           <div>
             {pollConfig === null ? (
               <ConfigPoll createConfig={(value) => setPollConfig(value)} />

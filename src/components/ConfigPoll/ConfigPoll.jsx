@@ -1,10 +1,12 @@
-import { FormControl, FormControlLabel, FormGroup, FormLabel, Switch, TextField } from "@mui/material";
-import React, { useState, useContext } from "react";
-import Calendar from "react-calendar";
-import Select from "react-dropdown-select";
 import 'react-calendar/dist/Calendar.css';
-import { toast } from "react-toastify";
+
+import { FormControl, FormControlLabel, FormGroup, FormLabel, Switch, TextField } from "@mui/material";
+import React, { useContext, useState } from "react";
+
+import Calendar from "react-calendar";
 import { CustomThemeContext } from "../../utils/custom-theme-provider";
+import Select from "react-dropdown-select";
+import { toast } from "react-toastify";
 
 const options = [
   { value: "Private", label: "Prywatna" },
@@ -17,7 +19,6 @@ const axios = require("axios");
 
 const ConfigPoll = (props) => {
   const { currentTheme} = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
   const [configData, setConfigData] = useState({
     name: "defualtName",
     allowAnonymous: true,
@@ -95,14 +96,14 @@ const ConfigPoll = (props) => {
 
   return (
     <FormControl component="fieldset" variant="standard">
-      <FormLabel style={{color: isDark ?'#9ba3c2' : ''}}
+      <FormLabel style={{color:'#9ba3c2'}}
       component="legend">Ustawienia ankiety</FormLabel>
       <FormGroup>
         <FormControlLabel
           className="configpoll-formcontrollabel"
           control={
             <TextField
-              style={{color: isDark ?'#ffffff' : ''}} 
+              style={{color:''}} 
               hiddenLabel
               id="standard-hidden-label-normal"
               variant="standard"
@@ -119,7 +120,7 @@ const ConfigPoll = (props) => {
           className="configpoll-formcontrollabel"
           control={
             <Switch
-            style={{color: isDark ?'#A8D0E6' : ''}} 
+            style={{color:'#A8D0E6'}} 
             onChange={(e) => changeResultsArePublic(e.target.checked)} />
           }
           labelPlacement="top"
@@ -130,7 +131,7 @@ const ConfigPoll = (props) => {
           className="configpoll-formcontrollabel"
           control={isPrivateOrProtected ? 
             <Switch
-            style={{color: isDark ?'#A8D0E6' : ''}} 
+            style={{color:'#A8D0E6'}} 
             checked={isPrivateOrProtected}
             disabled={isPrivateOrProtected}
             onChange={(e) =>  changeAnonymous(e.target.checked)} /> :
@@ -156,7 +157,7 @@ const ConfigPoll = (props) => {
               className="choose"
               options={options}
               onChange={(e) => changePollType(e)}
-              color= {isDark ? '#afb5ce' : '#000080'}
+              color= {'#afb5ce'}
             />
           }
           label="Wybierz typ ankiety"
@@ -169,7 +170,7 @@ const ConfigPoll = (props) => {
               selectRange={true}
               minDate={new Date()}
               onChange={(value, e) => changeDates(value)}
-              color="#f69b9f"
+              color="#9ba3c2"
             />
           }
           label="Wybierz okres działania ankiety"
@@ -179,7 +180,7 @@ const ConfigPoll = (props) => {
           className="configpoll-formcontrollabel"
           control={
             <button 
-            style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+            style={{backgroundColor:'#9ba3c2', color:''}}
             className="configpoll-button" onClick={() => finalizeConfig()}>Dalej</button>
           }
           labelPlacement="top"

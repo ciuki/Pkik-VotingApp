@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
+
 import { ThemeProvider } from '@material-ui/core'
 import getTheme from '../theme/theme-getter'
-
 
 export const CustomThemeContext = React.createContext(
   {

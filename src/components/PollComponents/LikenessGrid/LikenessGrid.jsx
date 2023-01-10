@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
+
 import { CustomThemeContext } from "../../../utils/custom-theme-provider";
 
-
 const LikenessGrid = (props) => {
-    const { currentTheme} = useContext(CustomThemeContext)
-    const isDark = Boolean(currentTheme === 'dark')
     const likeness_square = [];
     for (let i = 0; i < 10; i++) {
         likeness_square.push(
@@ -12,7 +10,7 @@ const LikenessGrid = (props) => {
                 <div className="likenessgrid-radio-container">
                     <label className="likenessgrid-radio-label" >
                         <input type="radio" value={props.question.answers[i].id} onChange={(e) => props.handleVoteChange(e,props.question.id)} name={"likenessgroup"+props.index} />
-                        <span className="likenessgrid-radio-custom" style={{backgroundColor: isDark ? '#10152b': '', color: isDark ?'#9ba3c2' : ''}}>{i + 1}</span>
+                        <span className="likenessgrid-radio-custom" style={{backgroundColor:'#10152b', color:'#9ba3c2'}}>{i + 1}</span>
                     </label>
                 </div>
             </div>

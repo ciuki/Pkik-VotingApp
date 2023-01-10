@@ -1,13 +1,13 @@
-import React, { useState, useEffect,useContext } from "react";
-import { css } from "@emotion/react";
+import React, { useContext, useEffect, useState } from "react";
+
+import APIAddress from "../../APIAddress";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
+import { Divider } from "@mui/material";
 import SyncLoader from "react-spinners/SyncLoader";
+import axios from "../../services/api-interceptor";
+import { css } from "@emotion/react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import APIAddress from "../../APIAddress";
-
-import axios from "../../services/api-interceptor";
-import { Divider } from "@mui/material";
-import { CustomThemeContext } from "../../utils/custom-theme-provider";
 
 const override = css`
   position: fixed;
@@ -17,8 +17,6 @@ const override = css`
 `;
 
 const Home = () => {
-  const { currentTheme} = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [pollsData, setPollsData] = useState(null);
@@ -47,7 +45,7 @@ const Home = () => {
         itemsToRender.push(
           <>
             <div className="home-questions-area" 
-            style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
+            style={{backgroundColor: '#374785', color:'#9ba3c2'}}>
               <div className="home-questions-area-cell">
                 {pollsData[i].isActive ? (
                   <div className="container">
@@ -78,7 +76,7 @@ const Home = () => {
               </div>
               <div className="home-questions-area-cell">
                 <button
-                  style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+                  style={{backgroundColor:'#9ba3c2', color:'white'}}
                   className="home-button"
                   onClick={(e) => navigate("/poll/" + pollsData[i].id)}
                 >
@@ -87,7 +85,7 @@ const Home = () => {
               </div>
               <div className="home-questions-area-cell">
                 <button
-                  style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+                  style={{backgroundColor: '#9ba3c2', color:'white'}}
                   className="home-button"
                   onClick={(e) => navigate("/summary/" + pollsData[i].id)}
                 >
@@ -95,7 +93,7 @@ const Home = () => {
                 </button>
               </div>
             </div>
-            <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/>
+            <Divider style={{backgroundColor: '#5e6b9d'}}/>
           </>
         );
     }
@@ -104,14 +102,14 @@ const Home = () => {
     <div className="home-container">
       <div className="home-inner-poll-container">
         <div className="home-question-board">
-          <div className="home-questions-area" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'white' : '#949494'}}>
+          <div className="home-questions-area" style={{backgroundColor:'#374785', color:'white'}}>
             <div className="home-questions-area-title2">Moje ankiety</div>
             <div className="home-questions-area-title">Status</div>
             <div className="home-questions-area-title">Nazwa</div>
             <div className="home-questions-area-title">Głosowanie</div>
             <div className="home-questions-area-title">Wyniki</div>
           </div>
-          <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/> 
+          <Divider style={{backgroundColor:'#5e6b9d'}}/> 
             {itemsToRender}
             <SyncLoader
               loading={loading}

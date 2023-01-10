@@ -1,13 +1,13 @@
-import React, { useState, useEffect,useContext } from "react";
-import APIAddress from "../../APIAddress";
-import { useNavigate } from "react-router-dom";
-import { css } from "@emotion/react";
-import SyncLoader from "react-spinners/SyncLoader";
-import { toast } from "react-toastify";
-import { CustomThemeContext } from "../../utils/custom-theme-provider";
+import React, { useContext, useEffect, useState } from "react";
 
-import axios from "../../services/api-interceptor";
+import APIAddress from "../../APIAddress";
+import { CustomThemeContext } from "../../utils/custom-theme-provider";
 import { Divider } from "@mui/material";
+import SyncLoader from "react-spinners/SyncLoader";
+import axios from "../../services/api-interceptor";
+import { css } from "@emotion/react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const override = css`
 position: fixed;
@@ -17,8 +17,6 @@ width: 100vw;
 `;
 
 const MyPolls = () => {
-  const { currentTheme} = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [pollsData, setPollsData] = useState(null);
@@ -45,7 +43,7 @@ const MyPolls = () => {
     for (let i = 0; i < pollsData.length; i++) {
       itemsToRender.push(
         <>
-          <tr className="mypolls-questions-area" style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
+          <tr className="mypolls-questions-area" style={{backgroundColor:'#374785', color:'#9ba3c2'}}>
             <div className="mypolls-questions-area-cell">
               {pollsData[i].isActive ? (
                 <div className="container">
@@ -76,7 +74,7 @@ const MyPolls = () => {
             </div>
             <div className="mypolls-questions-area-cell">
               <button
-                style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+                style={{backgroundColor:'#9ba3c2', color:'white'}}
                 className="mypolls-button"
                 onClick={(e) => navigate("/poll/" + pollsData[i].id)}
               >
@@ -85,7 +83,7 @@ const MyPolls = () => {
             </div>
             <div className="mypolls-questions-area-cell">
               <button 
-              style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+              style={{backgroundColor:'#9ba3c2', color:'white'}}
               className="mypolls-button" onClick={(e) => navigate("/summary/" + pollsData[i].id)}>
                 Zobacz wyniki
               </button>
@@ -94,7 +92,7 @@ const MyPolls = () => {
               {!pollsData[i].allowAnonymous ? (
                 <div className="mypolls-questions-area-cell">
                   <button 
-                  style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+                  style={{backgroundColor:'#9ba3c2', color:'white'}}
                   className="mypolls-button" onClick={(e) => navigate("/invite/" + pollsData[i].id)}>
                     Zaproś do ankiety
                   </button>
@@ -104,14 +102,14 @@ const MyPolls = () => {
               )}
               <div className="mypolls-questions-area-cell">
                 <button 
-                style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+                style={{backgroundColor:'#9ba3c2', color:'white'}}
                 className="mypolls-button" onClick={(e) => navigate("/AddModerators/" + pollsData[i].id)}>
                   Dodaj moderatorów
                 </button>
               </div>
             </div>
           </tr>
-          <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/>
+          <Divider style={{backgroundColor:'#5e6b9d'}}/>
         </>
       );
     }
@@ -121,7 +119,7 @@ const MyPolls = () => {
     <div className="mypolls-container">
       <div className="mypolls-inner-poll-container">
         <div className="mypolls-question-board">
-          <div className="mypolls-questions-area" style={{backgroundColor: isDark ? '#374785': '', color: isDark ? 'white' : '#949494'}}>
+          <div className="mypolls-questions-area" style={{backgroundColor: '#374785', color:'white'}}>
           <div className="mypolls-questions-area-title2">Moje ankiety</div>
             <div className="mypolls-questions-area-title">Status</div>
             <div className="mypolls-questions-area-title">Nazwa</div>
@@ -129,7 +127,7 @@ const MyPolls = () => {
             <div className="mypolls-questions-area-title">Wyniki</div>
             <div className="mypolls-questions-area-title">Dodatkowe opcje</div>
           </div>
-          <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/>
+          <Divider style={{backgroundColor:'#5e6b9d'}}/>
           {itemsToRender}
           <SyncLoader
             loading={loading}

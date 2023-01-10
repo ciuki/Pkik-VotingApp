@@ -1,10 +1,10 @@
-import React, { useState,useContext } from "react";
-import { toast } from "react-toastify";
+import React, { useContext, useState } from "react";
+
 import { CustomThemeContext } from "../../utils/custom-theme-provider";
+import { toast } from "react-toastify";
 
 const CreateAnswers = (props) => {
   const { currentTheme} = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
   const [answers, setAnswers] = useState([]);
   const [changed, setChanged] = useState([]);
   const [currentAnswer, setCurrentAnswer] = useState("");
@@ -82,7 +82,7 @@ const CreateAnswers = (props) => {
                 return item === i;
               }) ? (
                 <button
-                style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+                style={{backgroundColor:'#9ba3c2', color:''}}
                   className="createanswer-button"
                   onClick={(e) => addAnswerToList(i)}
                 >
@@ -105,7 +105,7 @@ const CreateAnswers = (props) => {
           return item === i;
         }) ? (
           <button
-          style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+          style={{backgroundColor:'#9ba3c2', color:'white'}}
             className="createanswer-button"
             onClick={(e) => addAnswerToList(i)}
           >
@@ -138,7 +138,7 @@ const CreateAnswers = (props) => {
       {answersToRender}
       {props.questionsLength !== props.questionParameter.index ? (
         <button
-        style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+        style={{backgroundColor:'#9ba3c2', color:'white'}}
         className="createanswer-button"
           onClick={() => {
             

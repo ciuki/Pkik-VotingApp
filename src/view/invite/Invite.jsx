@@ -1,13 +1,15 @@
-import React, { useState, useEffect,useContext } from "react";
-import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
+import React, { useContext, useEffect, useState } from "react";
+
 import APIAddress from "../../APIAddress";
-import Select from "react-dropdown-select";
-import axios from "../../services/api-interceptor";
-import SyncLoader from "react-spinners/SyncLoader";
-import { css } from "@emotion/react";
-import { Divider } from "@mui/material";
 import { CustomThemeContext } from "../../utils/custom-theme-provider";
+import { Divider } from "@mui/material";
+import Select from "react-dropdown-select";
+import SyncLoader from "react-spinners/SyncLoader";
+import axios from "../../services/api-interceptor";
+import { css } from "@emotion/react";
+import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
+
 const options = [];
 
 const override = css`
@@ -18,8 +20,6 @@ position: fixed;
 `;
 
 const Invite = (props) => {
-  const { currentTheme} = useContext(CustomThemeContext)
-  const isDark = Boolean(currentTheme === 'dark')
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const [usersData, setUsersData] = useState();
@@ -79,23 +79,23 @@ const Invite = (props) => {
 
   let invitedPeopleToRender = [];
   for (let i = 0; i < emails.length + 1; i++) {
-    invitedPeopleToRender.push(<div style={{color: isDark ? 'white': ''}}>{emails[i]}</div>);
+    invitedPeopleToRender.push(<div style={{color: 'white'}}>{emails[i]}</div>);
   }
 
   return (
     <div className="invite-container">
       <div className="invite-inner-poll-container">
         <div className="invite-question-board" 
-        style={{backgroundColor: isDark ? '#374785': '', color: isDark ?'#9ba3c2' : ''}}>
+        style={{backgroundColor:'#374785', color:'#9ba3c2'}}>
           <div className="invite-questions-area">
-            <h1 style={{backgroundColor: isDark ? '#374785': '', color: isDark ? 'white' : '#949494'}}>Zaproś</h1>
+            <h1 style={{backgroundColor:'#374785', color: 'white'}}>Zaproś</h1>
           </div>
-          <Divider style={{backgroundColor: isDark ? '#5e6b9d': ''}}/>
+          <Divider style={{backgroundColor:'#5e6b9d'}}/>
           <div className="invite-question-area">
               <div className="invite-question-area-group">
                 <div className="invite-question-area-title"> Lista do zaproszenia: </div>
                 <div className="invite-question-area-listitem"
-                 style={{color: isDark ?'#9ba3c2' : ''}}>
+                 style={{color:'#9ba3c2'}}>
                    {invitedPeopleToRender}</div>
               </div>
             <div className="invite-question-area-group2">
@@ -107,12 +107,12 @@ const Invite = (props) => {
                 color="#000080"
               />
               <button 
-              style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+              style={{backgroundColor:'#9ba3c2', color:'white'}}
               className="invite-button2" onClick={() => handleAddToList()}>Dodaj do listy</button>
             </div>
           </div>
           {emails.length > 0 ? <button 
-          style={{backgroundColor: isDark ? '#9ba3c2': '', color: isDark ?'white' : ''}}
+          style={{backgroundColor:'#9ba3c2', color:'white'}}
           className="invite-button" onClick={async () => sendInvites()}>Zaproś podane osoby</button> : <></>}
         </div>
       </div>

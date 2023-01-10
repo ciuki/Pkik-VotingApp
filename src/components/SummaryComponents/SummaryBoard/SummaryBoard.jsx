@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
-import BarChartComponent from "../BarChart/BarChart";
-import PieChartComponent from "../PieChart/PieChart";
+import React, { useEffect, useState } from "react";
+
 import APIAddress from "../../../APIAddress";
-import { useParams } from "react-router-dom";
+import BarChartComponent from "../BarChart/BarChart";
 import CountUp from "react-countup";
+import PieChartComponent from "../PieChart/PieChart";
 import ProgressBar from "@ramonak/react-progress-bar";
 import axios from "../../../services/api-interceptor"
+import { useParams } from "react-router-dom";
 
 const SummaryBoard = () => {
   const { id } = useParams();
